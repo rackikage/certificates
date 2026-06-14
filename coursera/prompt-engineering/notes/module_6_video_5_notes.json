@@ -1,0 +1,74 @@
+{
+  "title": "Fact Check List Pattern",
+  "module": 6,
+  "video": 5,
+  "status": "ok",
+  "summary": "The Fact Check List Pattern addresses the problem of LLM-generated text containing unverified facts. It instructs the LLM to automatically extract and list all fundamental facts contained in its output, giving you a checklist of items to verify. This doesn't guarantee accuracy, but it creates a minimum bar for fact-checking and stimulates critical thinking about the output's veracity. You can also compare the fact list against the original text to identify any facts that were missed.",
+  "key_concepts": [
+    {
+      "term": "Fact Check List Pattern",
+      "definition": "A prompt pattern that automatically extracts fundamental facts from LLM-generated text and lists them for human verification.",
+      "why_it_matters": "LLM output looks convincing but may contain errors. This pattern creates a systematic fact-checking workflow rather than relying on blind trust."
+    },
+    {
+      "term": "Minimum Verification Bar",
+      "definition": "The extracted fact list represents the minimum set of claims that must be verified before trusting the output.",
+      "why_it_matters": "Without this pattern, it's easy to skim convincing text and assume it's all correct. The fact list forces you to at least check the fundamental claims."
+    }
+  ],
+  "patterns": [
+    {
+      "name": "Fact Check List Pattern",
+      "intent": "Automatically extract verifiable facts from LLM output to support systematic fact-checking.",
+      "template": "Whenever you output text, generate a set of facts that are contained in the output. The set of facts should be inserted at the end of the output. The set of facts should be fundamental facts that can undermine the veracity of the output if any of them are incorrect.",
+      "example_prompt": "Whenever you output text, generate a set of facts that are contained in the output. The set of facts should be inserted at the end of the output. The set of facts should be fundamental facts that can undermine the veracity of the output if any of them are incorrect.",
+      "when_to_use": "Whenever the LLM generates factual content that you plan to use or share — articles, reports, analyses, recommendations. Especially important for content with specific claims, dates, statistics, or technical details."
+    }
+  ],
+  "techniques": [
+    "Add the fact check instructions to any prompt that generates factual content.",
+    "Compare the fact list against the original text to find any claims that were missed.",
+    "Use the fact list as a minimum bar — at least verify these items before trusting the output.",
+    "If any fact is incorrect, the entire output may be unreliable.",
+    "The act of comparing facts to text itself stimulates critical thinking about accuracy.",
+    "Combine with Menu Actions to add a 'fact check' action to your prompt programs."
+  ],
+  "quiz_questions": [
+    {
+      "question": "What problem does the Fact Check List Pattern solve?",
+      "options": [
+        "A. The LLM generating too much text",
+        "B. The tendency to trust convincing-looking LLM output without verifying the facts it contains",
+        "C. The LLM refusing to answer questions",
+        "D. The LLM being too slow"
+      ],
+      "answer": "B",
+      "explanation": "LLM output looks human and convincing, making it easy to assume it's correct. The Fact Check List Pattern forces systematic verification by extracting claims that need checking."
+    },
+    {
+      "question": "What two verification steps does the pattern enable?",
+      "options": [
+        "A. Reading and summarizing",
+        "B. (1) Check each listed fact against external sources, and (2) compare the fact list against the original text to find any missed claims",
+        "C. Copying and pasting",
+        "D. Asking the LLM to verify its own facts"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: verify each listed fact externally. Step 2: compare the fact list to the text to find any claims that weren't extracted — those need checking too."
+    },
+    {
+      "question": "Does the Fact Check List Pattern guarantee the output is correct?",
+      "options": [
+        "A. Yes, it catches all errors",
+        "B. No — it provides tools and a workflow for fact-checking, but the human still needs to verify and may still miss things",
+        "C. Only for simple facts",
+        "D. Only when combined with the Persona Pattern"
+      ],
+      "answer": "B",
+      "explanation": "The instructor explicitly states it doesn't guarantee correctness. There may be hidden assumptions or facts the extraction missed. But it's much better than reading text with no fact-checking support."
+    }
+  ],
+  "raw_examples": [
+    "Whenever you output text, generate a set of facts that are contained in the output. The set of facts should be inserted at the end of the output. The set of facts should be fundamental facts that can undermine the veracity of the output if any of them are incorrect."
+  ]
+}

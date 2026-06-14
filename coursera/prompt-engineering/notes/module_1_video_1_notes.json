@@ -1,0 +1,73 @@
+{
+  "title": "What Can You Do with ChatGPT? (Meal Plan Demo)",
+  "module": 1,
+  "video": 1,
+  "status": "ok",
+  "summary": "This introductory lecture demonstrates the power of ChatGPT through a creative prototyping example: building a keto-friendly Ethiopian-Uzbek fusion meal plan. The instructor shows how ChatGPT can rapidly iterate on ideas — from generating a meal plan, to adding serving sizes, to creating Pokemon stories to excite a child about new food, to building an interactive math game, and finally to generating working Python code for that game. The core message is that LLMs are tools for giving ideas form and rapidly prototyping, not just answering questions or writing essays.",
+  "key_concepts": [
+    {
+      "term": "Rapid Prototyping with LLMs",
+      "definition": "Using large language models to quickly transform abstract ideas into concrete outputs (meal plans, stories, code) through iterative prompting.",
+      "why_it_matters": "This is the foundational mindset of prompt engineering — treat the LLM as a creative partner, not a one-shot answer machine."
+    },
+    {
+      "term": "Iterative Refinement",
+      "definition": "The practice of building on previous outputs by adding constraints, changing format, or extending the idea across multiple turns of conversation.",
+      "why_it_matters": "Single prompts rarely produce perfect results. Iteration is how you converge on high-quality, useful outputs."
+    },
+    {
+      "term": "Cross-Domain Combination",
+      "definition": "Asking the LLM to combine knowledge from unrelated domains (Ethiopian cuisine + Uzbek cuisine + keto diet + Pokemon + math education) into a single output.",
+      "why_it_matters": "This is where LLMs shine — no single human expert could combine all these domains as quickly or cheaply."
+    }
+  ],
+  "patterns": [],
+  "techniques": [
+    "Start with a creative, unusual combination of constraints to test the LLM's capabilities.",
+    "Build on previous outputs in the same conversation thread rather than starting fresh each time.",
+    "Add new constraints incrementally (serving sizes, then stories, then a game, then code).",
+    "Use the LLM to prototype ideas you couldn't easily execute yourself.",
+    "Don't expect perfection on the first try — refine and iterate."
+  ],
+  "quiz_questions": [
+    {
+      "question": "What is the primary purpose of the meal plan demonstration in this lecture?",
+      "options": [
+        "A. To teach nutrition and meal planning",
+        "B. To show that LLMs can rapidly prototype and iterate on creative ideas across domains",
+        "C. To demonstrate that ChatGPT knows Ethiopian and Uzbek cuisine",
+        "D. To prove LLMs are better than human chefs"
+      ],
+      "answer": "B",
+      "explanation": "The meal plan is a vehicle to demonstrate the core concept: LLMs let you give ideas form rapidly, iterate on them, and combine domains in ways that would be extremely difficult for a single human expert."
+    },
+    {
+      "question": "When the instructor asks ChatGPT to add Pokemon stories to the meal plan, what prompt engineering principle is being demonstrated?",
+      "options": [
+        "A. Using few-shot examples",
+        "B. Iterative refinement — building on previous outputs in the same conversation",
+        "C. The persona pattern",
+        "D. Chain of thought prompting"
+      ],
+      "answer": "B",
+      "explanation": "The instructor doesn't start over — they extend the existing conversation thread, adding new constraints (Pokemon stories, math games) on top of the meal plan that was already generated."
+    },
+    {
+      "question": "Why does the instructor emphasize that the meal plan 'may have errors' and 'may not be perfect'?",
+      "options": [
+        "A. Because ChatGPT is unreliable and shouldn't be trusted",
+        "B. Because the point is rapid prototyping and iteration, not perfection on the first try",
+        "C. Because Ethiopian-Uzbek fusion cuisine doesn't exist",
+        "D. Because the instructor doesn't know enough about nutrition"
+      ],
+      "answer": "B",
+      "explanation": "A key theme of the course is that LLM outputs are starting points for iteration. Expecting perfection on the first try misses the value of rapid experimentation and refinement."
+    }
+  ],
+  "raw_examples": [
+    "Please create a meal plan for my family that is based on a fusion of food from Ethiopia and Uzbekistan. I want to eat keto and up to 2000 calories per day. Pick dishes where the ingredients are easy to get from an average US grocery store.",
+    "Can you give me an approximate serving size for myself for each dish that is within my 2000 calorie limit.",
+    "My son is nine, sometimes he won't try new dishes. To make this culinary adventure more fun for him, can you create a short Pokemon battle story to go with each dish? Make sure the story ends with a cliff-hanger that will motivate him to try the new food.",
+    "I would like you to play a math game with my nine-year-old to teach him about division with fractions and nutrition. Ask him questions one at a time involving Pokemon in these topics and make it into a game when he wins the Pokemon win."
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "title": "Game Play Pattern",
+  "module": 5,
+  "video": 1,
+  "status": "ok",
+  "summary": "The Game Play Pattern asks the LLM to create and run a game for you, serving as the game master. The LLM generates rules, creates content (questions, scenarios, challenges), and drives the game forward. This is especially useful for learning — you can create games that test your knowledge of any topic. The LLM taps into its training data to populate the game with rich, varied content. The instructor demonstrates creating a prompt engineering quiz game where ChatGPT generates questions about prompt patterns, scores answers, and provides feedback.",
+  "key_concepts": [
+    {
+      "term": "Game Play Pattern",
+      "definition": "A prompt pattern where the LLM creates and runs a game, serving as game master — generating rules, content, challenges, and scoring.",
+      "why_it_matters": "Games are engaging ways to learn and test knowledge. The LLM can generate unlimited game content from its training data."
+    },
+    {
+      "term": "LLM as Game Master",
+      "definition": "The LLM takes on the role of game master, creating challenges, evaluating player responses, keeping score, and advancing the game.",
+      "why_it_matters": "This creates interactive, adaptive learning experiences without needing a human facilitator."
+    }
+  ],
+  "patterns": [
+    {
+      "name": "Game Play Pattern",
+      "intent": "Create interactive games for learning, practice, or entertainment where the LLM serves as game master.",
+      "template": "We're going to play a game about {topic}. {Describe basic rules or structure}. You will be the game master. {Additional instructions about scoring, difficulty, etc.}. Start the game.",
+      "example_prompt": "We're going to play a game about prompt engineering. You will ask me questions about different prompt patterns, I'll answer, and you'll tell me if I'm right and explain why. Keep score. Start with easy questions and get harder. Start the game.",
+      "when_to_use": "When you want to learn a topic through interactive practice, test your knowledge, or create engaging educational content."
+    }
+  ],
+  "techniques": [
+    "Give the LLM a topic and basic structure — let it fill in the content from training data.",
+    "Specify scoring rules and difficulty progression.",
+    "Use 'Start the game' or 'Ask the first question' to begin.",
+    "The LLM can adapt difficulty based on your performance.",
+    "Combine with other patterns: use Persona Pattern for themed games, Flipped Interaction for Q&A games."
+  ],
+  "quiz_questions": [
+    {
+      "question": "What role does the LLM play in the Game Play Pattern?",
+      "options": [
+        "A. A player competing against you",
+        "B. A game master — creating rules, generating content, evaluating responses, and keeping score",
+        "C. A passive observer",
+        "D. A scorekeeper only"
+      ],
+      "answer": "B",
+      "explanation": "The LLM serves as game master: it creates the game structure, generates challenges/questions, evaluates your answers, provides feedback, and tracks progress."
+    },
+    {
+      "question": "Why is the Game Play Pattern especially useful for learning?",
+      "options": [
+        "A. Because games are faster than reading",
+        "B. Because the LLM can generate unlimited practice content from its training data, creating engaging and adaptive learning experiences",
+        "C. Because games don't require any knowledge",
+        "D. Because the LLM always lets you win"
+      ],
+      "answer": "B",
+      "explanation": "The LLM's vast training data lets it generate endless questions, scenarios, and challenges on any topic. It can adapt difficulty and provide explanations, making it an effective learning tool."
+    },
+    {
+      "question": "What should you include in a Game Play prompt to make it effective?",
+      "options": [
+        "A. Just the topic name",
+        "B. Topic, basic rules/structure, scoring method, and a trigger to start (e.g., 'Start the game')",
+        "C. A complete list of all questions",
+        "D. The correct answers to all questions"
+      ],
+      "answer": "B",
+      "explanation": "An effective Game Play prompt specifies the topic, basic structure, how scoring works, and triggers the game to begin. The LLM fills in the specific content."
+    }
+  ],
+  "raw_examples": [
+    "We're going to play a game about prompt engineering. You will ask me questions about different prompt patterns, I'll answer, and you'll tell me if I'm right and explain why. Keep score. Start with easy questions and get harder. Start the game."
+  ]
+}

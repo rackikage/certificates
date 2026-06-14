@@ -1,0 +1,78 @@
+{
+  "title": "Chain of Thought Prompting",
+  "module": 4,
+  "video": 5,
+  "status": "ok",
+  "summary": "Chain of Thought (CoT) prompting asks the LLM to explain its reasoning step-by-step before giving a final answer. Like being told to 'show your work' in school, this technique improves accuracy because: (1) correct reasoning naturally leads to the correct answer via next-word prediction, and (2) if the LLM gets early steps right, subsequent steps are more likely to be correct too. The simplest form is just adding 'Let's think step by step' to your prompt. The lecture shows dramatic accuracy improvements on math word problems when CoT is used.",
+  "key_concepts": [
+    {
+      "term": "Chain of Thought Prompting",
+      "definition": "A technique that asks the LLM to explain its reasoning step-by-step before producing a final answer, improving accuracy on complex reasoning tasks.",
+      "why_it_matters": "CoT dramatically improves accuracy on math, logic, and reasoning tasks. It's one of the most important and widely-used prompt engineering techniques."
+    },
+    {
+      "term": "Zero-Shot CoT",
+      "definition": "Triggering chain-of-thought reasoning without examples, simply by adding 'Let's think step by step' or 'Explain your reasoning' to the prompt.",
+      "why_it_matters": "This is the simplest form of CoT and often works surprisingly well without any few-shot examples."
+    },
+    {
+      "term": "Reasoning-then-Answer",
+      "definition": "The pattern where the LLM first works through the problem step-by-step, then produces the final answer as a natural continuation of the correct reasoning.",
+      "why_it_matters": "Since the LLM does next-word prediction, correct reasoning tokens make the correct answer token more likely to follow."
+    }
+  ],
+  "patterns": [
+    {
+      "name": "Chain of Thought Prompting",
+      "intent": "Improve accuracy on reasoning tasks by having the LLM explain its step-by-step reasoning before answering.",
+      "template": "{complex question or problem}. Let's think step by step.",
+      "example_prompt": "A store has 23 apples. They sell 17 and then receive a shipment of 45 more. How many apples do they have now? Let's think step by step.",
+      "when_to_use": "For math problems, logic puzzles, multi-step reasoning, analysis tasks, or any problem where accuracy improves when you 'show your work.'"
+    }
+  ],
+  "techniques": [
+    "Add 'Let's think step by step' to any reasoning task for an immediate accuracy boost.",
+    "Use 'Explain your reasoning' or 'Show your work' as alternatives.",
+    "For even better results, combine with few-shot examples that show step-by-step reasoning.",
+    "CoT is most effective for complex reasoning — don't bother for simple factual questions.",
+    "The LLM's reasoning chain acts as a scaffold — each correct step makes the next step more likely."
+  ],
+  "quiz_questions": [
+    {
+      "question": "Why does chain-of-thought prompting improve accuracy?",
+      "options": [
+        "A. Because it makes the LLM think slower",
+        "B. Because correct reasoning tokens make the correct answer token more likely via next-word prediction, and getting early steps right leads to correct subsequent steps",
+        "C. Because it gives the LLM more time to process",
+        "D. Because it activates a special reasoning module in the LLM"
+      ],
+      "answer": "B",
+      "explanation": "The LLM does next-word prediction. If it generates correct reasoning steps, the correct answer naturally follows as the most likely next token. Each correct step builds on the previous one."
+    },
+    {
+      "question": "What is the simplest way to trigger chain-of-thought reasoning?",
+      "options": [
+        "A. Providing 10 examples of step-by-step reasoning",
+        "B. Adding 'Let's think step by step' to the prompt",
+        "C. Using a more powerful model",
+        "D. Asking the question multiple times"
+      ],
+      "answer": "B",
+      "explanation": "Zero-shot CoT — simply adding 'Let's think step by step' — often triggers step-by-step reasoning without any examples. This is the simplest and most accessible form of CoT."
+    },
+    {
+      "question": "For which type of task is chain-of-thought prompting LEAST useful?",
+      "options": [
+        "A. Math word problems",
+        "B. Simple factual questions like 'What is the capital of France?'",
+        "C. Logic puzzles",
+        "D. Multi-step analysis"
+      ],
+      "answer": "B",
+      "explanation": "CoT is most valuable for complex reasoning tasks. For simple factual questions, there's no reasoning chain to show — the answer is either known or not. CoT adds overhead without benefit."
+    }
+  ],
+  "raw_examples": [
+    "A store has 23 apples. They sell 17 and then receive a shipment of 45 more. How many apples do they have now? Let's think step by step."
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "default — generic record",
+  "description": "Fallback shape when no domain-specific schema is named in targets.yaml.",
+  "type": "object",
+  "properties": {
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "url"],
+        "properties": {
+          "id":          { "type": "string", "description": "Best-effort stable identifier (slug, SKU, code)." },
+          "name":        { "type": "string", "description": "Primary display name." },
+          "description": { "type": "string" },
+          "url":         { "type": "string", "format": "uri" },
+          "image_url":   { "type": "string", "format": "uri" },
+          "attributes":  { "type": "object", "description": "Free-form additional fields." }
+        }
+      }
+    }
+  }
+}

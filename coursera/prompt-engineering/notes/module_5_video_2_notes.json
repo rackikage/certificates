@@ -1,0 +1,74 @@
+{
+  "title": "Template Pattern",
+  "module": 5,
+  "video": 2,
+  "status": "ok",
+  "summary": "The Template Pattern gives the LLM a specific output template with placeholders and instructs it to fill in the placeholders with generated content while preserving the template's formatting. This is like giving an assistant a form letter with blanks to fill in. The pattern uses conventions like CAPITALIZED WORDS or special markers (***question***) to indicate placeholders. It's especially useful when you need output in a very specific format (reports, emails, code, structured documents) and want precise control over where the LLM's content appears.",
+  "key_concepts": [
+    {
+      "term": "Template Pattern",
+      "definition": "A prompt pattern where you provide a specific output template with placeholders and instruct the LLM to fill in the placeholders while preserving the template structure.",
+      "why_it_matters": "This gives you precise control over output formatting — the LLM generates content but fits it into your exact structure."
+    },
+    {
+      "term": "Placeholder Conventions",
+      "definition": "Agreed-upon markers that indicate where the LLM should insert generated content (e.g., CAPITALIZED WORDS, {brackets}, ***markers***).",
+      "why_it_matters": "Clear placeholder conventions prevent confusion about what the LLM should replace vs. preserve."
+    }
+  ],
+  "patterns": [
+    {
+      "name": "Template Pattern",
+      "intent": "Get output in an exact specified format by providing a template with placeholders for the LLM to fill in.",
+      "template": "I'm going to give you a template for your output. {Describe placeholder convention}. Fill in my placeholders with your output. Please preserve the overall formatting of my template.\n\nMy template is:\n{template with placeholders}",
+      "example_prompt": "I'm going to give you a template for your output. Capitalized words are my placeholders. Fill in my placeholders with your output. Please preserve the overall formatting.\n\nMy template is:\nDear NAME,\nI am writing to inform you about TOPIC. The key details are:\n- DETAIL_1\n- DETAIL_2\nPlease respond by DATE.\nSincerely, SENDER",
+      "when_to_use": "When you need output in a very specific format — form letters, reports, code templates, structured documents, emails, or any output where the exact structure matters."
+    }
+  ],
+  "techniques": [
+    "Explicitly state the placeholder convention: 'Capitalized words are my placeholders.'",
+    "Tell the LLM to 'preserve the overall formatting of my template.'",
+    "Use distinctive markers for placeholders: ***text***, {TEXT}, CAPITALIZED.",
+    "Provide the template after the instructions, clearly separated.",
+    "You can combine with other patterns: use Persona Pattern to fill the template as a specific role.",
+    "If the LLM changes your formatting, add stronger instructions to preserve it exactly."
+  ],
+  "quiz_questions": [
+    {
+      "question": "What is the main advantage of the Template Pattern over few-shot examples for formatting?",
+      "options": [
+        "A. It's always more accurate",
+        "B. It gives you precise control over the exact output structure by providing the template directly rather than hoping the LLM infers the format from examples",
+        "C. It requires fewer tokens",
+        "D. It works with all LLMs equally well"
+      ],
+      "answer": "B",
+      "explanation": "With few-shot, the LLM infers format from examples (which may be ambiguous). With the Template Pattern, you provide the exact structure, eliminating format inference errors."
+    },
+    {
+      "question": "Why is it important to explicitly state the placeholder convention (e.g., 'Capitalized words are my placeholders')?",
+      "options": [
+        "A. Because the LLM can't read capitalized words otherwise",
+        "B. So the LLM knows exactly which parts of the template to replace vs. preserve",
+        "C. Because it's a programming requirement",
+        "D. It's not important — the LLM figures it out"
+      ],
+      "answer": "B",
+      "explanation": "Without explicit convention, the LLM might replace words you intended to keep, or keep words you intended as placeholders. Clear conventions eliminate ambiguity."
+    },
+    {
+      "question": "What should you add to prevent the LLM from changing your template's formatting?",
+      "options": [
+        "A. More examples",
+        "B. An explicit instruction like 'Please preserve the overall formatting of my template'",
+        "C. A different placeholder convention",
+        "D. Nothing — the LLM always preserves formatting"
+      ],
+      "answer": "B",
+      "explanation": "The instructor explicitly includes 'please preserve the overall formatting of my template' because without this instruction, the LLM may restructure or reformat the template."
+    }
+  ],
+  "raw_examples": [
+    "I'm going to give you a template for your output. Capitalized words are my placeholders. Fill in my placeholders with your output. Please preserve the overall formatting of my template.\n\nMy template is:\n***QUESTION***\n- ANSWER_CHOICE_1\n- ANSWER_CHOICE_2\n- ANSWER_CHOICE_3\nCorrect Answer: CORRECT_ANSWER\nExplanation: EXPLANATION"
+  ]
+}

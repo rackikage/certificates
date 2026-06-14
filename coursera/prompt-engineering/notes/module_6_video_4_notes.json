@@ -1,0 +1,74 @@
+{
+  "title": "Menu Actions Pattern",
+  "module": 6,
+  "video": 4,
+  "status": "ok",
+  "summary": "The Menu Actions Pattern defines a set of named actions (like a software menu) that you can trigger with short commands during a conversation. Instead of repeating long prompts, you define actions once (e.g., 'write {bullet_point} {num_paragraphs}' to generate text, or just '{bullet_point}' to expand the outline). This turns your prompt into a mini-program with reusable commands. The pattern enables rapid iteration, knowledge sharing across teams, and codifying best-practice prompts into reusable actions.",
+  "key_concepts": [
+    {
+      "term": "Menu Actions Pattern",
+      "definition": "A prompt pattern that defines named actions triggered by short commands, creating a reusable menu of operations within a conversation.",
+      "why_it_matters": "This eliminates repetitive prompting. Define actions once, then trigger them with short commands — like a software menu bar for your LLM interaction."
+    },
+    {
+      "term": "Prompt as Program",
+      "definition": "The idea that a well-structured prompt with menu actions functions like a software program — with defined inputs, operations, and outputs.",
+      "why_it_matters": "This is the culmination of 'everyone can program with prompts' — you're building interactive programs using natural language."
+    }
+  ],
+  "patterns": [
+    {
+      "name": "Menu Actions Pattern",
+      "intent": "Define reusable actions that can be triggered with short commands, creating a menu of operations for rapid interaction.",
+      "template": "Whenever I type {command_format}, you will {action_description}. Whenever I type {other_command}, you will {other_action}.",
+      "example_prompt": "Whenever I type 'write <bullet_point> <num_paragraphs>', you will write content for the selected bullet point for the specified number of paragraphs. Whenever I type just a bullet point number, you will expand that bullet point in the outline.",
+      "when_to_use": "When you're doing the same tasks repeatedly in a conversation, when building interactive tools with the LLM, or when sharing prompt workflows across a team."
+    }
+  ],
+  "techniques": [
+    "Define each action with a clear trigger format and description of what it does.",
+    "Use placeholders like <bullet_point> and <num_paragraphs> for variable inputs.",
+    "The LLM can often infer your intent even with typos (e.g., 'text' instead of 'write').",
+    "Share menu action prompts across teams to codify best practices.",
+    "Combine with Outline Expansion to create expand + write actions for building large documents.",
+    "Menu actions can be baked into root prompts for customer service portals or other applications."
+  ],
+  "quiz_questions": [
+    {
+      "question": "What is the main benefit of the Menu Actions Pattern?",
+      "options": [
+        "A. Making the LLM respond faster",
+        "B. Defining reusable actions triggered by short commands, eliminating the need to repeat long prompts",
+        "C. Making the LLM more creative",
+        "D. Reducing the LLM's randomness"
+      ],
+      "answer": "B",
+      "explanation": "Menu Actions let you define operations once and trigger them with short commands (like 'write 3.5.2 2' instead of a full paragraph of instructions), enabling rapid iteration."
+    },
+    {
+      "question": "In the outline example, what are the two defined menu actions?",
+      "options": [
+        "A. Save and Load",
+        "B. 'write <bullet_point> <num_paragraphs>' to generate text, and '<bullet_point>' alone to expand the outline",
+        "C. Copy and Paste",
+        "D. Start and Stop"
+      ],
+      "answer": "B",
+      "explanation": "The instructor defines two actions: typing 'write 3.5.3 2' generates 2 paragraphs of text for bullet 3.5.3, while typing just '3.5.2' expands that bullet point in the outline."
+    },
+    {
+      "question": "How does the Menu Actions Pattern support team collaboration?",
+      "options": [
+        "A. It doesn't — it's only for individual use",
+        "B. Teams can share menu action prompts that codify best-practice wording, enabling consistent and effective LLM use across the organization",
+        "C. It automatically shares outputs with team members",
+        "D. It connects to team communication tools"
+      ],
+      "answer": "B",
+      "explanation": "The instructor emphasizes that organizations can share common menu actions, codifying the best wording for prompts and enabling knowledge sharing and reuse across teams."
+    }
+  ],
+  "raw_examples": [
+    "Whenever I type 'write <bullet_point> <num_paragraphs>', you will write content for the selected bullet point for the specified number of paragraphs. Whenever I type just a bullet point number, you will expand that bullet point in the outline."
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "title": "Cognitive Verifier Pattern",
+  "module": 3,
+  "video": 2,
+  "status": "ok",
+  "summary": "The Cognitive Verifier Pattern leverages the fact that LLMs reason better when problems are broken into smaller sub-problems. The pattern instructs the LLM to generate additional sub-questions whenever asked a question, answer each sub-question individually, then combine those answers into a comprehensive final answer. This works because the LLM is more likely to have seen solutions to smaller, common sub-problems in its training data than the specific complex combination you're asking about.",
+  "key_concepts": [
+    {
+      "term": "Cognitive Verifier Pattern",
+      "definition": "A prompt pattern that asks the LLM to break a complex question into sub-questions, answer each one, then synthesize the answers into a final response.",
+      "why_it_matters": "Complex questions often get generic answers. Breaking them down produces more thorough, accurate, and comprehensive responses."
+    },
+    {
+      "term": "Decomposition for Better Reasoning",
+      "definition": "The principle that LLMs produce better answers when they break problems into smaller pieces they can reason about individually.",
+      "why_it_matters": "This is a foundational concept that connects to chain-of-thought prompting, ReAct, and other advanced techniques covered later in the course."
+    }
+  ],
+  "patterns": [
+    {
+      "name": "Cognitive Verifier Pattern",
+      "intent": "Get more thorough and accurate answers to complex questions by having the LLM decompose them into sub-questions.",
+      "template": "Whenever you are asked a question, follow these rules: Generate a number of additional questions that would help more accurately answer the question. Combine the answers to the individual questions to produce the final answer to the overall question.",
+      "example_prompt": "Whenever you are asked a question, follow these rules: Generate 3-5 additional questions that would help more accurately answer the question. Combine the answers to the individual questions to produce the final answer. How should I design a sustainable house?",
+      "when_to_use": "For complex, multi-faceted questions where a single direct answer would be too generic. Especially useful for research, planning, and decision-making tasks."
+    }
+  ],
+  "techniques": [
+    "Give guidance on how many sub-questions to generate (e.g., '3-5 questions').",
+    "Specify what kind of sub-questions to focus on (e.g., 'technical and ethical implications').",
+    "Use this pattern for deep research — the sub-questions explore different facets of a topic.",
+    "Use this pattern for planning — it identifies all the steps and considerations needed.",
+    "The pattern turns the LLM into a researcher or planner that thinks through problems more deeply."
+  ],
+  "quiz_questions": [
+    {
+      "question": "Why does breaking a complex question into sub-questions improve the LLM's answer?",
+      "options": [
+        "A. Because it makes the answer shorter",
+        "B. Because the LLM is more likely to have seen solutions to smaller, common sub-problems in its training data",
+        "C. Because it reduces the LLM's randomness",
+        "D. Because sub-questions are easier for humans to understand"
+      ],
+      "answer": "B",
+      "explanation": "The LLM may not have seen the exact complex combination you're asking about, but it has likely seen the individual sub-problems solved many times. By answering sub-questions separately, it can leverage those learned patterns."
+    },
+    {
+      "question": "What is the difference between the Question Refinement Pattern and the Cognitive Verifier Pattern?",
+      "options": [
+        "A. There is no difference",
+        "B. Question Refinement suggests a better single question; Cognitive Verifier breaks the question into multiple sub-questions that are answered and combined",
+        "C. Cognitive Verifier only works for math problems",
+        "D. Question Refinement is for simple questions; Cognitive Verifier is for complex ones"
+      ],
+      "answer": "B",
+      "explanation": "Question Refinement improves your single question. Cognitive Verifier decomposes your question into multiple sub-questions, answers each, then synthesizes a comprehensive final answer."
+    },
+    {
+      "question": "When using the Cognitive Verifier Pattern for 'How should I design a sustainable house?', what type of sub-questions might the LLM generate?",
+      "options": [
+        "A. 'What is a house?' and 'What does sustainable mean?'",
+        "B. 'What are the most sustainable building materials in my region?', 'How can I reduce energy consumption?', 'How can I incorporate renewable energy?'",
+        "C. 'Do you want a big house or small house?'",
+        "D. 'What is your budget?'"
+      ],
+      "answer": "B",
+      "explanation": "The lecture shows that effective sub-questions explore different facets of the complex problem — materials, energy efficiency, renewable energy — rather than asking basic definitional questions or single-factor questions."
+    }
+  ],
+  "raw_examples": [
+    "Whenever you are asked a question, follow these rules: Generate a number of additional questions that would help more accurately answer the question. Combine the answers to the individual questions to produce the final answer to the overall question.",
+    "How should I design a sustainable house?"
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "title": "Meta Language Creation Pattern",
+  "module": 5,
+  "video": 3,
+  "status": "ok",
+  "summary": "The Meta Language Creation Pattern teaches the LLM a custom shorthand language, then uses that language for efficient communication. Instead of writing full sentences, you define symbols, abbreviations, or shorthand notation and teach the LLM what they mean. This is inspired by real-world domains where specialists use shorthand (emergency dispatchers, medical notation, etc.). Once the LLM learns your custom language, you can communicate complex information concisely and the LLM can interpret and act on it.",
+  "key_concepts": [
+    {
+      "term": "Meta Language Creation Pattern",
+      "definition": "A prompt pattern where you define a custom shorthand language and teach the LLM to understand and use it for efficient communication.",
+      "why_it_matters": "This lets you communicate complex information concisely, similar to how domain experts use shorthand notation in high-pressure situations."
+    },
+    {
+      "term": "Custom Notation",
+      "definition": "Symbols, abbreviations, or shorthand conventions that represent complex concepts in a compact form.",
+      "why_it_matters": "Once taught, the LLM can interpret your shorthand and expand it into full outputs, saving time and reducing prompt length."
+    }
+  ],
+  "patterns": [
+    {
+      "name": "Meta Language Creation Pattern",
+      "intent": "Create a custom shorthand language for efficient communication with the LLM, especially for domain-specific or repetitive information.",
+      "template": "I'm going to teach you a shorthand language. {Define symbols and their meanings}. From now on, when I use this shorthand, interpret it and {describe what to do with it}.",
+      "example_prompt": "I'm going to teach you emergency dispatch shorthand:\n- 🔥 = fire reported\n- 🚑 = medical emergency\n- #3 = 3 people involved\n- LOC:address = location\nWhen I give you shorthand, expand it into a full incident report.",
+      "when_to_use": "When you need to communicate complex, structured information repeatedly and want a concise shorthand. Useful for domain-specific notation, data entry, or rapid information capture."
+    }
+  ],
+  "techniques": [
+    "Define each symbol or abbreviation clearly with its full meaning.",
+    "Provide examples of the shorthand in use so the LLM can learn the pattern.",
+    "Specify what the LLM should do with the interpreted shorthand (expand, act on it, summarize).",
+    "Use symbols that are visually distinct and unlikely to be confused.",
+    "Test the LLM's understanding with a few examples before using the shorthand extensively."
+  ],
+  "quiz_questions": [
+    {
+      "question": "What real-world scenario does the instructor use to motivate the Meta Language Creation Pattern?",
+      "options": [
+        "A. Programming languages",
+        "B. Emergency dispatch operators using shorthand notation to capture information quickly during stressful calls",
+        "C. Text messaging abbreviations",
+        "D. Mathematical notation"
+      ],
+      "answer": "B",
+      "explanation": "The instructor references Nashville emergency dispatchers who use specialized shorthand to capture critical information quickly during high-stress calls — a perfect use case for concise notation."
+    },
+    {
+      "question": "What must you do before using your custom shorthand with the LLM?",
+      "options": [
+        "A. Nothing — the LLM understands all shorthand",
+        "B. Teach the LLM the meaning of each symbol/abbreviation and provide examples",
+        "C. Use only standard abbreviations",
+        "D. Write the shorthand in a programming language"
+      ],
+      "answer": "B",
+      "explanation": "The LLM doesn't know your custom notation. You must explicitly define each symbol's meaning and show examples so the LLM can learn to interpret it correctly."
+    },
+    {
+      "question": "How does the Meta Language Creation Pattern differ from the Template Pattern?",
+      "options": [
+        "A. They are the same pattern",
+        "B. Template Pattern defines output format; Meta Language Creation Pattern defines a shorthand input language for efficient communication",
+        "C. Meta Language only works for code",
+        "D. Template Pattern is for short outputs; Meta Language is for long outputs"
+      ],
+      "answer": "B",
+      "explanation": "Template Pattern controls output format (fill in this template). Meta Language Creation Pattern defines a custom input language (here's what my shorthand means) for efficient ongoing communication."
+    }
+  ],
+  "raw_examples": []
+}

@@ -1,0 +1,74 @@
+{
+  "title": "Tail Generation Pattern",
+  "module": 6,
+  "video": 6,
+  "status": "ok",
+  "summary": "The Tail Generation Pattern solves the problem of the LLM 'forgetting' its instructions during long conversations. By instructing the LLM to repeat the rules of the game at the end of every output, you create a self-reminder that keeps the rules in the most recent conversation history. Since LLMs use the entire conversation history to predict the next word, having the rules repeated at the end of each output (the 'tail') makes them more likely to be followed consistently throughout long interactions.",
+  "key_concepts": [
+    {
+      "term": "Tail Generation Pattern",
+      "definition": "A prompt pattern that instructs the LLM to repeat its operating rules at the end of every output, creating a self-reminder that prevents rule-forgetting in long conversations.",
+      "why_it_matters": "As conversations grow long, earlier instructions fall out of the effective context. Tail generation keeps rules in the most recent history where they're most influential."
+    },
+    {
+      "term": "Self-Reminder Mechanism",
+      "definition": "The LLM generates its own rules as part of its output, effectively prompting itself to continue following those rules in subsequent turns.",
+      "why_it_matters": "This is an elegant solution to context decay — the LLM reminds itself of its instructions without requiring the user to repeat them."
+    }
+  ],
+  "patterns": [
+    {
+      "name": "Tail Generation Pattern",
+      "intent": "Prevent the LLM from forgetting its instructions during long conversations by having it repeat the rules at the end of each output.",
+      "template": "From now on, at the end of every output, repeat the rules of the game to me: {list the rules}.",
+      "example_prompt": "From now on, at the end of every output, repeat the rules of the game to me: 1) Provide alternative approaches, 2) Ask for input before generating.",
+      "when_to_use": "For any long conversation where the LLM needs to maintain consistent behavior. Especially critical when combining multiple patterns that could be individually forgotten."
+    }
+  ],
+  "techniques": [
+    "List the specific rules you want repeated in the tail.",
+    "Place the tail generation instruction after all other pattern instructions.",
+    "The tail keeps rules in the most recent conversation history, where they have the most influence.",
+    "Combine with Ask for Input and other patterns that need to persist across many turns.",
+    "The tail is visible in the output — you can verify the LLM is still following the rules.",
+    "This is especially important when using 3+ patterns in combination."
+  ],
+  "quiz_questions": [
+    {
+      "question": "Why does the LLM 'forget' instructions in long conversations?",
+      "options": [
+        "A. Because it has a memory limit and earlier content becomes less influential as the conversation grows",
+        "B. Because it deliberately ignores old instructions",
+        "C. Because it can only remember the last message",
+        "D. Because it resets after every 10 messages"
+      ],
+      "answer": "A",
+      "explanation": "LLMs use the entire conversation history for prediction, but as it grows, earlier content becomes less influential. The effective 'attention' to early instructions diminishes."
+    },
+    {
+      "question": "How does the Tail Generation Pattern keep rules active?",
+      "options": [
+        "A. By storing them in a database",
+        "B. By having the LLM repeat the rules at the end of every output, keeping them in the most recent conversation history",
+        "C. By sending them to the user for confirmation",
+        "D. By compressing the conversation"
+      ],
+      "answer": "B",
+      "explanation": "Since the LLM pays most attention to recent content, repeating rules at the end of each output (the 'tail') ensures they're always in the most influential position."
+    },
+    {
+      "question": "What makes Tail Generation a 'self-reminder' mechanism?",
+      "options": [
+        "A. The user reminds the LLM of the rules",
+        "B. The LLM generates its own rules as part of its output, effectively prompting itself",
+        "C. The system automatically injects reminders",
+        "D. The rules are stored in the model's weights"
+      ],
+      "answer": "B",
+      "explanation": "The LLM writes the rules into its own output. When it generates the next response, those rules are in the conversation history — the LLM is literally reminding itself."
+    }
+  ],
+  "raw_examples": [
+    "From now on, at the end of every output, repeat the rules of the game to me: 1) Provide alternative approaches, 2) Ask for input before generating."
+  ]
+}

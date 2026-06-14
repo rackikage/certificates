@@ -1,0 +1,313 @@
+{
+  "index_version": "1.0",
+  "course": "Prompt Engineering for ChatGPT (Vanderbilt / Coursera)",
+  "total_patterns": 19,
+  "total_lectures": 33,
+  "generated_from": "33 lecture-level study notes (module_*_video_*_notes.json)",
+  "patterns": [
+    {
+      "name": "Persona Pattern",
+      "category": "core_pattern",
+      "first_introduced": "M1V3: Why Prompt Engineering Matters (Persona Pattern Preview)",
+      "deep_dive": "M2V5: The Persona Pattern (Deep Dive)",
+      "appears_in_lectures": 2,
+      "definition": "Ask the LLM to act as a specific person, role, object, or system to activate domain-specific knowledge, output format, and communication style from its training data.",
+      "template": "Act as a {persona/role/system}. {Describe what to do or how to respond}. {Provide input/context}.",
+      "key_examples": [
+        "Act as a speech-language pathologist. I'm going to tell you what a three-year-old said and you will write an assessment.",
+        "Act as a skeptic that is well-versed in computer science. Whatever I tell you, provide a skeptical and detailed response.",
+        "Act as a JavaScript console. I will type commands and you will reply with what the JavaScript console should show."
+      ],
+      "when_to_use": "When you need expert-level analysis in a domain you don't know. When you don't know the right vocabulary to ask the question. When you need domain-appropriate formatting.",
+      "related_patterns": ["Audience Persona Pattern", "Ask for Input Pattern"],
+      "common_mistakes": "Asking for a persona the LLM has no training data for. Using personas for sensitive decisions without verification."
+    },
+    {
+      "name": "Audience Persona Pattern",
+      "category": "core_pattern",
+      "first_introduced": "M3V3: Audience Persona Pattern",
+      "appears_in_lectures": 1,
+      "definition": "Specify who the output is for, causing the LLM to tailor language, analogies, complexity, and formatting to that audience.",
+      "template": "{Task/instruction}. Assume that I am {audience persona description}.",
+      "key_examples": [
+        "Explain LLMs to me. Assume that I am Christopher Columbus.",
+        "Explain LLMs to me. Assume that I am a second grader that gets bored easily."
+      ],
+      "when_to_use": "When you need output tailored to a specific audience — teaching materials, presentations, explanations for non-experts.",
+      "related_patterns": ["Persona Pattern"],
+      "common_mistakes": "Not adding refining details (e.g., 'second grader' vs. 'second grader that gets bored easily')."
+    },
+    {
+      "name": "Question Refinement Pattern",
+      "category": "core_pattern",
+      "first_introduced": "M3V1: Question Refinement Pattern",
+      "appears_in_lectures": 1,
+      "definition": "Ask the LLM to suggest an improved version of your question before answering, leveraging its knowledge of how questions are typically asked on a given topic.",
+      "template": "Whenever I ask a question, suggest a better question and ask me if I would like to use it instead.",
+      "key_examples": [
+        "Whenever I ask a question, suggest a better question and ask me if I would like to use it instead. Should I go to Vanderbilt University?"
+      ],
+      "when_to_use": "When your question is vague, broad, or you're unsure you're asking the right thing.",
+      "related_patterns": ["Cognitive Verifier Pattern"],
+      "common_mistakes": "Forgetting to scope the pattern (it triggers for all future questions by default)."
+    },
+    {
+      "name": "Cognitive Verifier Pattern",
+      "category": "core_pattern",
+      "first_introduced": "M3V2: Cognitive Verifier Pattern",
+      "appears_in_lectures": 1,
+      "definition": "Ask the LLM to break a complex question into sub-questions, answer each one, then synthesize a comprehensive final answer.",
+      "template": "Whenever you are asked a question, follow these rules: Generate {N} additional questions that would help more accurately answer the question. Combine the answers to the individual questions to produce the final answer.",
+      "key_examples": [
+        "Generate 3-5 sub-questions for: How should I design a sustainable house?"
+      ],
+      "when_to_use": "For complex, multi-faceted questions where a single direct answer would be too generic.",
+      "related_patterns": ["Chain of Thought Prompting", "Question Refinement Pattern"],
+      "common_mistakes": "Not specifying how many sub-questions to generate."
+    },
+    {
+      "name": "Flipped Interaction Pattern",
+      "category": "core_pattern",
+      "first_introduced": "M3V4: Flipped Interaction Pattern",
+      "appears_in_lectures": 1,
+      "definition": "Have the LLM ask YOU questions (rather than you asking it) to gather information needed to achieve a specific goal.",
+      "template": "Ask me questions about {topic} until you have enough information to {goal}. Ask me the first question.",
+      "key_examples": [
+        "Ask me questions about fitness goals until you have enough information to suggest a strength training regimen for me. Ask me the first question."
+      ],
+      "when_to_use": "When you need a customized output but don't know what information matters. Also useful for quizzing, games, customer service automation.",
+      "related_patterns": ["Game Play Pattern", "Ask for Input Pattern"],
+      "common_mistakes": "Forgetting 'Ask me the first question' — without it, you get all questions at once."
+    },
+    {
+      "name": "Few-Shot Prompting",
+      "category": "core_pattern",
+      "first_introduced": "M4V1: Few-Shot Examples",
+      "appears_in_lectures": 4,
+      "definition": "Provide the LLM with examples of input-output pairs in the prompt, teaching it a new pattern to follow without explicit instructions.",
+      "template": "Input: {example_1}\nOutput: {example_1_output}\nInput: {example_2}\nOutput: {example_2_output}\nInput: {new_input}\nOutput:",
+      "key_examples": [
+        "Sentiment analysis: Input: The movie was good but a bit long → Output: neutral",
+        "Driving actions: Situation: I'm traveling 60 mph... → Action: brake"
+      ],
+      "when_to_use": "When describing the task in words would be complex, when you need specific output formatting, or for classification/action tasks.",
+      "related_patterns": ["Chain of Thought Prompting", "ReAct Prompting"],
+      "common_mistakes": ["Using generic Input/Output prefixes instead of descriptive ones", "Not providing enough examples (need 3-5)", "Using ambiguous examples"],
+      "variations": [
+        "Few-shot with intermediate steps (M4V3): adds Think: reasoning between Input and Output",
+        "Few-shot for actions (M4V2): Situation/Action pairs for decision-making"
+      ]
+    },
+    {
+      "name": "Chain of Thought Prompting",
+      "category": "core_pattern",
+      "first_introduced": "M4V5: Chain of Thought Prompting",
+      "appears_in_lectures": 1,
+      "definition": "Ask the LLM to explain its reasoning step-by-step before producing a final answer, improving accuracy on complex reasoning tasks.",
+      "template": "{complex question}. Let's think step by step.",
+      "key_examples": [
+        "A store has 23 apples, sells 17, receives 45 more. How many now? Let's think step by step."
+      ],
+      "when_to_use": "For math problems, logic puzzles, multi-step reasoning, analysis tasks.",
+      "related_patterns": ["ReAct Prompting", "Cognitive Verifier Pattern", "Few-Shot with Intermediate Steps"],
+      "common_mistakes": "Using CoT for simple factual questions where there's nothing to reason about."
+    },
+    {
+      "name": "ReAct Prompting",
+      "category": "advanced_pattern",
+      "first_introduced": "M4V6: ReAct Prompting",
+      "appears_in_lectures": 1,
+      "definition": "Combine chain-of-thought reasoning with the ability to use external tools, following a Thought→Action→Observation loop.",
+      "template": "Thought: {reasoning}\nAction: {tool_name}({parameters})\nObservation: {result}\nThought: {reasoning about result}\n...",
+      "key_examples": [
+        "BMX race timing: Thought: I need to figure out arrival time → Action: calculate(...) → Observation: result → Thought: continue reasoning"
+      ],
+      "when_to_use": "When tasks require both reasoning and external tools (calculators, search, APIs). Foundation for AI agents.",
+      "related_patterns": ["Chain of Thought Prompting", "Outline Expansion Pattern"],
+      "common_mistakes": "Not defining available tools clearly in the prompt."
+    },
+    {
+      "name": "Game Play Pattern",
+      "category": "core_pattern",
+      "first_introduced": "M5V1: Game Play Pattern",
+      "appears_in_lectures": 1,
+      "definition": "Ask the LLM to create and run a game, serving as game master — generating rules, content, challenges, and scoring.",
+      "template": "We're going to play a game about {topic}. {Basic rules}. You will be the game master. {Scoring/difficulty}. Start the game.",
+      "key_examples": [
+        "We're going to play a game about prompt engineering. Ask me questions about different prompt patterns, I'll answer, and you'll tell me if I'm right and explain why. Start the game."
+      ],
+      "when_to_use": "When you want to learn a topic through interactive practice, test your knowledge, or create engaging content.",
+      "related_patterns": ["Flipped Interaction Pattern", "Ask for Input Pattern"],
+      "common_mistakes": "Not specifying scoring rules or difficulty progression."
+    },
+    {
+      "name": "Template Pattern",
+      "category": "core_pattern",
+      "first_introduced": "M5V2: Template Pattern",
+      "appears_in_lectures": 1,
+      "definition": "Provide a specific output template with placeholders and instruct the LLM to fill them in while preserving the template structure.",
+      "template": "I'm going to give you a template for your output. {Describe placeholder convention}. Fill in my placeholders. Please preserve the overall formatting.\n\nMy template is:\n{template with placeholders}",
+      "key_examples": [
+        "Capitalized words are my placeholders. Fill in NAME, TOPIC, DATE in a form letter template."
+      ],
+      "when_to_use": "When you need output in a very specific format — form letters, reports, code, structured documents.",
+      "related_patterns": ["Meta Language Creation Pattern"],
+      "common_mistakes": "Not explicitly stating the placeholder convention."
+    },
+    {
+      "name": "Meta Language Creation Pattern",
+      "category": "advanced_pattern",
+      "first_introduced": "M5V3: Meta Language Creation Pattern",
+      "appears_in_lectures": 1,
+      "definition": "Define a custom shorthand language and teach the LLM to understand and use it for efficient communication.",
+      "template": "I'm going to teach you a shorthand language. {Define symbols and meanings}. From now on, when I use this shorthand, interpret it and {describe what to do}.",
+      "key_examples": [
+        "Emergency dispatch shorthand: 🔥 = fire, 🚑 = medical, #3 = 3 people, LOC:address = location"
+      ],
+      "when_to_use": "When you need to communicate complex, structured information repeatedly.",
+      "related_patterns": ["Template Pattern"],
+      "common_mistakes": "Not providing enough examples for the LLM to learn the shorthand."
+    },
+    {
+      "name": "Recipe Pattern",
+      "category": "core_pattern",
+      "first_introduced": "M5V4: Recipe Pattern",
+      "appears_in_lectures": 1,
+      "definition": "Provide a goal and partial steps; ask the LLM to fill in the missing steps to create a complete process.",
+      "template": "I will tell you my {start/goal} and {end/goal}. You will provide a complete list of {steps} including {what to fill in}.",
+      "key_examples": [
+        "I will tell you my start and end destination and you will provide a complete list of stops between them."
+      ],
+      "when_to_use": "When you know the start and end of a process but need help with intermediate steps.",
+      "related_patterns": ["Outline Expansion Pattern", "Alternative Approaches Pattern"],
+      "common_mistakes": "Not specifying the level of detail you want in the complete recipe."
+    },
+    {
+      "name": "Alternative Approaches Pattern",
+      "category": "core_pattern",
+      "first_introduced": "M5V5: Alternative Approaches Pattern",
+      "appears_in_lectures": 1,
+      "definition": "Ask the LLM to suggest multiple different ways to solve a problem, enabling brainstorming at scale.",
+      "template": "Suggest {N} alternative approaches for {problem}, including approaches I might not have considered. For each, describe pros and cons.",
+      "key_examples": [
+        "Suggest 5 alternative approaches to improve website performance, including some I might not have considered. For each, describe pros and cons."
+      ],
+      "when_to_use": "When brainstorming solutions, feeling stuck, or wanting to explore options before committing.",
+      "related_patterns": ["Ask for Input Pattern", "Recipe Pattern"],
+      "common_mistakes": "Expecting all approaches to be good — brainstorming values diversity, not individual quality."
+    },
+    {
+      "name": "Ask for Input Pattern",
+      "category": "utility_pattern",
+      "first_introduced": "M6V1: Ask for Input Pattern",
+      "appears_in_lectures": 1,
+      "definition": "End your setup prompt with 'Ask me for the first {input}' to prevent the LLM from generating unwanted content and force it to wait for user input.",
+      "template": "{Describe rules/pattern}. Ask me for the first {input/task}.",
+      "key_examples": [
+        "When using Alternative Approaches, end with: 'Ask me for the first task.'"
+      ],
+      "when_to_use": "Whenever setting up rules that should be applied to future inputs, not immediately.",
+      "related_patterns": ["Tail Generation Pattern", "Alternative Approaches Pattern", "Game Play Pattern"],
+      "common_mistakes": "Placing it anywhere other than the very end of the prompt."
+    },
+    {
+      "name": "Outline Expansion Pattern",
+      "category": "advanced_pattern",
+      "first_introduced": "M6V3: Outline Expansion Pattern",
+      "appears_in_lectures": 1,
+      "definition": "Build large bodies of work by generating a hierarchical outline and selectively expanding individual sections, working around LLM size limitations.",
+      "template": "Act as an outline expander. Generate a bullet point outline based on the input I give you and then ask me for the bullet point I should expand on. Ask me for what to outline.",
+      "key_examples": [
+        "Build a book outline: generate top-level outline, then expand sections 3.2 → 3.2.1 → 3.2.1.5"
+      ],
+      "when_to_use": "When building large projects (books, courses, software) that exceed LLM context limits.",
+      "related_patterns": ["Menu Actions Pattern", "ReAct Prompting"],
+      "common_mistakes": "Forgetting to paste earlier outline sections when context grows long."
+    },
+    {
+      "name": "Menu Actions Pattern",
+      "category": "advanced_pattern",
+      "first_introduced": "M6V4: Menu Actions Pattern",
+      "appears_in_lectures": 1,
+      "definition": "Define named actions triggered by short commands, creating a reusable menu of operations within a conversation.",
+      "template": "Whenever I type {command_format}, you will {action_description}.",
+      "key_examples": [
+        "When I type 'write <bullet> <num_paragraphs>' you write text. When I type just a bullet number, you expand it."
+      ],
+      "when_to_use": "When doing repeated tasks, building interactive tools, or sharing prompt workflows across a team.",
+      "related_patterns": ["Outline Expansion Pattern", "Tail Generation Pattern"],
+      "common_mistakes": "Not using placeholders clearly for variable inputs."
+    },
+    {
+      "name": "Fact Check List Pattern",
+      "category": "quality_pattern",
+      "first_introduced": "M6V5: Fact Check List Pattern",
+      "appears_in_lectures": 1,
+      "definition": "Automatically extract fundamental facts from LLM-generated text and list them for human verification.",
+      "template": "Whenever you output text, generate a set of facts contained in the output. Insert them at the end. Include only fundamental facts that can undermine veracity if incorrect.",
+      "key_examples": [
+        "After generating a paragraph, append: 'Facts to verify: [list]'"
+      ],
+      "when_to_use": "Whenever the LLM generates factual content for use or sharing.",
+      "related_patterns": ["Tail Generation Pattern"],
+      "common_mistakes": "Trusting the output without comparing the fact list to the actual text."
+    },
+    {
+      "name": "Tail Generation Pattern",
+      "category": "utility_pattern",
+      "first_introduced": "M6V6: Tail Generation Pattern",
+      "appears_in_lectures": 1,
+      "definition": "Instruct the LLM to repeat its operating rules at the end of every output, creating a self-reminder that prevents rule-forgetting in long conversations.",
+      "template": "From now on, at the end of every output, repeat the rules of the game to me: {list the rules}.",
+      "key_examples": [
+        "At the end of every output, repeat: 'Rules: 1) Provide alternatives 2) Ask for input'"
+      ],
+      "when_to_use": "For any long conversation with multiple instructions that need to persist.",
+      "related_patterns": ["Ask for Input Pattern", "Menu Actions Pattern"],
+      "common_mistakes": "Forgetting this pattern when combining 3+ other patterns."
+    },
+    {
+      "name": "Semantic Filter Pattern",
+      "category": "advanced_pattern",
+      "first_introduced": "M6V7: Semantic Filter Pattern",
+      "appears_in_lectures": 1,
+      "definition": "Filter text based on meaning rather than exact string matching — remove or keep information based on semantic qualities.",
+      "template": "Filter this information to remove all {type of information} and rewrite the text as little as possible to fix issues caused by the removals.",
+      "key_examples": [
+        "Filter this information to remove all dates and rewrite the text as little as possible to fix issues caused by the date removals."
+      ],
+      "when_to_use": "For data sanitization, content editing, or information extraction from text.",
+      "related_patterns": ["Template Pattern"],
+      "common_mistakes": "Not adding 'rewrite as little as possible' — causes the LLM to over-rewrite."
+    }
+  ],
+  "pattern_categories": {
+    "core_pattern": [
+      "Persona Pattern",
+      "Audience Persona Pattern",
+      "Question Refinement Pattern",
+      "Cognitive Verifier Pattern",
+      "Flipped Interaction Pattern",
+      "Few-Shot Prompting",
+      "Chain of Thought Prompting",
+      "Game Play Pattern",
+      "Template Pattern",
+      "Recipe Pattern",
+      "Alternative Approaches Pattern"
+    ],
+    "advanced_pattern": [
+      "ReAct Prompting",
+      "Meta Language Creation Pattern",
+      "Outline Expansion Pattern",
+      "Menu Actions Pattern",
+      "Semantic Filter Pattern"
+    ],
+    "quality_pattern": [
+      "Fact Check List Pattern"
+    ],
+    "utility_pattern": [
+      "Ask for Input Pattern",
+      "Tail Generation Pattern"
+    ]
+  }
+}

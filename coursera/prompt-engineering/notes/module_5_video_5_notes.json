@@ -1,0 +1,74 @@
+{
+  "title": "Alternative Approaches Pattern",
+  "module": 5,
+  "video": 5,
+  "status": "ok",
+  "summary": "The Alternative Approaches Pattern asks the LLM to always suggest multiple different ways to solve a problem or perform a task. Like brainstorming with a diverse group, the LLM draws on its vast training data to propose approaches you might not have considered. The pattern is triggered by asking the LLM to suggest alternative approaches within a particular scope. Some ideas may be great, some terrible — but the diversity of approaches helps you think through the problem more thoroughly and find better solutions.",
+  "key_concepts": [
+    {
+      "term": "Alternative Approaches Pattern",
+      "definition": "A prompt pattern that asks the LLM to suggest multiple different ways to solve a problem or perform a task, enabling brainstorming at scale.",
+      "why_it_matters": "The LLM has seen many different approaches to common problems in its training data. This pattern surfaces that diversity, helping you find solutions you wouldn't have thought of alone."
+    },
+    {
+      "term": "LLM Brainstorming",
+      "definition": "Using the LLM's broad training data to generate diverse ideas and approaches, similar to brainstorming with a group of people with different backgrounds.",
+      "why_it_matters": "A single human has limited experience. The LLM has seen millions of problem-solution pairs across domains, enabling it to suggest cross-domain approaches."
+    }
+  ],
+  "patterns": [
+    {
+      "name": "Alternative Approaches Pattern",
+      "intent": "Generate multiple different approaches to a problem for brainstorming and evaluation.",
+      "template": "I want to {goal/task}. Suggest {N} alternative approaches for solving this, including approaches I might not have considered. For each approach, describe the pros and cons.",
+      "example_prompt": "I want to improve the performance of my website. Suggest 5 alternative approaches, including some I might not have considered. For each, describe the approach, pros, and cons.",
+      "when_to_use": "When you're brainstorming solutions, feel stuck on a problem, or want to explore options before committing to an approach. Especially useful when you suspect there are approaches you haven't considered."
+    }
+  ],
+  "techniques": [
+    "Ask for a specific number of alternatives (3-5 is usually good).",
+    "Include 'approaches I might not have considered' to push beyond obvious solutions.",
+    "Ask for pros and cons of each approach to aid evaluation.",
+    "Don't expect all approaches to be good — like brainstorming, quantity and diversity matter more than quality of each individual idea.",
+    "Use the approaches as a starting point for further refinement, not as final solutions.",
+    "Combine with the Question Refinement Pattern to improve your problem statement before brainstorming."
+  ],
+  "quiz_questions": [
+    {
+      "question": "What makes the LLM good at suggesting alternative approaches?",
+      "options": [
+        "A. It's always creative",
+        "B. It was trained on a vast corpus of problem-solution discussions across many domains, giving it exposure to diverse approaches",
+        "C. It has personal experience solving problems",
+        "D. It copies approaches from a single source"
+      ],
+      "answer": "B",
+      "explanation": "The LLM's training data includes millions of discussions about how to solve problems in different ways. This gives it a broad 'vocabulary' of approaches that it can surface when asked."
+    },
+    {
+      "question": "Why does the instructor say some suggested approaches 'may be terrible'?",
+      "options": [
+        "A. Because the LLM is unreliable",
+        "B. Because brainstorming values diversity and quantity of ideas — not every idea needs to be good, the goal is to explore the solution space",
+        "C. Because the LLM deliberately includes bad ideas",
+        "D. Because the LLM doesn't understand the problem"
+      ],
+      "answer": "B",
+      "explanation": "Like human brainstorming, the goal is to generate many diverse ideas. Some will be great, some terrible — but even bad ideas can spark better ones. The value is in exploring the solution space."
+    },
+    {
+      "question": "What should you add to the prompt to get more useful alternative approaches?",
+      "options": [
+        "A. More examples",
+        "B. Ask for pros and cons of each approach, and request 'approaches I might not have considered'",
+        "C. A persona pattern",
+        "D. Nothing — the LLM always suggests good alternatives"
+      ],
+      "answer": "B",
+      "explanation": "Asking for pros/cons helps you evaluate approaches. Requesting unexpected approaches pushes the LLM beyond obvious solutions to surface creative cross-domain ideas."
+    }
+  ],
+  "raw_examples": [
+    "I want to improve the performance of my website. Suggest 5 alternative approaches, including some I might not have considered. For each, describe the approach, pros, and cons."
+  ]
+}

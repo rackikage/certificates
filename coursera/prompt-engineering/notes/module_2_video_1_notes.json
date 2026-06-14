@@ -1,0 +1,68 @@
+{
+  "title": "What is a Prompt?",
+  "module": 2,
+  "video": 1,
+  "status": "ok",
+  "summary": "This lecture defines 'prompt' from multiple angles: as a verb (to spur action), as an adjective (timely), and as a noun (a cue or reminder). A prompt is fundamentally a call to action for the LLM — it triggers word generation. But prompts can also set up future behavior through conversation context, remind the model of constraints, and serve as cues that shape ongoing output. The lecture demonstrates how prompts work by asking ChatGPT to define the word 'prompt' itself, then explores dimensions like immediacy, conversational memory, and the idea that prompts are conversations, not one-shot commands.",
+  "key_concepts": [
+    {
+      "term": "Prompt as Call to Action",
+      "definition": "A prompt is something that causes the LLM to begin generating output — it spurs the model into action, producing words that form responses.",
+      "why_it_matters": "Understanding prompts as triggers for generation (not just questions) opens up design possibilities: instructions, rules, formats, personas."
+    },
+    {
+      "term": "Prompt as Conversation",
+      "definition": "Prompts exist within an ongoing conversation where each new prompt builds on previous context. Earlier prompts can affect future outputs.",
+      "why_it_matters": "You can set up rules or context early in a conversation and have them influence all subsequent outputs without repeating them."
+    },
+    {
+      "term": "Prompt as Reminder/Cue",
+      "definition": "Prompts can serve as cues that remind the LLM of information, constraints, or behaviors it should maintain throughout the interaction.",
+      "why_it_matters": "You can use prompts to establish persistent instructions (e.g., 'always format as CSV') that the model follows across multiple turns."
+    }
+  ],
+  "patterns": [],
+  "techniques": [
+    "Think of prompts as more than questions — they can be instructions, rules, formats, personas, or reminders.",
+    "Use early prompts to set up context and rules that persist through the conversation.",
+    "Remember that prompts can affect future outputs, not just immediate ones.",
+    "Treat your interaction with the LLM as an ongoing conversation, not isolated one-shot queries.",
+    "Use prompts as cues to remind the model of constraints or desired output formats."
+  ],
+  "quiz_questions": [
+    {
+      "question": "According to the lecture, which of the following best captures the full scope of what a 'prompt' can be?",
+      "options": [
+        "A. Only a question you ask the LLM",
+        "B. A call to action, a reminder/cue, and part of an ongoing conversation",
+        "C. Only a command that produces immediate output",
+        "D. Only a set of instructions for formatting output"
+      ],
+      "answer": "B",
+      "explanation": "The lecture defines prompts from multiple angles: as a verb (call to action), as a noun (cue/reminder), and as part of an ongoing conversation where earlier prompts affect future outputs."
+    },
+    {
+      "question": "Why does the instructor emphasize that prompts can affect 'something in the future'?",
+      "options": [
+        "A. Because you can schedule prompts to run at specific times",
+        "B. Because of conversational memory — earlier prompts set context that influences later outputs",
+        "C. Because LLMs can predict future events",
+        "D. Because prompts are stored in a database for later use"
+      ],
+      "answer": "B",
+      "explanation": "LLMs maintain conversational context. A prompt early in the conversation (e.g., 'always respond in CSV format') affects all subsequent outputs without needing to be repeated."
+    },
+    {
+      "question": "When the instructor says a prompt can be 'a cue or reminder that helps someone remember what they were supposed to do,' what practical application does this suggest?",
+      "options": [
+        "A. Using prompts to set alarms",
+        "B. Using prompts to establish persistent rules or constraints the LLM should follow across multiple turns",
+        "C. Using prompts to test the LLM's memory",
+        "D. Using prompts to remind yourself of tasks"
+      ],
+      "answer": "B",
+      "explanation": "This framing suggests you can use prompts to establish ongoing constraints (like output format, tone, or rules) that the LLM maintains throughout the conversation, similar to giving standing instructions to an assistant."
+    }
+  ],
+  "raw_examples": []
+}

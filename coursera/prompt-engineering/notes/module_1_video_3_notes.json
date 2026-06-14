@@ -1,0 +1,78 @@
+{
+  "title": "Why Prompt Engineering Matters (Persona Pattern Preview)",
+  "module": 1,
+  "video": 3,
+  "status": "ok",
+  "summary": "This lecture demonstrates why prompt engineering is powerful by showing the Persona Pattern in action. The instructor asks ChatGPT to 'act as a speech-language pathologist' and analyze a 3-year-old's speech sample ('I meed way woy'). The output is a professional-looking assessment with terminology the instructor didn't know to ask for (phonological errors, cluster reduction, consonant production). The key insight: with the right pattern, you can tap into expert-level analysis in domains you know nothing about, getting rich output you wouldn't even know how to request.",
+  "key_concepts": [
+    {
+      "term": "Persona Pattern (Preview)",
+      "definition": "A prompt pattern where you ask the LLM to act as a specific person, role, object, or system to tap into domain-specific knowledge and output formats.",
+      "why_it_matters": "This is one of the most widely used patterns. It lets you access expert-level analysis and terminology without being an expert yourself."
+    },
+    {
+      "term": "Tapping Training Data Patterns",
+      "definition": "Using prompt structure to activate specific patterns of knowledge the LLM learned during training from domain-specific text on the internet.",
+      "why_it_matters": "The LLM has seen millions of speech pathology reports, legal briefs, medical assessments, etc. The right prompt pattern activates that knowledge."
+    },
+    {
+      "term": "Domain Knowledge Gap Bridging",
+      "definition": "Using prompts to get expert-level output in domains where you lack the vocabulary or knowledge to even ask the right questions.",
+      "why_it_matters": "This is the core value proposition — you don't need to know what to ask for if you use the right pattern to activate the LLM's domain knowledge."
+    }
+  ],
+  "patterns": [
+    {
+      "name": "Persona Pattern",
+      "intent": "Access domain-specific expertise by asking the LLM to adopt a professional role or identity.",
+      "template": "Act as a {role/profession}. I'm going to {describe situation/input}. You will {describe expected output/action}.",
+      "example_prompt": "Act as a speech-language pathologist. I'm going to tell you what a three-year-old said and you will write an assessment for me. The child said, 'I meed way woy.'",
+      "when_to_use": "When you need expert-level analysis, reports, or advice in a domain you're not familiar with. Especially useful when you don't know the right terminology or questions to ask."
+    }
+  ],
+  "techniques": [
+    "Use 'act as a {profession}' to activate domain-specific knowledge in the LLM.",
+    "Provide a concrete example or input even if it's imperfect — the LLM will work with it.",
+    "The LLM will produce output with terminology and structure you didn't know to ask for.",
+    "Have a real expert verify the output when stakes are high — the LLM's analysis may be overblown.",
+    "Use the persona pattern to prototype what an expert consultation would look like before actually consulting one."
+  ],
+  "quiz_questions": [
+    {
+      "question": "What is the primary benefit of the Persona Pattern demonstrated in this lecture?",
+      "options": [
+        "A. It makes ChatGPT respond faster",
+        "B. It allows you to access expert-level analysis in domains you know nothing about",
+        "C. It replaces the need for real experts entirely",
+        "D. It makes ChatGPT's output shorter and more concise"
+      ],
+      "answer": "B",
+      "explanation": "The instructor didn't know terms like 'phonological errors' or 'cluster reduction' — but by using the persona pattern, ChatGPT produced a professional assessment with this terminology because it activated speech pathology knowledge from its training data."
+    },
+    {
+      "question": "When the instructor's wife (an actual speech-language pathologist) reviewed the ChatGPT output, what was her main criticism?",
+      "options": [
+        "A. The assessment was completely wrong",
+        "B. The analysis was overblown for a 3-year-old — some errors are developmentally normal",
+        "C. ChatGPT used incorrect medical terminology",
+        "D. The output was too short to be useful"
+      ],
+      "answer": "B",
+      "explanation": "The wife noted that for a real 3-year-old, she'd tell parents not to worry since speech is still developing. Interestingly, ChatGPT also included this caveat at the end, showing it learned this nuance from training data."
+    },
+    {
+      "question": "Why does the instructor say 'I would not have known how to ask ChatGPT to see if there was a problem with syllable structure or cluster reduction'?",
+      "options": [
+        "A. Because ChatGPT doesn't understand those terms",
+        "B. Because the persona pattern activated domain knowledge that produced terminology and analysis the instructor didn't know existed",
+        "C. Because the instructor forgot the terms",
+        "D. Because those concepts don't apply to 3-year-olds"
+      ],
+      "answer": "B",
+      "explanation": "This is the key insight of the lecture — the persona pattern lets you get expert output without knowing the right questions to ask. The LLM fills in what an expert would analyze, using terminology you've never encountered."
+    }
+  ],
+  "raw_examples": [
+    "Act as a speech-language pathologist. I'm going to tell you what a three-year-old said and you will write an assessment for me. The child said, 'I meed way woy.'"
+  ]
+}

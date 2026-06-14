@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "product",
+  "description": "Schema for ecommerce / catalog product records.",
+  "type": "object",
+  "properties": {
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "url"],
+        "properties": {
+          "sku":             { "type": "string" },
+          "name":            { "type": "string" },
+          "description":     { "type": "string" },
+          "brand":           { "type": "string" },
+          "category":        { "type": "string" },
+          "price_raw":       { "type": "string" },
+          "price_cents":     { "type": "integer" },
+          "currency":        { "type": "string" },
+          "in_stock":        { "type": "boolean" },
+          "rating":          { "type": "number", "minimum": 0, "maximum": 5 },
+          "reviews_count":   { "type": "integer", "minimum": 0 },
+          "image_urls":      { "type": "array", "items": { "type": "string", "format": "uri" } },
+          "url":             { "type": "string", "format": "uri" },
+          "attributes":      { "type": "object", "description": "Variant / spec fields (size, color, weight, etc)." }
+        }
+      }
+    }
+  }
+}

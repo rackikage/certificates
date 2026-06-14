@@ -1,0 +1,71 @@
+{
+  "title": "Intuition Behind Prompts (Pattern Recognition)",
+  "module": 2,
+  "video": 2,
+  "status": "ok",
+  "summary": "This lecture builds intuition for how prompts work by demonstrating pattern recognition in LLMs. The model was trained to predict the next word based on patterns seen in training data. When you use a well-known pattern like 'Mary had a little,' the model confidently completes it because it's seen that exact sequence millions of times. When you deviate ('a girl named Mary had a microscopic'), the model generates creative but less predictable output. The key insight: knowing the right patterns lets you tap into specific capabilities the model learned during training, giving you more consistent and targeted outputs.",
+  "key_concepts": [
+    {
+      "term": "Pattern Activation",
+      "definition": "Using specific words or structures in your prompt that match patterns the LLM saw frequently during training, triggering predictable and consistent behavior.",
+      "why_it_matters": "If you know the right pattern, you can reliably access specific capabilities (expert analysis, specific formats, creative writing styles) that the model learned from its training data."
+    },
+    {
+      "term": "Training Data Patterns",
+      "definition": "The LLM learned to recognize and continue patterns from the vast text it was trained on — nursery rhymes, academic papers, code, recipes, legal documents, etc.",
+      "why_it_matters": "By structuring your prompt to match a known pattern (e.g., starting a recipe format, using legal language), you activate the model's knowledge of that domain."
+    },
+    {
+      "term": "Pattern Deviation",
+      "definition": "When you break from a well-known pattern, the model generates creative but less predictable output because it can't rely on memorized sequences.",
+      "why_it_matters": "Understanding when you're on-pattern vs. off-pattern helps you predict output quality. On-pattern = consistent; off-pattern = creative but variable."
+    }
+  ],
+  "patterns": [],
+  "techniques": [
+    "Use well-known patterns from training data to get consistent, predictable outputs.",
+    "If you want creative output, deliberately deviate from known patterns.",
+    "Think about what patterns the model has seen in its training data and structure prompts to activate them.",
+    "The more times a pattern appeared in training data, the more reliably the model will continue it.",
+    "Experiment with pattern variations to understand the boundaries of what the model has learned."
+  ],
+  "quiz_questions": [
+    {
+      "question": "Why does 'Mary had a little' reliably produce 'lamb' while 'a girl named Mary had a microscopic' produces varied creative output?",
+      "options": [
+        "A. Because the model prefers shorter prompts",
+        "B. Because 'Mary had a little lamb' appeared millions of times in training data, creating a strong pattern, while the second prompt is novel",
+        "C. Because the model has a database of nursery rhymes",
+        "D. Because 'lamb' is the most common word after 'little'"
+      ],
+      "answer": "B",
+      "explanation": "The model was trained on vast internet text where 'Mary had a little lamb' appeared repeatedly. This created a strong pattern the model recognizes and continues. The novel prompt has no such memorized pattern, so the model generates creatively."
+    },
+    {
+      "question": "What does the lecture suggest about the relationship between prompt patterns and output consistency?",
+      "options": [
+        "A. Patterns make outputs less consistent",
+        "B. Using patterns that match training data increases consistency because the model has seen them many times",
+        "C. Consistency depends only on the model version, not the prompt",
+        "D. Patterns only affect content, not consistency"
+      ],
+      "answer": "B",
+      "explanation": "The lecture explicitly states that when you use patterns the model has seen many times in training, you get more consistent responses because the model can rely on learned sequences rather than generating from scratch."
+    },
+    {
+      "question": "If you want the LLM to produce output in the style of a legal brief, what approach does this lecture suggest?",
+      "options": [
+        "A. Ask it to 'write like a lawyer'",
+        "B. Structure your prompt using patterns and language commonly found in legal documents, activating the model's training on legal text",
+        "C. Provide a legal brief as an example and ask it to copy the format",
+        "D. Use a more recent model version"
+      ],
+      "answer": "B",
+      "explanation": "The lecture's core insight is that the model learned patterns from training data. By using legal language and document structures in your prompt, you activate the patterns the model learned from legal documents in its training data."
+    }
+  ],
+  "raw_examples": [
+    "Complete this story: Mary had a little → lamb, its fleece was white as snow...",
+    "Complete this story: A girl named Mary had a microscopic → friend named Max. Max was so small, you could only see him through a microscope..."
+  ]
+}

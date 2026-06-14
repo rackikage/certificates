@@ -1,0 +1,76 @@
+{
+  "title": "How Large Language Models Work (Next-Word Prediction)",
+  "module": 1,
+  "video": 4,
+  "status": "ok",
+  "summary": "This lecture explains the fundamental mechanism behind LLMs: next-word prediction. The model takes your input, predicts the most likely next word, adds it to the sequence, then predicts the next word, repeating until it reaches a stopping point. This was learned during training by showing the model vast amounts of internet text and having it predict masked words. The lecture emphasizes that LLMs use contextual knowledge — paying attention to relationships between words — to make predictions. It also covers key limitations: inherent randomness in outputs, knowledge cutoff dates, and the need to provide new information in prompts.",
+  "key_concepts": [
+    {
+      "term": "Next-Word Prediction",
+      "definition": "The core mechanism of LLMs: given a sequence of text, predict the most likely next word/token, then repeat with the extended sequence.",
+      "why_it_matters": "Understanding this mechanism helps you design prompts that set up the right context for the model to continue in the direction you want."
+    },
+    {
+      "term": "Contextual Knowledge",
+      "definition": "The LLM's learned ability to pay attention to relationships between words in the input to make better predictions about what comes next.",
+      "why_it_matters": "This is why 'Mary had a little' produces 'lamb' not 'bit' — the model uses context to disambiguate. Your prompt's context directly shapes the output."
+    },
+    {
+      "term": "Knowledge Cutoff",
+      "definition": "LLMs are trained on data collected up to a specific date and don't automatically update with new information.",
+      "why_it_matters": "When you need current or private information, you must provide it in the prompt — the model can't access it otherwise."
+    },
+    {
+      "term": "Inherent Randomness",
+      "definition": "LLMs don't produce identical outputs for identical inputs — there's built-in variation in word selection during generation.",
+      "why_it_matters": "Don't expect deterministic outputs. Build processes that account for variation, or use techniques to constrain it."
+    }
+  ],
+  "patterns": [],
+  "techniques": [
+    "Think of your prompt as setting up context that the model will continue — structure it to lead toward your desired output.",
+    "Provide new or domain-specific information directly in the prompt since the model's knowledge has a cutoff date.",
+    "Expect variation in outputs — the same prompt won't produce identical results every time.",
+    "Don't expect perfection on the first try — plan for iteration and refinement.",
+    "Remember that the model learned patterns from internet text — it's good at continuing familiar patterns."
+  ],
+  "quiz_questions": [
+    {
+      "question": "What is the fundamental operation that large language models perform?",
+      "options": [
+        "A. Searching a database for the best matching answer",
+        "B. Predicting the next word/token in a sequence, one at a time",
+        "C. Translating your question into code and executing it",
+        "D. Comparing your input against a fixed set of pre-written responses"
+      ],
+      "answer": "B",
+      "explanation": "LLMs work by taking your input and predicting the next word, then adding that word to the sequence and predicting the next one, repeating until they reach a stopping point."
+    },
+    {
+      "question": "Why does 'Mary had a little' produce 'lamb' instead of 'bit of peanut butter'?",
+      "options": [
+        "A. Because 'lamb' is the most common word in English",
+        "B. Because the model uses contextual knowledge learned from training data where 'Mary had a little lamb' is a well-known nursery rhyme",
+        "C. Because the model has a database of nursery rhymes",
+        "D. Because 'lamb' always follows 'little' in English"
+      ],
+      "answer": "B",
+      "explanation": "The model learned from vast training data that 'Mary had a little lamb' is a common pattern. It uses contextual relationships between words, not just word frequency, to make predictions."
+    },
+    {
+      "question": "If you need the LLM to reason about information published after its training cutoff, what should you do?",
+      "options": [
+        "A. Ask it to search the internet",
+        "B. Provide the new information directly in your prompt",
+        "C. Use a more recent model version",
+        "D. Both B and C could work, but B is always reliable"
+      ],
+      "answer": "D",
+      "explanation": "The model's knowledge is frozen at its training cutoff. You can provide new information in the prompt, or use a newer model with a more recent cutoff — but even newer models have cutoffs, so providing information in the prompt is the most reliable approach."
+    }
+  ],
+  "raw_examples": [
+    "Mary had a little → lamb, its fleece was white as snow...",
+    "Roses are red → violets are blue, sugar is sweet and so were you."
+  ]
+}

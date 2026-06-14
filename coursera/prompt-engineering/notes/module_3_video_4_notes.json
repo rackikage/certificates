@@ -1,0 +1,74 @@
+{
+  "title": "Flipped Interaction Pattern",
+  "module": 3,
+  "video": 4,
+  "status": "ok",
+  "summary": "The Flipped Interaction Pattern reverses the typical Q&A dynamic: instead of you asking questions and the LLM answering, the LLM asks you questions and you provide answers. This is powerful when you don't know what information is needed, when you want to be quizzed, or when the LLM's domain knowledge makes it better at formulating the right questions. The pattern is triggered with 'Ask me questions about {topic} until you have enough information to {goal}. Ask me the first question.' The LLM asks questions one at a time, incorporating your answers into subsequent questions, until it has enough context to produce the final output.",
+  "key_concepts": [
+    {
+      "term": "Flipped Interaction Pattern",
+      "definition": "A prompt pattern where the LLM asks you questions (rather than you asking it) to gather information needed to achieve a specific goal.",
+      "why_it_matters": "When you don't know what information matters or what questions to ask, the LLM's training data gives it knowledge of what questions are typically important in a domain."
+    },
+    {
+      "term": "Goal-Driven Questioning",
+      "definition": "Setting a specific goal for the LLM's questioning process, so it asks targeted questions and knows when it has enough information to produce the output.",
+      "why_it_matters": "Without a goal, the LLM asks generic questions. With a goal, it asks targeted questions and stops when it has enough to act."
+    }
+  ],
+  "patterns": [
+    {
+      "name": "Flipped Interaction Pattern",
+      "intent": "Have the LLM drive the information-gathering process by asking you questions, especially when you don't know what information is needed.",
+      "template": "Ask me questions about {topic} until you have enough information to {goal}. Ask me the first question.",
+      "example_prompt": "Ask me questions about fitness goals until you have enough information to suggest a strength training regimen for me. When you have enough information, show me the strength training regimen. Ask me the first question.",
+      "when_to_use": "When you need a customized output (fitness plan, diagnosis, recommendation) but don't know what questions the LLM needs answered. Also useful for quizzing, games, and customer service automation."
+    }
+  ],
+  "techniques": [
+    "End the prompt with 'Ask me the first question' to get one-question-at-a-time behavior.",
+    "Always specify a goal so the LLM knows when to stop asking and start producing output.",
+    "Use 'When you have enough information, show me {output}' to define the stopping condition.",
+    "You can specify how many questions to ask or how many to ask at a time.",
+    "The LLM incorporates your answers into subsequent questions, building context progressively.",
+    "This pattern eliminates generic initial responses and 'I need more information' disclaimers."
+  ],
+  "quiz_questions": [
+    {
+      "question": "What problem does the Flipped Interaction Pattern solve?",
+      "options": [
+        "A. Making the LLM respond faster",
+        "B. When you don't know what information the LLM needs or what questions to ask, but the LLM's training data gives it that knowledge",
+        "C. Making the LLM use fewer words",
+        "D. Preventing the LLM from asking clarifying questions"
+      ],
+      "answer": "B",
+      "explanation": "The pattern is designed for situations where the LLM has domain knowledge (from training data) about what questions are important, but you don't. It lets the LLM drive the information-gathering process."
+    },
+    {
+      "question": "Why does the instructor recommend ending the prompt with 'Ask me the first question'?",
+      "options": [
+        "A. Because it makes the LLM ask all questions at once",
+        "B. Because it reliably triggers one-question-at-a-time behavior, making the interaction more conversational",
+        "C. Because the LLM won't start without this phrase",
+        "D. Because it prevents the LLM from asking any questions"
+      ],
+      "answer": "B",
+      "explanation": "The instructor explains that 'ask me the first question' is a reliable way to get one-at-a-time behavior, which creates a more natural conversational flow compared to getting a list of 10 questions at once."
+    },
+    {
+      "question": "In the fitness regimen example, what happens after the LLM asks enough questions?",
+      "options": [
+        "A. It asks if you want more questions",
+        "B. It automatically generates the strength training regimen because the prompt specified 'when you have enough information, show me the regimen'",
+        "C. It stops and waits for you to ask for the output",
+        "D. It starts asking questions about a different topic"
+      ],
+      "answer": "B",
+      "explanation": "The prompt included 'When you have enough information, show me the strength training regimen.' The LLM asks questions until it judges it has enough context, then automatically produces the personalized regimen."
+    }
+  ],
+  "raw_examples": [
+    "Ask me questions about fitness goals until you have enough information to suggest a strength training regimen for me. When you have enough information, show me the strength training regimen. Ask me the first question."
+  ]
+}

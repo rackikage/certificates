@@ -1,0 +1,65 @@
+{
+  "title": "Few-Shot Examples with Intermediate Steps",
+  "module": 4,
+  "video": 3,
+  "status": "ok",
+  "summary": "This lecture extends few-shot prompting to include intermediate reasoning steps between the input and final output. Instead of just Situation→Action, you can show Situation→Think→Action→Think→Action→...→Final State. This teaches the LLM to break complex problems into a series of steps, reasoning about each one before deciding the next action. The driving example is enriched with 'Think' steps: 'I need to slow down' → brake → 'car isn't stopping in time' → check shoulder → 'shoulder is wide enough' → swerve. This is a precursor to chain-of-thought and ReAct prompting.",
+  "key_concepts": [
+    {
+      "term": "Intermediate Steps in Few-Shot",
+      "definition": "Adding reasoning or thinking steps between the input and output in few-shot examples, teaching the LLM to break problems into sequential steps.",
+      "why_it_matters": "This produces more sophisticated outputs where the LLM reasons through a problem step-by-step rather than jumping directly to an answer."
+    },
+    {
+      "term": "Think-Action Pairs",
+      "definition": "Structuring examples as alternating Think (reasoning) and Action (decision) steps, showing the LLM how to reason before acting.",
+      "why_it_matters": "This pattern is the foundation for ReAct prompting and other advanced techniques that combine reasoning with action."
+    }
+  ],
+  "patterns": [],
+  "techniques": [
+    "Use 'Think:' prefixes for reasoning steps and 'Action:' prefixes for decisions.",
+    "Show multiple Think-Action cycles in examples to teach multi-step problem solving.",
+    "Include the final state or goal so the LLM knows when to stop.",
+    "The more intermediate steps you show in examples, the more detailed the LLM's reasoning will be.",
+    "This approach bridges few-shot prompting and chain-of-thought prompting."
+  ],
+  "quiz_questions": [
+    {
+      "question": "What is the key difference between basic few-shot prompting and few-shot with intermediate steps?",
+      "options": [
+        "A. Intermediate steps use more examples",
+        "B. Intermediate steps add reasoning ('Think') steps between input and output, teaching the LLM to break problems into sequential steps",
+        "C. Intermediate steps only work for math problems",
+        "D. There is no difference"
+      ],
+      "answer": "B",
+      "explanation": "Basic few-shot shows Input→Output. With intermediate steps, you show Input→Think→Action→Think→Action→Output, teaching the LLM to reason through each step before deciding the next action."
+    },
+    {
+      "question": "In the enriched driving example, what does the 'Think: the car isn't going to stop in time' step accomplish?",
+      "options": [
+        "A. It makes the output longer",
+        "B. It teaches the LLM to evaluate the result of its previous action and decide what to do next",
+        "C. It slows down the LLM's response",
+        "D. It has no effect on the output"
+      ],
+      "answer": "B",
+      "explanation": "The Think step shows the LLM how to evaluate outcomes: after braking, assess whether it's working, then decide the next action (check shoulder, swerve). This teaches sequential reasoning."
+    },
+    {
+      "question": "How does few-shot with intermediate steps relate to chain-of-thought prompting?",
+      "options": [
+        "A. They are completely unrelated",
+        "B. Few-shot with intermediate steps is a precursor — it teaches step-by-step reasoning through examples, which chain-of-thought generalizes",
+        "C. Chain of thought is simpler and always better",
+        "D. They are the same technique"
+      ],
+      "answer": "B",
+      "explanation": "Few-shot with intermediate steps demonstrates step-by-step reasoning through examples. Chain-of-thought prompting generalizes this by simply asking the LLM to 'think step by step' without providing full examples."
+    }
+  ],
+  "raw_examples": [
+    "Situation: I'm traveling 60 mph and I see brake lights on the car in front of me come on\nThink: I need to slow the car down before I hit the car in front of me\nAction: press foot on brake\nThink: the car isn't going to stop in time\nAction: check if the shoulder is wide enough to swerve into\nThink: the shoulder is wide enough\nAction: swerve into the shoulder"
+  ]
+}

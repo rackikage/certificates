@@ -1,0 +1,73 @@
+{
+  "title": "Ask for Input Pattern",
+  "module": 6,
+  "video": 1,
+  "status": "ok",
+  "summary": "The Ask for Input Pattern solves the problem of the LLM generating unwanted content immediately after you set up rules. By ending your prompt with 'Ask me for the first {input},' you force the LLM to stop generating and wait for your input. Without this pattern, the LLM might dream up its own task and generate a long response you don't need. With it, the LLM acknowledges your rules and waits for you to provide the specific input to apply them to. This pattern is frequently combined with other patterns like Alternative Approaches and Flipped Interaction.",
+  "key_concepts": [
+    {
+      "term": "Ask for Input Pattern",
+      "definition": "A prompt pattern that ends your setup prompt with 'Ask me for the first {input}' to prevent the LLM from generating unwanted content and force it to wait for your specific input.",
+      "why_it_matters": "Without this pattern, the LLM often generates a response to its own imagined task, wasting tokens and cluttering the conversation with irrelevant output."
+    },
+    {
+      "term": "Control Handoff",
+      "definition": "Explicitly telling the LLM to stop generating and hand control back to the user, rather than letting it continue generating autonomously.",
+      "why_it_matters": "This gives you control over when the LLM acts, preventing it from 'running ahead' with imagined inputs."
+    }
+  ],
+  "patterns": [
+    {
+      "name": "Ask for Input Pattern",
+      "intent": "Prevent the LLM from generating unwanted content after setup by forcing it to wait for user input.",
+      "template": "{Describe rules/pattern/instructions}. Ask me for the first {input/task/topic}.",
+      "example_prompt": "Whenever I ask you to write a prompt for me to accomplish a task, list what the task is, list the alternative approaches, and then write a prompt for each approach. Ask me for the first task.",
+      "when_to_use": "Whenever you're setting up rules or patterns that should be applied to future inputs, not immediately. Especially useful with Alternative Approaches, Flipped Interaction, and Game Play patterns."
+    }
+  ],
+  "techniques": [
+    "Always place 'Ask me for the first {input}' at the very end of your setup prompt.",
+    "This pattern is one of the most frequently combined patterns — use it with almost any other pattern.",
+    "It works reliably but not 100% — the LLM is stochastic and may occasionally generate content anyway.",
+    "Compare output with and without this pattern to see the dramatic difference in focus.",
+    "The pattern essentially tells the LLM: 'acknowledge my rules, then stop and wait.'"
+  ],
+  "quiz_questions": [
+    {
+      "question": "What problem does the Ask for Input Pattern solve?",
+      "options": [
+        "A. The LLM responding too slowly",
+        "B. The LLM generating unwanted content immediately after you set up rules, instead of waiting for your specific input",
+        "C. The LLM refusing to follow instructions",
+        "D. The LLM producing output that's too short"
+      ],
+      "answer": "B",
+      "explanation": "Without this pattern, the LLM often 'dreams up' its own task and generates a long response. The pattern forces it to stop and wait for your actual input."
+    },
+    {
+      "question": "Where should 'Ask me for the first {input}' be placed in the prompt?",
+      "options": [
+        "A. At the beginning",
+        "B. In the middle",
+        "C. At the very end of the prompt",
+        "D. It doesn't matter"
+      ],
+      "answer": "C",
+      "explanation": "The pattern must be at the end because it's the last instruction the LLM processes. Placing it at the end ensures it overrides any impulse to generate content immediately."
+    },
+    {
+      "question": "Which other patterns is Ask for Input most commonly combined with?",
+      "options": [
+        "A. Only the Persona Pattern",
+        "B. Alternative Approaches, Flipped Interaction, and Game Play patterns",
+        "C. Only the Template Pattern",
+        "D. It's never combined with other patterns"
+      ],
+      "answer": "B",
+      "explanation": "The instructor demonstrates combining Ask for Input with Alternative Approaches (to wait for a task before generating alternatives) and notes it's useful with any pattern that sets up rules for future application."
+    }
+  ],
+  "raw_examples": [
+    "Whenever I ask you to write a prompt for me to accomplish a task, list what the task is, list the alternative approaches for creating the task, and then write a prompt for yourself for each approach. Ask me for the first task."
+  ]
+}

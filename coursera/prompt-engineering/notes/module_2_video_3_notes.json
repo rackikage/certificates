@@ -1,0 +1,72 @@
+{
+  "title": "Everyone Can Program with Prompts",
+  "module": 2,
+  "video": 3,
+  "status": "ok",
+  "summary": "This lecture demonstrates that writing prompts is a form of programming — you're giving the LLM rules and complex instructions to follow. Using a CSV formatting example, the instructor shows how you can establish persistent rules ('from now on, output as CSV with columns NAME, COURSE, ROLE') that the model follows across multiple inputs. The key insight: you don't need to be a programmer to 'program' ChatGPT. By writing clear rules in natural language, you're defining the model's behavior just like code defines a program's behavior.",
+  "key_concepts": [
+    {
+      "term": "Prompt Programming",
+      "definition": "Writing natural language rules and instructions that define how the LLM should behave and format its outputs across a conversation.",
+      "why_it_matters": "This democratizes programming — anyone can define complex behavior for the LLM using plain English, no coding required."
+    },
+    {
+      "term": "Persistent Instructions",
+      "definition": "Rules established early in a conversation that the LLM continues to follow for all subsequent outputs (e.g., 'always format as CSV').",
+      "why_it_matters": "You set up the rules once and they persist, saving you from repeating instructions for every input."
+    },
+    {
+      "term": "Output Format Control",
+      "definition": "Using prompts to specify exactly how the LLM should structure its output (CSV, JSON, tables, lists, etc.).",
+      "why_it_matters": "Structured output is essential for integrating LLM outputs into workflows, spreadsheets, databases, or other systems."
+    }
+  ],
+  "patterns": [],
+  "techniques": [
+    "Use 'from now on' or 'whenever you generate output' to establish persistent rules.",
+    "Specify exact column names or format structures to get consistent, predictable output.",
+    "Use capitalization for emphasis when defining format rules (e.g., NAME, COURSE, ROLE).",
+    "Think of prompts as rules you'd give a personal assistant — clear, specific, and persistent.",
+    "Iterate on format instructions if the model doesn't follow them correctly the first time."
+  ],
+  "quiz_questions": [
+    {
+      "question": "What does the instructor mean by 'everyone can program with prompts'?",
+      "options": [
+        "A. Everyone can write Python code using ChatGPT",
+        "B. Writing clear rules and instructions in natural language is a form of programming the LLM's behavior",
+        "C. ChatGPT can teach anyone to code",
+        "D. Programming is easy and doesn't require any skills"
+      ],
+      "answer": "B",
+      "explanation": "The instructor frames prompt writing as programming — you're defining rules and behavior for the LLM using natural language, just as code defines behavior for a computer program."
+    },
+    {
+      "question": "When the instructor says 'from now on the columns of the CSV should be NAME, COURSE and ROLE,' what prompt engineering technique is being demonstrated?",
+      "options": [
+        "A. Few-shot examples",
+        "B. Persistent instruction — establishing a rule that applies to all future outputs",
+        "C. The persona pattern",
+        "D. Chain of thought prompting"
+      ],
+      "answer": "B",
+      "explanation": "'From now on' establishes a persistent rule that the LLM follows for all subsequent outputs in the conversation, without needing to repeat the instruction each time."
+    },
+    {
+      "question": "Why does the instructor use capitalization (NAME, COURSE, ROLE) when defining CSV columns?",
+      "options": [
+        "A. Because CSV format requires uppercase column names",
+        "B. To provide emphasis and make the column names stand out as specific format requirements",
+        "C. Because ChatGPT only understands uppercase for column names",
+        "D. It's a programming convention that ChatGPT learned"
+      ],
+      "answer": "B",
+      "explanation": "The instructor explicitly states he capitalizes 'to provide some emphasis.' This helps the model recognize these as specific, important format requirements rather than casual text."
+    }
+  ],
+  "raw_examples": [
+    "Whenever you generate output, turn it into a comma separated value list.",
+    "From now on the columns of the comma separated value list should be NAME, COURSE and ROLE.",
+    "My name is Jules White and I am teaching a course on prompt engineering."
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "title": "Few-Shot Examples for Actions",
+  "module": 4,
+  "video": 2,
+  "status": "ok",
+  "summary": "This lecture expands few-shot prompting beyond classification to action selection. Using a driving scenario, the instructor shows how few-shot examples can teach the LLM to decide what action to take given a situation (brake, accelerate, swerve). The key insight: few-shot isn't limited to simple classification — it can handle complex decision-making tasks. The LLM learns both the output format (short action descriptions) and the decision logic from the examples.",
+  "key_concepts": [
+    {
+      "term": "Few-Shot for Action Selection",
+      "definition": "Using few-shot examples to teach the LLM to select appropriate actions or decisions given described situations.",
+      "why_it_matters": "This extends few-shot beyond classification to complex decision-making, showing the technique's versatility."
+    },
+    {
+      "term": "Output Format Learning",
+      "definition": "The LLM learns not just what to output but how to format it — short action phrases like 'brake' or 'accelerate' rather than long explanations.",
+      "why_it_matters": "Few-shot examples implicitly teach output format, eliminating the need for separate formatting instructions."
+    }
+  ],
+  "patterns": [],
+  "techniques": [
+    "Use Situation:/Action: prefixes for decision-making tasks.",
+    "Include diverse situations that cover different possible actions.",
+    "Keep action outputs short and consistent across examples.",
+    "Think creatively about few-shot applications — it's not just for classification.",
+    "The LLM learns both the decision logic and the output format from examples."
+  ],
+  "quiz_questions": [
+    {
+      "question": "In the driving scenario example, what action does the LLM choose when 'backing out of a parking spot and seeing reverse lights on the car behind'?",
+      "options": [
+        "A. Accelerate",
+        "B. Stop and wait for the car to back out before proceeding",
+        "C. Honk the horn",
+        "D. Swerve"
+      ],
+      "answer": "B",
+      "explanation": "The LLM learned from the examples that it should choose safe, sensible driving actions. It correctly inferred that stopping and waiting is the appropriate response to a car backing out behind you."
+    },
+    {
+      "question": "What does the instructor mean by 'expand your mind on what's possible with few-shot prompting'?",
+      "options": [
+        "A. Few-shot only works for simple tasks",
+        "B. Few-shot can be adapted to many different types of tasks beyond classification — action selection, planning, decision-making",
+        "C. Few-shot requires more examples for complex tasks",
+        "D. Few-shot should only be used by experienced programmers"
+      ],
+      "answer": "B",
+      "explanation": "The instructor explicitly wants students to see few-shot as a versatile technique applicable to sentiment analysis, action selection, planning, and many other creative uses — not just simple classification."
+    },
+    {
+      "question": "What two things does the LLM learn from few-shot examples simultaneously?",
+      "options": [
+        "A. The task and the model's limitations",
+        "B. The decision logic (what to output) and the output format (how to format it)",
+        "C. The input language and the output language",
+        "D. The question and the answer"
+      ],
+      "answer": "B",
+      "explanation": "Few-shot examples teach both what the LLM should decide (the logic) and how it should express the output (short action phrases, consistent formatting) — eliminating the need for separate instructions for each."
+    }
+  ],
+  "raw_examples": [
+    "Situation: I'm traveling 60 mph and I see brake lights on the car in front of me come on\nAction: brake\nSituation: I've just entered the highway from an on-ramp and I'm traveling 30 mph\nAction: accelerate\nSituation: A deer has darted out in front of my car while I'm traveling 15 mph and the road has a large shoulder\nAction: brake and swerve into the shoulder\nSituation: I'm backing out of a parking spot and I see the reverse lights illuminate on the car behind me\nAction:"
+  ]
+}

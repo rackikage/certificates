@@ -1,0 +1,78 @@
+{
+  "title": "Few-Shot Examples",
+  "module": 4,
+  "video": 1,
+  "status": "ok",
+  "summary": "Few-shot prompting teaches the LLM to follow a pattern by providing examples of input-output pairs within the prompt itself. Instead of describing what you want, you show it. The LLM recognizes the pattern from your examples and continues it for new inputs. The lecture demonstrates this with sentiment analysis: showing examples like 'Input: the movie was good but a bit long → Output: neutral' teaches the LLM to classify new reviews. Key elements include using consistent prefixes (Input:/Output:), providing enough examples to establish the pattern, and letting the LLM continue the pattern for new inputs.",
+  "key_concepts": [
+    {
+      "term": "Few-Shot Prompting",
+      "definition": "A technique where you provide the LLM with examples of input-output pairs in the prompt, teaching it a new pattern to follow without explicit instructions.",
+      "why_it_matters": "This lets you teach the LLM new tasks by showing rather than telling. It's especially useful when describing the task in words would be complex or ambiguous."
+    },
+    {
+      "term": "Pattern Continuation",
+      "definition": "The LLM recognizes the pattern established by your examples and continues it for new inputs, producing output in the same format and style.",
+      "why_it_matters": "This is the mechanism that makes few-shot work — the LLM is doing next-word prediction, and your examples establish the pattern it continues."
+    },
+    {
+      "term": "Prefix Labels",
+      "definition": "Consistent labels like 'Input:' and 'Output:' that structure the examples and help the LLM understand the pattern.",
+      "why_it_matters": "Clear, consistent prefixes make the pattern unambiguous. Generic labels like 'Input/Output' work but domain-specific labels can add context."
+    }
+  ],
+  "patterns": [
+    {
+      "name": "Few-Shot Prompting",
+      "intent": "Teach the LLM a new task or output format by providing examples rather than instructions.",
+      "template": "Input: {example_input_1}\nOutput: {example_output_1}\nInput: {example_input_2}\nOutput: {example_output_2}\nInput: {new_input}\nOutput:",
+      "example_prompt": "Input: The movie was good but a bit long\nOutput: neutral\nInput: The food was terrible and the service was slow\nOutput: negative\nInput: Best experience I've ever had!\nOutput: positive\nInput: The hotel room was okay, nothing special\nOutput:",
+      "when_to_use": "When describing the task in words would be complex, when you need very specific output formatting, or when the task is best understood through examples (classification, formatting, translation)."
+    }
+  ],
+  "techniques": [
+    "Use consistent prefixes (Input:/Output:, Situation:/Action:) to structure examples clearly.",
+    "Provide 2-5 examples — enough to establish the pattern without overwhelming the prompt.",
+    "End with the prefix for the new input (e.g., 'Output:') to signal the LLM to continue the pattern.",
+    "Choose diverse examples that cover different cases the model might encounter.",
+    "You can use few-shot for classification, formatting, action selection, and many other tasks."
+  ],
+  "quiz_questions": [
+    {
+      "question": "What is the fundamental mechanism that makes few-shot prompting work?",
+      "options": [
+        "A. The LLM memorizes the examples and repeats them",
+        "B. The LLM recognizes the pattern from examples and continues it via next-word prediction",
+        "C. The LLM uses the examples to retrain itself",
+        "D. The LLM compares new inputs to the examples using a similarity algorithm"
+      ],
+      "answer": "B",
+      "explanation": "Few-shot works because the LLM is doing next-word prediction. Your examples establish a pattern, and the LLM continues that pattern for new inputs — it's the same mechanism as completing 'Mary had a little...'"
+    },
+    {
+      "question": "In the sentiment analysis example, why are prefixes like 'Input:' and 'Output:' used?",
+      "options": [
+        "A. Because the LLM requires them to function",
+        "B. To structure the examples clearly so the LLM can identify the pattern",
+        "C. Because they make the prompt shorter",
+        "D. Because they improve the LLM's accuracy"
+      ],
+      "answer": "B",
+      "explanation": "Prefixes create clear structure that helps the LLM distinguish inputs from outputs and recognize the repeating pattern. They're not required but make the pattern unambiguous."
+    },
+    {
+      "question": "How does few-shot prompting differ from giving explicit instructions?",
+      "options": [
+        "A. Few-shot is always worse than instructions",
+        "B. Few-shot shows examples of desired behavior rather than describing it in words",
+        "C. Few-shot only works for classification tasks",
+        "D. There is no difference"
+      ],
+      "answer": "B",
+      "explanation": "Instead of saying 'classify the sentiment as positive, negative, or neutral,' few-shot shows examples of inputs with their correct classifications. The LLM learns the task from the pattern rather than from a description."
+    }
+  ],
+  "raw_examples": [
+    "Input: The movie was good but a bit long\nOutput: neutral\nInput: The food was terrible\nOutput: negative\nInput: Amazing experience!\nOutput: positive\nInput: The hotel was okay\nOutput:"
+  ]
+}

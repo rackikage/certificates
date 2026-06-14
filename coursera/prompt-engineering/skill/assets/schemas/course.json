@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "course",
+  "description": "Schema for course catalog records (TAFE, training.gov.au, Coursera, edX, Udemy, Reed, LMS exports).",
+  "type": "object",
+  "properties": {
+    "courses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "url"],
+        "properties": {
+          "id":              { "type": "string" },
+          "code":            { "type": "string", "description": "Provider course code (e.g. ICT40120)." },
+          "title":           { "type": "string" },
+          "description":     { "type": "string" },
+          "qualification_level": { "type": "string", "description": "Certificate IV, Diploma, Bachelor, Short Course, etc." },
+          "duration_raw":    { "type": "string", "description": "Original duration text." },
+          "duration_weeks":  { "type": "number" },
+          "delivery_modes":  { "type": "array", "items": { "type": "string", "enum": ["online", "blended", "in_person", "self_paced"] } },
+          "locations":       { "type": "array", "items": { "type": "string" } },
+          "cost_raw":        { "type": "string" },
+          "cost_cents":      { "type": "integer" },
+          "currency":        { "type": "string", "description": "ISO 4217 code." },
+          "prerequisites":   { "type": "string" },
+          "units":           { "type": "array", "items": { "type": "string" }, "description": "Units of competency / module codes." },
+          "provider":        { "type": "string" },
+          "start_date_raw":  { "type": "string" },
+          "start_date":      { "type": "string", "format": "date" },
+          "url":             { "type": "string", "format": "uri" },
+          "image_url":       { "type": "string", "format": "uri" }
+        }
+      }
+    }
+  }
+}

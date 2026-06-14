@@ -1,0 +1,79 @@
+{
+  "title": "Outline Expansion Pattern",
+  "module": 6,
+  "video": 3,
+  "status": "ok",
+  "summary": "The Outline Expansion Pattern addresses LLM size limitations by building content in pieces using a hierarchical outline. You generate a top-level outline, then selectively expand individual bullet points into sub-outlines or full content. The outline's numbered structure (3.1, 3.2, 3.5.2) makes it obvious how pieces fit together. This pattern combines Persona + Ask for Input + Tail Generation. Key challenge: maintaining context across pieces — you may need to paste earlier outline sections into the prompt to ensure cohesion when generating later sections.",
+  "key_concepts": [
+    {
+      "term": "Outline Expansion Pattern",
+      "definition": "A prompt pattern for building large bodies of work by generating a hierarchical outline and then selectively expanding individual sections, working around LLM input/output size limitations.",
+      "why_it_matters": "LLMs have context window limits. This pattern lets you build books, software, or any large project piece by piece while maintaining overall structure."
+    },
+    {
+      "term": "Context Window Management",
+      "definition": "The challenge of maintaining relevant context when working with LLMs that have limited input/output sizes, requiring strategic selection of what information to include in each prompt.",
+      "why_it_matters": "As conversations grow long, the LLM 'forgets' earlier content. You must actively manage what context is available for each generation step."
+    },
+    {
+      "term": "Self-Describing Assembly",
+      "definition": "Using numbered outline structures (3.1, 3.2.1) where the numbering makes it obvious how pieces fit together without additional instructions.",
+      "why_it_matters": "When generating pieces separately, you need to know how to reassemble them. Numbered outlines make assembly trivial."
+    }
+  ],
+  "patterns": [
+    {
+      "name": "Outline Expansion Pattern",
+      "intent": "Build large bodies of work by generating and expanding hierarchical outlines, working around LLM size limitations.",
+      "template": "Act as an outline expander. Generate a bullet point outline based on the input I give you and then ask me for the bullet point I should expand on. When I select a bullet point, create a new detailed outline for that section. At the end, ask me for what bullet point to expand next. Ask me for what to outline.",
+      "example_prompt": "Act as an outline expander. Generate a bullet point outline based on the input I give you and then ask me for the bullet point you should expand on. Ask me for what to outline.",
+      "when_to_use": "When building large projects (books, courses, software, reports) that exceed LLM context limits. The outline serves as a map for generating and assembling pieces."
+    }
+  ],
+  "techniques": [
+    "Start with a top-level outline, then expand sections to the level of detail you need.",
+    "Use numbered sections (3.1, 3.2.1) so pieces are self-describing for assembly.",
+    "Copy-paste relevant outline sections into prompts to maintain context.",
+    "If the LLM forgets earlier content, paste the relevant earlier outline back into the prompt.",
+    "Think about forward and backward references — does section 3.2 need to know what's in section 1?",
+    "Combine with Menu Actions Pattern to create expand/write actions for your outline."
+  ],
+  "quiz_questions": [
+    {
+      "question": "What fundamental limitation does the Outline Expansion Pattern address?",
+      "options": [
+        "A. LLMs can't generate creative content",
+        "B. LLMs have limited input/output sizes (context windows), making it impossible to generate or process very large documents in one shot",
+        "C. LLMs can't understand outlines",
+        "D. LLMs are too slow for large documents"
+      ],
+      "answer": "B",
+      "explanation": "LLMs have context window limits on both input and output. The Outline Expansion Pattern works around this by generating content in pieces that fit within those limits."
+    },
+    {
+      "question": "Why are numbered outline sections (3.1, 3.2.1) described as 'self-describing' for assembly?",
+      "options": [
+        "A. Because the LLM can read the numbers",
+        "B. Because the numbering makes it obvious where each piece fits in the overall structure without additional instructions",
+        "C. Because numbers are easier to type",
+        "D. Because the LLM requires numbered sections"
+      ],
+      "answer": "B",
+      "explanation": "When you generate section 3.2 separately, you know it goes under section 3 — the numbering itself tells you the hierarchy. No separate assembly instructions needed."
+    },
+    {
+      "question": "What context management challenge arises when expanding section 3.2 if section 1 has been 'forgotten'?",
+      "options": [
+        "A. The LLM will refuse to continue",
+        "B. You may need to paste section 1's outline back into the prompt so the LLM can ensure section 3.2 is consistent with earlier content",
+        "C. The LLM will automatically retrieve section 1",
+        "D. There is no challenge — the LLM remembers everything"
+      ],
+      "answer": "B",
+      "explanation": "As conversations grow long, earlier content falls out of the context window. You must actively paste relevant earlier sections back into the prompt to maintain consistency."
+    }
+  ],
+  "raw_examples": [
+    "Act as an outline expander. Generate a bullet point outline based on the input I give you and then ask me for the bullet point you should expand on. Ask me for what to outline."
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "job",
+  "description": "Schema for job board listings (Indeed, Seek, LinkedIn Jobs, Reed, Greenhouse, Lever).",
+  "type": "object",
+  "properties": {
+    "jobs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "url"],
+        "properties": {
+          "id":              { "type": "string" },
+          "title":           { "type": "string" },
+          "company":         { "type": "string" },
+          "location":        { "type": "string" },
+          "remote":          { "type": "boolean" },
+          "employment_type": { "type": "string", "enum": ["full_time","part_time","contract","casual","internship","temporary"] },
+          "salary_raw":      { "type": "string" },
+          "salary_min_cents":{ "type": "integer" },
+          "salary_max_cents":{ "type": "integer" },
+          "currency":        { "type": "string" },
+          "salary_period":   { "type": "string", "enum": ["hour","day","week","month","year"] },
+          "description":     { "type": "string" },
+          "requirements":    { "type": "array", "items": { "type": "string" } },
+          "posted_at_raw":   { "type": "string" },
+          "posted_at":       { "type": "string", "format": "date-time" },
+          "expires_at":      { "type": "string", "format": "date-time" },
+          "url":             { "type": "string", "format": "uri" }
+        }
+      }
+    }
+  }
+}

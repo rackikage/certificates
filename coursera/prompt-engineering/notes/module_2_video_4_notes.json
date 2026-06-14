@@ -1,0 +1,70 @@
+{
+  "title": "Prompt Patterns (Definition and Concept)",
+  "module": 2,
+  "video": 4,
+  "status": "ok",
+  "summary": "This lecture formally defines prompt patterns as documented structures of phrases and statements designed to solve specific problems with LLMs. Just as 'Mary had a little' reliably produces 'lamb,' prompt patterns are reusable templates that tap into the model's training to produce consistent, targeted behavior. The lecture frames patterns as solutions to common problems: getting yes/no answers, ensuring specific output formats, making the model ask questions, or including required information. Patterns give you a vocabulary for discussing and designing prompts systematically.",
+  "key_concepts": [
+    {
+      "term": "Prompt Pattern (Formal Definition)",
+      "definition": "A documented way of structuring phrases and statements in a prompt to solve a particular problem with a large language model.",
+      "why_it_matters": "Patterns are reusable, shareable solutions. Instead of reinventing prompts from scratch, you can apply known patterns to common problems."
+    },
+    {
+      "term": "Pattern as Problem Solution",
+      "definition": "Each prompt pattern addresses a specific problem: getting consistent formats, yes/no answers, expert analysis, question-asking behavior, etc.",
+      "why_it_matters": "Thinking in terms of problems → patterns makes prompt design systematic rather than ad hoc."
+    },
+    {
+      "term": "Pattern Vocabulary",
+      "definition": "Named patterns (Persona Pattern, Recipe Pattern, etc.) create a shared vocabulary for discussing and designing prompts.",
+      "why_it_matters": "Having names for patterns lets you communicate prompt strategies efficiently and build on others' work."
+    }
+  ],
+  "patterns": [],
+  "techniques": [
+    "Think of prompt design as selecting the right pattern for your problem, not writing from scratch.",
+    "Document successful prompt structures as patterns you can reuse.",
+    "Name your patterns so you can reference and share them easily.",
+    "Match your problem (need CSV output, need yes/no, need expert analysis) to the appropriate pattern.",
+    "Remember that patterns give consistency but not perfection — there's always some variation."
+  ],
+  "quiz_questions": [
+    {
+      "question": "What is a prompt pattern according to this lecture?",
+      "options": [
+        "A. A random arrangement of words that happens to work",
+        "B. A documented structure of phrases and statements designed to solve a specific problem with an LLM",
+        "C. A pattern the LLM learned during training",
+        "D. A type of machine learning algorithm"
+      ],
+      "answer": "B",
+      "explanation": "The lecture defines a prompt pattern as 'a way that we document a certain structure of phrases and statements in order to solve a particular problem' with a large language model."
+    },
+    {
+      "question": "Which of the following is NOT listed as a problem that prompt patterns can solve?",
+      "options": [
+        "A. Getting the LLM to always include certain things in its output",
+        "B. Making the LLM respond faster",
+        "C. Ensuring output is formatted in a particular way",
+        "D. Getting consistent yes/no answers"
+      ],
+      "answer": "B",
+      "explanation": "The lecture lists problems like getting specific words, yes/no answers, summaries, question-asking, including required content, and formatting — but not response speed."
+    },
+    {
+      "question": "Why does the lecture use 'Mary had a little → lamb' as an example of a pattern?",
+      "options": [
+        "A. Because it's a famous poem",
+        "B. Because it demonstrates how a specific prompt structure reliably produces a specific output by tapping into training data patterns",
+        "C. Because the model was specifically programmed with nursery rhymes",
+        "D. Because it's the simplest possible prompt"
+      ],
+      "answer": "B",
+      "explanation": "The example shows that when you use a prompt structure the model has seen millions of times in training, you get reliable, consistent output — which is exactly what prompt patterns aim to achieve for more complex tasks."
+    }
+  ],
+  "raw_examples": [
+    "Any time you need 'lamb, its fleece was white as snow' you can write the statement 'Mary had a little'"
+  ]
+}

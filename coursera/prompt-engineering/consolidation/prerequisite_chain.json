@@ -1,0 +1,197 @@
+{
+  "version": "1.0",
+  "course": "Prompt Engineering for ChatGPT (Vanderbilt / Coursera)",
+  "purpose": "Maps dependencies between concepts and patterns so you know what to learn before tackling later material.",
+  "concept_chain": [
+    {
+      "concept": "How LLMs work (next-word prediction)",
+      "module": 1,
+      "lecture": "M1V4",
+      "needed_for": [
+        "Understanding why patterns work (M2V2)",
+        "Few-shot prompting (M4V1)",
+        "Chain of thought (M4V5)",
+        "ReAct (M4V6)"
+      ],
+      "why": "If you don't understand that LLMs predict the next word from context, you can't understand why pattern examples work, why CoT improves accuracy, or why ReAct uses a Thought-Action-Observation loop."
+    },
+    {
+      "concept": "Randomness / non-determinism in LLM outputs",
+      "module": 1,
+      "lecture": "M1V5",
+      "needed_for": [
+        "All pattern work (M2-M6)",
+        "Prompt maintenance (M4V7)"
+      ],
+      "why": "Understanding that LLM outputs vary between runs is foundational to understanding why prompt engineering techniques improve reliability but never guarantee determinism."
+    },
+    {
+      "concept": "Prompts as more than questions",
+      "module": 2,
+      "lecture": "M2V1",
+      "needed_for": [
+        "Prompt programming (M2V3)",
+        "All subsequent pattern work"
+      ],
+      "why": "You need to understand that prompts can be rules, reminders, and conversation context — not just questions — before patterns like Persistent Instructions and Ask for Input make sense."
+    },
+    {
+      "concept": "Pattern activation via training data",
+      "module": 2,
+      "lecture": "M2V2",
+      "needed_for": [
+        "Persona Pattern (M2V5)",
+        "Few-shot prompting (M4V1)",
+        "All template/output patterns (M5)"
+      ],
+      "why": "The intuition that LLMs continue patterns from training is the foundation for understanding why 'act as a doctor' works, why examples teach new tasks, and why templates produce consistent formatting."
+    },
+    {
+      "concept": "Persona Pattern (core)",
+      "module": 2,
+      "lecture": "M2V5",
+      "needed_for": [
+        "Audience Persona Pattern (M3V3)",
+        "Game Play Pattern (M5V1) — game master is a persona"
+      ],
+      "why": "Audience Persona is the dual of Persona. Game Play uses a persona for the game master role. Understanding the basic 'act as X' mechanism is prerequisite."
+    },
+    {
+      "concept": "Question Refinement Pattern",
+      "module": 3,
+      "lecture": "M3V1",
+      "needed_for": [
+        "Cognitive Verifier (related approach)",
+        "Alternative Approaches (refined questions often feed in)"
+      ],
+      "why": "Improving questions is a fundamental skill that recurs in more advanced patterns."
+    },
+    {
+      "concept": "Cognitive Verifier Pattern",
+      "module": 3,
+      "lecture": "M3V2",
+      "needed_for": [
+        "Chain of Thought (M4V5) — same decomposition idea",
+        "ReAct (M4V6) — extends decomposition with tool use"
+      ],
+      "why": "CoT is essentially a simpler version of decomposition. ReAct is decomposition with tool use. Understanding Cognitive Verifier first makes CoT and ReAct click."
+    },
+    {
+      "concept": "Flipped Interaction Pattern",
+      "module": 3,
+      "lecture": "M3V4",
+      "needed_for": [
+        "Game Play Pattern (M5V1) — game master asks questions",
+        "Ask for Input Pattern (M6V1) — control handoff concept"
+      ],
+      "why": "Game Play uses flipped interaction to ask quiz questions. Ask for Input is essentially 'do a mini flipped interaction at the end of setup.'"
+    },
+    {
+      "concept": "Few-Shot Prompting",
+      "module": 4,
+      "lecture": "M4V1, M4V2, M4V3, M4V4",
+      "needed_for": [
+        "ReAct (M4V6) — uses few-shot for Thought/Action format",
+        "All multi-step prompt designs (M6)"
+      ],
+      "why": "Few-shot with intermediate steps is the foundation for ReAct. Most advanced patterns benefit from few-shot examples."
+    },
+    {
+      "concept": "Chain of Thought Prompting",
+      "module": 4,
+      "lecture": "M4V5",
+      "needed_for": [
+        "ReAct (M4V6) — extends CoT with tools"
+      ],
+      "why": "ReAct is CoT + tool use. You need to understand CoT before ReAct makes sense."
+    },
+    {
+      "concept": "ReAct Prompting",
+      "module": 4,
+      "lecture": "M4V6",
+      "needed_for": [
+        "Outline Expansion (M6V3) — uses ReAct-like reasoning for hierarchical expansion",
+        "AI agent design (beyond course)"
+      ],
+      "why": "ReAct's tool-use loop is the conceptual ancestor of AI agents. Outline Expansion uses a similar reasoning pattern at a higher level."
+    },
+    {
+      "concept": "Template Pattern",
+      "module": 5,
+      "lecture": "M5V2",
+      "needed_for": [
+        "Menu Actions (M6V4) — uses template-like command definitions",
+        "Meta Language (M5V3) — related output control"
+      ],
+      "why": "Menu Actions defines trigger commands using a template-like format. Understanding placeholders is foundational."
+    },
+    {
+      "concept": "Meta Language Creation",
+      "module": 5,
+      "lecture": "M5V3",
+      "needed_for": [
+        "Advanced workflow designs (M6)"
+      ],
+      "why": "Custom notation is an advanced output control technique used in sophisticated prompt systems."
+    },
+    {
+      "concept": "Recipe Pattern",
+      "module": 5,
+      "lecture": "M5V4",
+      "needed_for": [
+        "Outline Expansion (M6V3) — hierarchical filling of missing pieces"
+      ],
+      "why": "Outline Expansion is a hierarchical version of Recipe Pattern."
+    },
+    {
+      "concept": "Alternative Approaches Pattern",
+      "module": 5,
+      "lecture": "M5V5",
+      "needed_for": [
+        "Often combined with Ask for Input (M6V1)"
+      ],
+      "why": "Alternative Approaches is the canonical example of why you need Ask for Input — to wait for the user to specify the task."
+    },
+    {
+      "concept": "Ask for Input Pattern",
+      "module": 6,
+      "lecture": "M6V1",
+      "needed_for": [
+        "All sophisticated multi-pattern prompts"
+      ],
+      "why": "Almost every pattern that sets up rules for future application benefits from Ask for Input to prevent premature generation."
+    },
+    {
+      "concept": "Tail Generation Pattern",
+      "module": 6,
+      "lecture": "M6V6",
+      "needed_for": [
+        "Long-running prompt programs (M6V3, M6V4)"
+      ],
+      "why": "Any prompt that runs across many turns needs Tail Generation to prevent rule-forgetting."
+    },
+    {
+      "concept": "Pattern composition",
+      "module": 6,
+      "lecture": "M6V2",
+      "needed_for": [
+        "All real-world prompt engineering"
+      ],
+      "why": "Real prompts combine 2-5 patterns. Understanding which patterns work well together (Persona + Ask for Input, Outline + Menu Actions, etc.) is the capstone skill."
+    }
+  ],
+  "learning_path_recommendation": {
+    "week_1": ["M1: All videos", "M2: All videos"],
+    "week_2": ["M3: All videos", "M4: All videos"],
+    "week_3": ["M5: All videos", "M6: All videos"],
+    "rationale": "M1-M2 build foundation (LLM mechanics, prompt basics). M3-M4 add core pattern skills (questions, few-shot, reasoning). M5-M6 add advanced workflows (templates, composition, maintenance)."
+  },
+  "critical_path_concepts": [
+    "Next-word prediction (M1V4) — without this, nothing else makes sense",
+    "Pattern activation (M2V2) — foundation for all pattern work",
+    "Persona Pattern (M2V5) — most used pattern in the course",
+    "Few-shot prompting (M4V1-V4) — teaching new tasks",
+    "Chain of Thought (M4V5) — most reliable accuracy boost",
+    "Pattern composition (M6V2) — capstone skill"
+  ]
+}

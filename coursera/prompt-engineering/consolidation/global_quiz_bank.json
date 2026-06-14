@@ -1,0 +1,463 @@
+{
+  "version": "1.0",
+  "course": "Prompt Engineering for ChatGPT (Vanderbilt / Coursera)",
+  "total_questions": 30,
+  "categories": {
+    "fundamentals": "M1-M2 (LLM mechanics, prompt basics)",
+    "core_patterns": "M3-M5 (named patterns and their templates)",
+    "advanced_workflows": "M6 (composition, maintenance, evaluation)",
+    "cross_module": "Questions requiring knowledge from multiple modules"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "category": "fundamentals",
+      "difficulty": "easy",
+      "question": "What is the fundamental operation that large language models perform?",
+      "options": [
+        "A. Searching a database for the best matching answer",
+        "B. Predicting the next word/token in a sequence, one at a time",
+        "C. Translating your question into code and executing it",
+        "D. Comparing your input against a fixed set of pre-written responses"
+      ],
+      "correct": "B",
+      "explanation": "LLMs work by taking your input and predicting the next word, then adding that word to the sequence and predicting the next one, repeating until they reach a stopping point. (M1V4)",
+      "source_lectures": ["M1V4"]
+    },
+    {
+      "id": 2,
+      "category": "fundamentals",
+      "difficulty": "easy",
+      "question": "Why does 'Mary had a little' reliably produce 'lamb' from an LLM?",
+      "options": [
+        "A. Because the model has a database of nursery rhymes",
+        "B. Because the model uses contextual knowledge from training data where 'Mary had a little lamb' appears repeatedly",
+        "C. Because 'lamb' is always the next word after 'little'",
+        "D. Because the model was specifically programmed with this rhyme"
+      ],
+      "correct": "B",
+      "explanation": "The model learned from vast training data where 'Mary had a little lamb' is a common pattern. It uses contextual relationships between words, not just word frequency. (M1V4)",
+      "source_lectures": ["M1V4"]
+    },
+    {
+      "id": 3,
+      "category": "fundamentals",
+      "difficulty": "medium",
+      "question": "According to the instructor, what is the most important prerequisite for success with LLMs?",
+      "options": [
+        "A. Programming experience in Python or JavaScript",
+        "B. A degree in computer science",
+        "C. Creativity, clear writing skills, and openness to exploration",
+        "D. Familiarity with machine learning algorithms"
+      ],
+      "correct": "C",
+      "explanation": "The instructor explicitly states that programming experience is not required. Creativity, writing ability, and willingness to experiment are the key prerequisites. (M1V2)",
+      "source_lectures": ["M1V2"]
+    },
+    {
+      "id": 4,
+      "category": "fundamentals",
+      "difficulty": "medium",
+      "question": "If you need the LLM to reason about information published after its training cutoff, what should you do?",
+      "options": [
+        "A. Ask it to search the internet",
+        "B. Provide the new information directly in your prompt",
+        "C. Use a more recent model version",
+        "D. Both B and C could work, but B is always reliable"
+      ],
+      "correct": "D",
+      "explanation": "The model's knowledge is frozen at its training cutoff. You can provide new information in the prompt, or use a newer model with a more recent cutoff — but providing information in the prompt is the most reliable approach. (M1V4)",
+      "source_lectures": ["M1V4"]
+    },
+    {
+      "id": 5,
+      "category": "fundamentals",
+      "difficulty": "medium",
+      "question": "What does the instructor mean when he says prompt engineering techniques give you 'something that works most of the time but isn't guaranteed to work every single time'?",
+      "options": [
+        "A. The techniques are unreliable and shouldn't be used",
+        "B. Prompt engineering improves reliability but can never fully eliminate the inherent randomness of LLMs",
+        "C. Only advanced techniques guarantee consistent outputs",
+        "D. The techniques only work with GPT-4, not other models"
+      ],
+      "correct": "B",
+      "explanation": "This is a core principle: prompt engineering techniques constrain and shape the randomness, making outputs more reliable, but the fundamental non-determinism of LLMs means nothing is 100% guaranteed. (M1V5)",
+      "source_lectures": ["M1V5"]
+    },
+    {
+      "id": 6,
+      "category": "core_patterns",
+      "difficulty": "easy",
+      "question": "What is the core mechanism of the Persona Pattern?",
+      "options": [
+        "A. Providing examples of the desired output",
+        "B. Asking the LLM to act as a specific person, role, or system to activate associated knowledge and behavior",
+        "C. Breaking complex tasks into smaller steps",
+        "D. Asking the LLM to verify its own answers"
+      ],
+      "correct": "B",
+      "explanation": "The Persona Pattern works by having the LLM adopt a specific identity, which activates the knowledge, communication style, and output formats associated with that identity from its training data. (M2V5)",
+      "source_lectures": ["M2V5", "M1V3"]
+    },
+    {
+      "id": 7,
+      "category": "core_patterns",
+      "difficulty": "medium",
+      "question": "What is the key difference between the Persona Pattern and the Audience Persona Pattern?",
+      "options": [
+        "A. There is no difference",
+        "B. Persona Pattern defines who the LLM acts as; Audience Persona Pattern defines who the output is for",
+        "C. Persona Pattern is for experts; Audience Persona is for beginners",
+        "D. Audience Persona Pattern only works for educational content"
+      ],
+      "correct": "B",
+      "explanation": "Persona Pattern: 'Act as a speech-language pathologist' (LLM's identity). Audience Persona Pattern: 'Explain to someone with no CS background' (output audience). They're complementary techniques. (M3V3)",
+      "source_lectures": ["M2V5", "M3V3"]
+    },
+    {
+      "id": 8,
+      "category": "core_patterns",
+      "difficulty": "medium",
+      "question": "What is the core idea behind the Question Refinement Pattern?",
+      "options": [
+        "A. Having the LLM answer your question faster",
+        "B. Having the LLM suggest an improved version of your question before answering it",
+        "C. Having the LLM ask you questions instead",
+        "D. Having the LLM break your question into sub-questions"
+      ],
+      "correct": "B",
+      "explanation": "The pattern asks the LLM to suggest a better question based on its knowledge of how questions are typically asked on that topic, then lets you choose whether to use the refined version. (M3V1)",
+      "source_lectures": ["M3V1"]
+    },
+    {
+      "id": 9,
+      "category": "core_patterns",
+      "difficulty": "medium",
+      "question": "How does the Question Refinement Pattern differ from the Cognitive Verifier Pattern?",
+      "options": [
+        "A. There is no difference",
+        "B. Question Refinement suggests a better single question; Cognitive Verifier breaks the question into multiple sub-questions that are answered and combined",
+        "C. Cognitive Verifier only works for math problems",
+        "D. Question Refinement is for simple questions; Cognitive Verifier is for complex ones"
+      ],
+      "correct": "B",
+      "explanation": "Question Refinement improves your single question. Cognitive Verifier decomposes your question into multiple sub-questions, answers each, then synthesizes a comprehensive final answer. (M3V1, M3V2)",
+      "source_lectures": ["M3V1", "M3V2"]
+    },
+    {
+      "id": 10,
+      "category": "core_patterns",
+      "difficulty": "medium",
+      "question": "In the Flipped Interaction fitness regimen example, what triggers the LLM to stop asking questions and produce the output?",
+      "options": [
+        "A. The user says 'stop asking'",
+        "B. The prompt includes 'when you have enough information, show me the strength training regimen'",
+        "C. The LLM decides on its own when to stop",
+        "D. There's a built-in 10-question limit"
+      ],
+      "correct": "B",
+      "explanation": "The prompt included a goal statement: 'When you have enough information, show me the strength training regimen.' The LLM asks questions until it judges it has enough context, then automatically produces the output. (M3V4)",
+      "source_lectures": ["M3V4"]
+    },
+    {
+      "id": 11,
+      "category": "core_patterns",
+      "difficulty": "easy",
+      "question": "What is the fundamental mechanism that makes few-shot prompting work?",
+      "options": [
+        "A. The LLM memorizes the examples and repeats them",
+        "B. The LLM recognizes the pattern from examples and continues it via next-word prediction",
+        "C. The LLM uses the examples to retrain itself",
+        "D. The LLM compares new inputs to the examples using a similarity algorithm"
+      ],
+      "correct": "B",
+      "explanation": "Few-shot works because the LLM is doing next-word prediction. Your examples establish a pattern, and the LLM continues that pattern for new inputs — the same mechanism as completing 'Mary had a little...' (M4V1)",
+      "source_lectures": ["M4V1"]
+    },
+    {
+      "id": 12,
+      "category": "core_patterns",
+      "difficulty": "medium",
+      "question": "Why does the prompt 'Input: brick → Output: hard, Input: pillow → Output: soft, Input: car → ?' produce confused output?",
+      "options": [
+        "A. Because the LLM doesn't know what a car is",
+        "B. Because the pattern is ambiguous — 'hard' and 'soft' could refer to surface feeling, durability, or general attributes",
+        "C. Because there are too many examples",
+        "D. Because the LLM can only handle two examples"
+      ],
+      "correct": "B",
+      "explanation": "Generic Input/Output prefixes and ambiguous examples leave the LLM guessing. The instructor shows 'fast' or 'transportation' as confused outputs. (M4V4)",
+      "source_lectures": ["M4V4"]
+    },
+    {
+      "id": 13,
+      "category": "core_patterns",
+      "difficulty": "easy",
+      "question": "What is the simplest way to trigger chain-of-thought reasoning?",
+      "options": [
+        "A. Providing 10 examples of step-by-step reasoning",
+        "B. Adding 'Let's think step by step' to the prompt",
+        "C. Using a more powerful model",
+        "D. Asking the question multiple times"
+      ],
+      "correct": "B",
+      "explanation": "Zero-shot CoT — simply adding 'Let's think step by step' — often triggers step-by-step reasoning without any examples. The simplest and most accessible form of CoT. (M4V5)",
+      "source_lectures": ["M4V5"]
+    },
+    {
+      "id": 14,
+      "category": "core_patterns",
+      "difficulty": "medium",
+      "question": "What problem does ReAct solve that chain-of-thought alone cannot?",
+      "options": [
+        "A. Making the LLM respond faster",
+        "B. Enabling the LLM to use external tools (calculators, search, APIs) during reasoning for tasks it can't do alone",
+        "C. Making the LLM's output shorter",
+        "D. Preventing hallucination entirely"
+      ],
+      "correct": "B",
+      "explanation": "Chain-of-thought helps with reasoning but the LLM still can't do reliable math, access real-time data, or call APIs. ReAct adds tool use to the reasoning process. (M4V6)",
+      "source_lectures": ["M4V6"]
+    },
+    {
+      "id": 15,
+      "category": "core_patterns",
+      "difficulty": "easy",
+      "question": "What are the three steps in the ReAct loop?",
+      "options": [
+        "A. Input → Process → Output",
+        "B. Thought → Action → Observation",
+        "C. Question → Answer → Verification",
+        "D. Plan → Execute → Review"
+      ],
+      "correct": "B",
+      "explanation": "ReAct follows a Thought (reasoning about what to do) → Action (using a tool) → Observation (seeing the result) loop, repeating until the problem is solved. (M4V6)",
+      "source_lectures": ["M4V6"]
+    },
+    {
+      "id": 16,
+      "category": "core_patterns",
+      "difficulty": "medium",
+      "question": "What role does the LLM play in the Game Play Pattern?",
+      "options": [
+        "A. A player competing against you",
+        "B. A game master — creating rules, generating content, evaluating responses, and keeping score",
+        "C. A passive observer",
+        "D. A scorekeeper only"
+      ],
+      "correct": "B",
+      "explanation": "The LLM serves as game master: it creates the game structure, generates challenges/questions, evaluates your answers, provides feedback, and tracks progress. (M5V1)",
+      "source_lectures": ["M5V1"]
+    },
+    {
+      "id": 17,
+      "category": "core_patterns",
+      "difficulty": "medium",
+      "question": "What is the main advantage of the Template Pattern over few-shot examples for formatting?",
+      "options": [
+        "A. It's always more accurate",
+        "B. It gives you precise control over the exact output structure by providing the template directly rather than hoping the LLM infers the format from examples",
+        "C. It requires fewer tokens",
+        "D. It works with all LLMs equally well"
+      ],
+      "correct": "B",
+      "explanation": "With few-shot, the LLM infers format from examples (which may be ambiguous). With the Template Pattern, you provide the exact structure, eliminating format inference errors. (M5V2)",
+      "source_lectures": ["M5V2"]
+    },
+    {
+      "id": 18,
+      "category": "core_patterns",
+      "difficulty": "medium",
+      "question": "What is the core idea of the Recipe Pattern?",
+      "options": [
+        "A. Getting cooking recipes from the LLM",
+        "B. Providing partial steps of a process and asking the LLM to fill in the missing steps to create a complete sequence",
+        "C. Having the LLM follow a recipe you provide",
+        "D. Breaking a task into exactly 3 steps"
+      ],
+      "correct": "B",
+      "explanation": "The Recipe Pattern is about gap-filling: you provide what you know (start, end, some steps) and the LLM completes the process by adding the missing intermediate steps. (M5V4)",
+      "source_lectures": ["M5V4"]
+    },
+    {
+      "id": 19,
+      "category": "core_patterns",
+      "difficulty": "easy",
+      "question": "What makes the LLM good at suggesting alternative approaches?",
+      "options": [
+        "A. It's always creative",
+        "B. It was trained on a vast corpus of problem-solution discussions across many domains, giving it exposure to diverse approaches",
+        "C. It has personal experience solving problems",
+        "D. It copies approaches from a single source"
+      ],
+      "correct": "B",
+      "explanation": "The LLM's training data includes millions of discussions about how to solve problems in different ways. This gives it a broad 'vocabulary' of approaches that it can surface when asked. (M5V5)",
+      "source_lectures": ["M5V5"]
+    },
+    {
+      "id": 20,
+      "category": "advanced_workflows",
+      "difficulty": "easy",
+      "question": "What problem does the Ask for Input Pattern solve?",
+      "options": [
+        "A. The LLM responding too slowly",
+        "B. The LLM generating unwanted content immediately after you set up rules, instead of waiting for your specific input",
+        "C. The LLM refusing to follow instructions",
+        "D. The LLM producing output that's too short"
+      ],
+      "correct": "B",
+      "explanation": "Without this pattern, the LLM often 'dreams up' its own task and generates a long response. The pattern forces it to stop and wait for your actual input. (M6V1)",
+      "source_lectures": ["M6V1"]
+    },
+    {
+      "id": 21,
+      "category": "advanced_workflows",
+      "difficulty": "easy",
+      "question": "Where should 'Ask me for the first {input}' be placed in the prompt?",
+      "options": [
+        "A. At the beginning",
+        "B. In the middle",
+        "C. At the very end of the prompt",
+        "D. It doesn't matter"
+      ],
+      "correct": "C",
+      "explanation": "The pattern must be at the end because it's the last instruction the LLM processes. Placing it at the end ensures it overrides any impulse to generate content immediately. (M6V1)",
+      "source_lectures": ["M6V1"]
+    },
+    {
+      "id": 22,
+      "category": "advanced_workflows",
+      "difficulty": "medium",
+      "question": "What is the key mindset shift when building sophisticated prompts?",
+      "options": [
+        "A. Use the most complex single pattern possible",
+        "B. Instead of 'which pattern solves my problem?', think 'which patterns solve different aspects, and how do I combine them?'",
+        "C. Always use exactly 3 patterns",
+        "D. Never combine patterns — keep them separate"
+      ],
+      "correct": "B",
+      "explanation": "The instructor emphasizes decomposition: break the problem into aspects, match each to a known pattern, then combine them. This is how sophisticated prompts are built. (M6V2)",
+      "source_lectures": ["M6V2"]
+    },
+    {
+      "id": 23,
+      "category": "advanced_workflows",
+      "difficulty": "medium",
+      "question": "What fundamental limitation does the Outline Expansion Pattern address?",
+      "options": [
+        "A. LLMs can't generate creative content",
+        "B. LLMs have limited input/output sizes (context windows), making it impossible to generate or process very large documents in one shot",
+        "C. LLMs can't understand outlines",
+        "D. LLMs are too slow for large documents"
+      ],
+      "correct": "B",
+      "explanation": "LLMs have context window limits on both input and output. The Outline Expansion Pattern works around this by generating content in pieces that fit within those limits. (M6V3)",
+      "source_lectures": ["M6V3"]
+    },
+    {
+      "id": 24,
+      "category": "advanced_workflows",
+      "difficulty": "hard",
+      "question": "Why are numbered outline sections (3.1, 3.2.1) described as 'self-describing' for assembly?",
+      "options": [
+        "A. Because the LLM can read the numbers",
+        "B. Because the numbering makes it obvious where each piece fits in the overall structure without additional instructions",
+        "C. Because numbers are easier to type",
+        "D. Because the LLM requires numbered sections"
+      ],
+      "correct": "B",
+      "explanation": "When you generate section 3.2 separately, you know it goes under section 3 — the numbering itself tells you the hierarchy. No separate assembly instructions needed. (M6V3)",
+      "source_lectures": ["M6V3"]
+    },
+    {
+      "id": 25,
+      "category": "advanced_workflows",
+      "difficulty": "medium",
+      "question": "What is the main benefit of the Menu Actions Pattern?",
+      "options": [
+        "A. Making the LLM respond faster",
+        "B. Defining reusable actions triggered by short commands, eliminating the need to repeat long prompts",
+        "C. Making the LLM more creative",
+        "D. Reducing the LLM's randomness"
+      ],
+      "correct": "B",
+      "explanation": "Menu Actions let you define operations once and trigger them with short commands (like 'write 3.5.2 2' instead of a full paragraph of instructions), enabling rapid iteration. (M6V4)",
+      "source_lectures": ["M6V4"]
+    },
+    {
+      "id": 26,
+      "category": "advanced_workflows",
+      "difficulty": "medium",
+      "question": "What problem does the Fact Check List Pattern solve?",
+      "options": [
+        "A. The LLM generating too much text",
+        "B. The tendency to trust convincing-looking LLM output without verifying the facts it contains",
+        "C. The LLM refusing to answer questions",
+        "D. The LLM being too slow"
+      ],
+      "correct": "B",
+      "explanation": "LLM output looks human and convincing, making it easy to assume it's correct. The Fact Check List Pattern forces systematic verification by extracting claims that need checking. (M6V5)",
+      "source_lectures": ["M6V5"]
+    },
+    {
+      "id": 27,
+      "category": "advanced_workflows",
+      "difficulty": "hard",
+      "question": "Why does the LLM 'forget' instructions in long conversations, and how does the Tail Generation Pattern fix this?",
+      "options": [
+        "A. It has a memory limit and earlier content becomes less influential; Tail Generation fixes it by storing rules in a database",
+        "B. It has a memory limit and earlier content becomes less influential; Tail Generation fixes it by having the LLM repeat rules at the end of every output, keeping them in the most recent history",
+        "C. It deliberately ignores old instructions; Tail Generation fixes it by reminding the user",
+        "D. It resets after every 10 messages; Tail Generation fixes it by sending reminders"
+      ],
+      "correct": "B",
+      "explanation": "LLMs use the entire conversation history for prediction, but as it grows, earlier content becomes less influential. Tail Generation keeps rules in the most recent history where they have the most influence. (M6V6)",
+      "source_lectures": ["M6V6"]
+    },
+    {
+      "id": 28,
+      "category": "advanced_workflows",
+      "difficulty": "medium",
+      "question": "How does the Semantic Filter Pattern differ from traditional text filtering (like regex)?",
+      "options": [
+        "A. It's slower",
+        "B. It filters based on meaning and semantic qualities rather than exact string patterns",
+        "C. It only works on short text",
+        "D. There is no difference"
+      ],
+      "correct": "B",
+      "explanation": "Traditional filtering matches exact strings or patterns. Semantic filtering understands meaning — 'remove all dates' works regardless of date format (Jan 1, 2020 vs. 2020-01-01 vs. 'the first of January'). (M6V7)",
+      "source_lectures": ["M6V7"]
+    },
+    {
+      "id": 29,
+      "category": "cross_module",
+      "difficulty": "hard",
+      "question": "You're building a complex prompt that needs (1) the LLM to suggest alternative approaches, (2) for the user to provide the first task, and (3) the LLM to remember the rules throughout a long conversation. Which combination of patterns would you use?",
+      "options": [
+        "A. Persona Pattern only",
+        "B. Alternative Approaches + Ask for Input + Tail Generation",
+        "C. Few-Shot + Chain of Thought",
+        "D. Game Play + Recipe"
+      ],
+      "correct": "B",
+      "explanation": "Alternative Approaches provides the core brainstorm logic. Ask for Input (at the end) prevents the LLM from generating immediately. Tail Generation keeps the rules active throughout the long conversation. (M5V5, M6V1, M6V6)",
+      "source_lectures": ["M5V5", "M6V1", "M6V6"]
+    },
+    {
+      "id": 30,
+      "category": "cross_module",
+      "difficulty": "hard",
+      "question": "A user wants to teach an LLM a new classification task with very specific output format. The task is complex and the user wants step-by-step reasoning. The user also wants to ensure the LLM doesn't hallucinate. Which pattern combination is MOST appropriate?",
+      "options": [
+        "A. Persona + Audience Persona",
+        "B. Few-Shot + Chain of Thought + Fact Check List",
+        "C. Game Play + Flipped Interaction",
+        "D. Template + Meta Language"
+      ],
+      "correct": "B",
+      "explanation": "Few-Shot teaches the specific classification task and format. Chain of Thought ('let's think step by step') improves reasoning accuracy. Fact Check List extracts claims for verification, addressing hallucination. (M4V1, M4V5, M6V5)",
+      "source_lectures": ["M4V1", "M4V5", "M6V5"]
+    }
+  ]
+}

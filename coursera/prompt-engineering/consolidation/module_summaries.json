@@ -1,0 +1,223 @@
+{
+  "version": "1.0",
+  "course": "Prompt Engineering for ChatGPT (Vanderbilt / Coursera)",
+  "modules": [
+    {
+      "module": 1,
+      "title": "Introduction to Prompt Engineering",
+      "video_count": 5,
+      "key_question": "What are LLMs and why does prompt engineering matter?",
+      "summary": "Module 1 introduces the course and the fundamental concept of prompt engineering. It demonstrates the power of ChatGPT through a creative prototyping example (meal planning → Pokemon stories → math game → working code), showing that LLMs are tools for giving ideas form through rapid iteration. The module explains how LLMs work (next-word prediction), why outputs vary between runs (inherent randomness), and what implications this has for prompt design.",
+      "main_lecture_titles": [
+        "What Can You Do with ChatGPT? (Meal Plan Demo)",
+        "Welcome to Prompt Engineering (Course Overview)",
+        "Why Prompt Engineering Matters (Persona Pattern Preview)",
+        "How Large Language Models Work (Next-Word Prediction)",
+        "Randomness and Variation in LLM Outputs"
+      ],
+      "key_concepts_taught": [
+        "Rapid prototyping with LLMs",
+        "Iterative refinement through multi-turn conversation",
+        "Cross-domain combination of knowledge",
+        "Next-word prediction mechanism",
+        "Contextual knowledge in LLMs",
+        "Knowledge cutoff limitations",
+        "Inherent randomness / non-determinism"
+      ],
+      "patterns_introduced": [
+        "Persona Pattern (preview only — deep dive in M2)"
+      ],
+      "exam_relevant_facts": [
+        "LLMs do next-word prediction, not retrieval",
+        "LLMs are trained on internet text with a knowledge cutoff",
+        "LLM outputs vary between runs — this is by design, not a bug",
+        "The 'act as' prefix activates persona behavior",
+        "Rapid iteration is the key value of LLM interaction"
+      ]
+    },
+    {
+      "module": 2,
+      "title": "Prompts and Prompt Patterns",
+      "video_count": 5,
+      "key_question": "What is a prompt and how do patterns work?",
+      "summary": "Module 2 defines prompts formally (as calls to action, cues/reminders, and parts of ongoing conversation) and explains the intuition behind why patterns work (LLMs continue patterns they saw in training). The module covers prompt programming — writing rules in natural language that the LLM follows. It introduces the formal concept of a prompt pattern and provides a deep dive into the Persona Pattern with multiple examples (skeptic, Socratic teacher, JavaScript console, Linux terminal).",
+      "main_lecture_titles": [
+        "What is a Prompt?",
+        "Intuition Behind Prompts (Pattern Recognition)",
+        "Everyone Can Program with Prompts",
+        "Prompt Patterns (Definition and Concept)",
+        "The Persona Pattern (Deep Dive)"
+      ],
+      "key_concepts_taught": [
+        "Prompts as calls to action, cues, and conversation",
+        "Pattern activation via training data matches",
+        "Prompt programming (natural-language rules)",
+        "Persistent instructions in conversations",
+        "Output format control",
+        "Prompt pattern formal definition",
+        "Persona as system emulation (not just people)"
+      ],
+      "patterns_introduced": [
+        "Persona Pattern (deep dive)"
+      ],
+      "exam_relevant_facts": [
+        "Prompts can be verbs, adjectives, or nouns",
+        "Prompts can affect future outputs through conversational memory",
+        "'From now on' establishes persistent rules",
+        "Persona Pattern can emulate systems, not just people",
+        "Patterns are documented, reusable solutions to specific problems"
+      ]
+    },
+    {
+      "module": 3,
+      "title": "Prompt Patterns I — Question and Interaction Patterns",
+      "video_count": 4,
+      "key_question": "How do you get better questions and tailored output?",
+      "summary": "Module 3 introduces four patterns focused on improving question quality and audience targeting. The Question Refinement Pattern asks the LLM to improve your questions. The Cognitive Verifier Pattern breaks complex questions into sub-questions. The Audience Persona Pattern tailors output to specific readers. The Flipped Interaction Pattern reverses the Q&A flow so the LLM asks you questions. Together, these patterns give you control over how information flows in the conversation.",
+      "main_lecture_titles": [
+        "Question Refinement Pattern",
+        "Cognitive Verifier Pattern",
+        "Audience Persona Pattern",
+        "Flipped Interaction Pattern"
+      ],
+      "key_concepts_taught": [
+        "Meta-questioning (improving the question itself)",
+        "Decomposition for better reasoning",
+        "Audience-tailored output",
+        "Goal-driven questioning",
+        "Persona vs. Audience Persona distinction"
+      ],
+      "patterns_introduced": [
+        "Question Refinement Pattern",
+        "Cognitive Verifier Pattern",
+        "Audience Persona Pattern",
+        "Flipped Interaction Pattern"
+      ],
+      "exam_relevant_facts": [
+        "Question Refinement: 'suggest a better question and ask me if I would like to use it instead'",
+        "Cognitive Verifier: generate sub-questions, answer each, then combine",
+        "Audience Persona: 'Assume that I am X' (output is for X)",
+        "Persona: 'Act as X' (LLM is X)",
+        "Flipped Interaction: end with 'Ask me the first question' to get one-at-a-time behavior"
+      ]
+    },
+    {
+      "module": 4,
+      "title": "Few-Shot Examples and Chain-of-Thought",
+      "video_count": 7,
+      "key_question": "How do you teach the LLM new tasks and improve reasoning?",
+      "summary": "Module 4 covers few-shot prompting (teaching via examples) and reasoning techniques. Few-shot examples can be simple (Input/Output) or include intermediate steps (Think/Action). The lecture covers common mistakes in few-shot (generic prefixes, ambiguous examples). Chain of Thought prompting ('Let's think step by step') dramatically improves accuracy on reasoning tasks. ReAct extends CoT to include external tool use (calculators, search). The module ends with using LLMs to grade each other for automated evaluation.",
+      "main_lecture_titles": [
+        "Few-Shot Examples",
+        "Few-Shot Examples for Actions",
+        "Few-Shot Examples with Intermediate Steps",
+        "Writing Effective Few-Shot Examples",
+        "Chain of Thought Prompting",
+        "ReAct Prompting",
+        "Using LLMs to Grade Each Other"
+      ],
+      "key_concepts_taught": [
+        "Pattern continuation as the mechanism of few-shot",
+        "Prefix labels for few-shot examples",
+        "Think-Action pairs for multi-step reasoning",
+        "Descriptive vs. generic prefixes",
+        "Zero-shot CoT ('Let's think step by step')",
+        "Thought-Action-Observation loop in ReAct",
+        "LLM self-evaluation for prompt maintenance"
+      ],
+      "patterns_introduced": [
+        "Few-Shot Prompting",
+        "Few-Shot for Actions",
+        "Few-Shot with Intermediate Steps",
+        "Chain of Thought Prompting",
+        "ReAct Prompting"
+      ],
+      "exam_relevant_facts": [
+        "Few-shot works because LLMs continue patterns via next-word prediction",
+        "Use descriptive prefixes (Surface feeling:) not generic ones (Output:)",
+        "CoT improves accuracy by making correct reasoning precede the answer",
+        "ReAct loop: Thought → Action → Observation → repeat",
+        "CoT most useful for complex reasoning, not simple facts",
+        "Few-shot examples teach both decision logic AND output format"
+      ]
+    },
+    {
+      "module": 5,
+      "title": "Prompt Patterns II — Output Control and Brainstorming",
+      "video_count": 5,
+      "key_question": "How do you control output format and generate ideas?",
+      "summary": "Module 5 introduces patterns for output control and creative generation. The Game Play Pattern turns learning into interactive games. The Template Pattern gives precise control over output format via placeholders. The Meta Language Creation Pattern lets you teach the LLM a custom shorthand for efficient communication. The Recipe Pattern fills in missing steps in a partial process. The Alternative Approaches Pattern generates multiple solutions for brainstorming.",
+      "main_lecture_titles": [
+        "Game Play Pattern",
+        "Template Pattern",
+        "Meta Language Creation Pattern",
+        "Recipe Pattern",
+        "Alternative Approaches Pattern"
+      ],
+      "key_concepts_taught": [
+        "LLM as game master",
+        "Placeholder conventions in templates",
+        "Custom notation systems",
+        "Gap filling in incomplete processes",
+        "LLM brainstorming across domains"
+      ],
+      "patterns_introduced": [
+        "Game Play Pattern",
+        "Template Pattern",
+        "Meta Language Creation Pattern",
+        "Recipe Pattern",
+        "Alternative Approaches Pattern"
+      ],
+      "exam_relevant_facts": [
+        "Template pattern uses CAPITALIZED or {bracketed} placeholders",
+        "Always add 'preserve the overall formatting' to template prompts",
+        "Recipe pattern: you provide start + end, LLM fills in middle",
+        "Alternative approaches: ask for pros/cons of each",
+        "Meta language: explicitly teach the LLM the shorthand before using it"
+      ]
+    },
+    {
+      "module": 6,
+      "title": "Prompt Patterns III — Advanced Workflows",
+      "video_count": 7,
+      "key_question": "How do you build sophisticated, maintainable prompt workflows?",
+      "summary": "Module 6 covers advanced workflow patterns and pattern composition. The Ask for Input Pattern prevents the LLM from generating unwanted content immediately after setup. Combining multiple patterns is how you build sophisticated prompts. The Outline Expansion Pattern works around LLM size limits via hierarchical outlines. The Menu Actions Pattern defines reusable commands. The Fact Check List Pattern creates a verification workflow for LLM output. The Tail Generation Pattern prevents instruction-forgetting in long conversations. The Semantic Filter Pattern processes text based on meaning.",
+      "main_lecture_titles": [
+        "Ask for Input Pattern",
+        "Combining Patterns",
+        "Outline Expansion Pattern",
+        "Menu Actions Pattern",
+        "Fact Check List Pattern",
+        "Tail Generation Pattern",
+        "Semantic Filter Pattern"
+      ],
+      "key_concepts_taught": [
+        "Control handoff to prevent unwanted generation",
+        "Pattern composition for sophisticated prompts",
+        "Context window management via outlines",
+        "Self-describing assembly structures",
+        "Prompts as reusable programs",
+        "Minimum verification bars for fact-checking",
+        "Self-reminder mechanisms for long conversations",
+        "Semantic (meaning-based) vs. syntactic (string-based) filtering"
+      ],
+      "patterns_introduced": [
+        "Ask for Input Pattern",
+        "Outline Expansion Pattern",
+        "Menu Actions Pattern",
+        "Fact Check List Pattern",
+        "Tail Generation Pattern",
+        "Semantic Filter Pattern"
+      ],
+      "exam_relevant_facts": [
+        "Ask for Input MUST be at the end of the prompt to work",
+        "Combining patterns: take statements from each, include them all",
+        "Outline Expansion uses numbered sections (3.1, 3.2.1) for self-describing assembly",
+        "Tail Generation: 'repeat the rules at the end of every output'",
+        "Fact Check List: extract fundamental facts, compare to text for completeness",
+        "Menu Actions: 'Whenever I type X, you will do Y'",
+        "Semantic Filter: 'rewrite as little as possible' prevents over-rewriting"
+      ]
+    }
+  ]
+}

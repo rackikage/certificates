@@ -1,0 +1,17 @@
+# Composio Crusher v2 — multi-target manifest
+# Edit this file with the data sources you want to extract.
+
+defaults:
+  max_pages: 10
+  max_concurrency: 3
+  embedding_model: text-embedding-3-small
+  dedup_strategy: cross_domain
+  respect_robots: true
+  deliver_to: [local, supabase]
+
+targets:
+  - slug: coursera-prompt-eng
+    url: https://www.coursera.org/learn/prompt-engineering/lecture/r8lYY/overview-of-the-course
+    schema: course_overview
+    max_pages: 10
+    deliver_to: [local, googledrive]

@@ -1,0 +1,77 @@
+{
+  "title": "Audience Persona Pattern",
+  "module": 3,
+  "video": 3,
+  "status": "ok",
+  "summary": "The Audience Persona Pattern is the complement to the Persona Pattern. Instead of telling the LLM who to act as, you tell it who the output is for. By specifying an audience persona (e.g., 'assume I have no CS background,' 'assume I am Christopher Columbus,' 'assume I am a second grader who gets bored easily'), the LLM tailors its language, analogies, complexity, and formatting to that audience. The same topic (large language models) gets completely different explanations depending on the audience — from 'virtual writer' for beginners to 'magical scribe' for Columbus to 'robot friend' for kids.",
+  "key_concepts": [
+    {
+      "term": "Audience Persona Pattern",
+      "definition": "A prompt pattern where you specify who the output is intended for, causing the LLM to tailor its language, analogies, complexity, and formatting to that audience.",
+      "why_it_matters": "You get audience-appropriate output without having to manually specify rules about vocabulary, complexity level, or formatting. One instruction replaces dozens of rules."
+    },
+    {
+      "term": "Persona vs. Audience Persona",
+      "definition": "Persona Pattern: 'Act as X' (who the LLM is). Audience Persona Pattern: 'Explain to X' (who the output is for). They are complementary techniques.",
+      "why_it_matters": "Knowing when to use each: use Persona when you want expert output; use Audience Persona when you need output tailored to a specific reader."
+    }
+  ],
+  "patterns": [
+    {
+      "name": "Audience Persona Pattern",
+      "intent": "Tailor LLM output to a specific audience by specifying who will be reading or receiving the output.",
+      "template": "{Task/instruction}. Assume that I am {audience persona description}.",
+      "example_prompt": "Explain large language models and how they work to me. Assume that I am Christopher Columbus.",
+      "when_to_use": "When you need output tailored to a specific audience — teaching materials, presentations, explanations for non-experts, content for children, etc. Especially useful when you don't know how to adjust language for a particular audience."
+    }
+  ],
+  "techniques": [
+    "Use 'Assume that I am {persona}' or 'Explain this to {persona}' as the trigger.",
+    "Add refining details to the persona: 'a second grader that gets bored easily' gives more guidance than just 'a second grader.'",
+    "You can use historical figures, fictional characters, or professional roles as audience personas.",
+    "Combine with the Persona Pattern: 'Act as a professor explaining to a high school student.'",
+    "The pattern works for any output type: explanations, emails, presentations, marketing copy.",
+    "You can even use abstract personas: 'assume I only accept explanations in math.'"
+  ],
+  "quiz_questions": [
+    {
+      "question": "What is the key difference between the Persona Pattern and the Audience Persona Pattern?",
+      "options": [
+        "A. There is no difference",
+        "B. Persona Pattern defines who the LLM acts as; Audience Persona Pattern defines who the output is for",
+        "C. Persona Pattern is for experts; Audience Persona is for beginners",
+        "D. Audience Persona Pattern only works for educational content"
+      ],
+      "answer": "B",
+      "explanation": "Persona Pattern: 'Act as a speech-language pathologist' (LLM's identity). Audience Persona Pattern: 'Explain to someone with no CS background' (output audience). They're complementary techniques."
+    },
+    {
+      "question": "When explaining LLMs to Christopher Columbus, what analogy does the LLM use?",
+      "options": [
+        "A. A computer program",
+        "B. A magical scribe that has read countless books and can predict what comes next in a sentence",
+        "C. A robot friend",
+        "D. A virtual writer"
+      ],
+      "answer": "B",
+      "explanation": "The LLM chose 'magical scribe' because it's a concept Christopher Columbus would understand — someone who reads and writes. It then explained next-word prediction as the scribe's ability to complete sentences."
+    },
+    {
+      "question": "Why does adding 'that gets bored easily' to 'assume I am a second grader' improve the output?",
+      "options": [
+        "A. It makes the LLM respond faster",
+        "B. It gives the LLM additional guidance on how to tailor the output — making it more engaging and concise",
+        "C. It prevents the LLM from using technical terms",
+        "D. It has no effect on the output"
+      ],
+      "answer": "B",
+      "explanation": "Refining the persona with additional details gives the LLM more specific guidance. 'Gets bored easily' tells it to be engaging, use fun analogies, and keep explanations concise."
+    }
+  ],
+  "raw_examples": [
+    "Explain large language models and how they work to me. Assume that I have no background in computer science.",
+    "Explain large language models and how they work to me. Assume that I am Christopher Columbus.",
+    "Explain large language models and how they work to me. Assume that I am a second grader that gets bored easily.",
+    "Assume that I only accept explanations in math."
+  ]
+}

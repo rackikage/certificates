@@ -1,0 +1,68 @@
+{
+  "title": "Semantic Filter Pattern",
+  "module": 6,
+  "video": 7,
+  "status": "insufficient_content",
+  "summary": "The Semantic Filter Pattern uses the LLM to process text and remove or keep information based on meaning or qualities you specify. The lecture demonstrates filtering dates out of a Wikipedia article about Vanderbilt University, with the LLM rewriting the text minimally to fix issues caused by the removals. The pattern leverages the LLM's strength in understanding and manipulating natural language text — tasks that traditionally required human review.",
+  "key_concepts": [
+    {
+      "term": "Semantic Filter Pattern",
+      "definition": "A prompt pattern that filters text based on meaning or semantic qualities — removing specific types of information (dates, secrets, redundant content) or keeping only information with certain characteristics.",
+      "why_it_matters": "Traditional text filtering requires exact pattern matching. Semantic filtering understands meaning — it can remove 'all dates' or 'all sensitive information' without specifying exact strings."
+    }
+  ],
+  "patterns": [
+    {
+      "name": "Semantic Filter Pattern",
+      "intent": "Filter text based on meaning rather than exact string matching — remove or keep information based on semantic qualities.",
+      "template": "Filter this information to remove all {type of information} and rewrite the text as little as possible to fix issues caused by the removals.\n\n{text}",
+      "example_prompt": "Filter this information to remove all dates and rewrite the text as little as possible to fix issues caused by the date removals.",
+      "when_to_use": "When you need to remove specific types of information from text (dates, names, secrets, redundant content) or keep only information with certain qualities. Useful for data sanitization, content editing, and information extraction."
+    }
+  ],
+  "techniques": [
+    "Specify what to remove or keep in semantic terms (e.g., 'all dates,' 'all personal information').",
+    "Add 'rewrite as little as possible' to minimize unintended changes to the text.",
+    "The LLM understands meaning, so you can filter by concept rather than exact strings.",
+    "Use for data sanitization (removing PII), content editing, or information extraction.",
+    "Can be combined with other patterns for complex text processing pipelines."
+  ],
+  "quiz_questions": [
+    {
+      "question": "How does the Semantic Filter Pattern differ from traditional text filtering (like regex)?",
+      "options": [
+        "A. It's slower",
+        "B. It filters based on meaning and semantic qualities rather than exact string patterns",
+        "C. It only works on short text",
+        "D. There is no difference"
+      ],
+      "answer": "B",
+      "explanation": "Traditional filtering matches exact strings or patterns. Semantic filtering understands meaning — 'remove all dates' works regardless of date format (Jan 1, 2020 vs. 2020-01-01 vs. 'the first of January')."
+    },
+    {
+      "question": "Why is 'rewrite the text as little as possible' an important addition to the filter prompt?",
+      "options": [
+        "A. It makes the LLM faster",
+        "B. It prevents the LLM from making unnecessary changes beyond the specified removal",
+        "C. It's not important",
+        "D. It makes the output shorter"
+      ],
+      "answer": "B",
+      "explanation": "Without this instruction, the LLM might rewrite the entire text in its own style. 'As little as possible' constrains it to only fix grammar/flow issues caused by the removals."
+    },
+    {
+      "question": "Which of the following is NOT a good use case for the Semantic Filter Pattern?",
+      "options": [
+        "A. Removing all dates from a document",
+        "B. Removing personal identifiable information from text",
+        "C. Sorting a list of numbers from smallest to largest",
+        "D. Removing redundant information from a report"
+      ],
+      "answer": "C",
+      "explanation": "Sorting numbers is a computational task, not a semantic text filtering task. The Semantic Filter Pattern is designed for meaning-based text manipulation — removing or keeping information based on what it means."
+    }
+  ],
+  "raw_examples": [
+    "Filter this information to remove all dates and rewrite the text as little as possible to fix issues caused by the date removals."
+  ]
+}

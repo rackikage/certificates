@@ -1,0 +1,78 @@
+{
+  "title": "ReAct Prompting",
+  "module": 4,
+  "video": 6,
+  "status": "ok",
+  "summary": "ReAct (Reasoning + Acting) extends chain-of-thought by teaching the LLM to use external tools during its reasoning process. The LLM learns to identify when it needs external information (a calculator, a search, a database query), use the tool, incorporate the result, and continue reasoning. The lecture demonstrates this with a BMX race timing calculation that requires looking up race schedules and doing math — tasks the LLM can't do reliably on its own. ReAct teaches the LLM a Thought→Action→Observation loop: think about what to do, take an action (use a tool), observe the result, then continue reasoning.",
+  "key_concepts": [
+    {
+      "term": "ReAct (Reasoning + Acting)",
+      "definition": "A prompting approach that combines chain-of-thought reasoning with the ability to use external tools, following a Thought→Action→Observation loop.",
+      "why_it_matters": "LLMs can't do everything alone (math, real-time data, API calls). ReAct lets them identify when they need help and use tools to fill gaps."
+    },
+    {
+      "term": "Thought-Action-Observation Loop",
+      "definition": "The three-step cycle in ReAct: Think about what to do (Thought), use a tool or take action (Action), see the result (Observation), then repeat.",
+      "why_it_matters": "This loop lets the LLM interleave reasoning with tool use, solving problems that require both thinking and external information."
+    },
+    {
+      "term": "Tool Use in Prompts",
+      "definition": "Teaching the LLM (via few-shot examples) that it can call external tools like calculators, search engines, or APIs during its reasoning process.",
+      "why_it_matters": "This is the foundation for AI agents — LLMs that can interact with the real world, not just generate text."
+    }
+  ],
+  "patterns": [
+    {
+      "name": "ReAct Prompting",
+      "intent": "Enable the LLM to use external tools during reasoning by teaching it a Thought→Action→Observation loop through few-shot examples.",
+      "template": "Thought: {reasoning about what to do next}\nAction: {tool_name}({parameters})\nObservation: {result from tool}\nThought: {reasoning about the result}\n...",
+      "example_prompt": "Thought: I need to calculate when to arrive. The race starts at 9:00 AM and there are 200 motos before mine.\nAction: calculate(200 * 0.5)\nObservation: 100 minutes\nThought: So my race starts 100 minutes after 9:00 AM, which is 10:40 AM. I need 30 minutes to prepare.\nAction: calculate(10:40 - 0:30)\nObservation: 10:10 AM\nFinal Answer: Arrive by 10:10 AM.",
+      "when_to_use": "When the task requires both reasoning and external tools (calculators, search, databases, APIs). Essential for building AI agents that interact with the real world."
+    }
+  ],
+  "techniques": [
+    "Use few-shot examples to teach the LLM the Thought→Action→Observation format.",
+    "Define available tools clearly in the prompt (e.g., 'calculate(expression)', 'search(query)').",
+    "Show examples where the LLM correctly identifies when it needs a tool vs. when it can reason alone.",
+    "The Observation step is critical — it's where external information enters the reasoning chain.",
+    "ReAct is the foundation for AI agent frameworks like LangChain and AutoGPT."
+  ],
+  "quiz_questions": [
+    {
+      "question": "What problem does ReAct solve that chain-of-thought alone cannot?",
+      "options": [
+        "A. Making the LLM respond faster",
+        "B. Enabling the LLM to use external tools (calculators, search, APIs) during reasoning for tasks it can't do alone",
+        "C. Making the LLM's output shorter",
+        "D. Preventing hallucination entirely"
+      ],
+      "answer": "B",
+      "explanation": "Chain-of-thought helps with reasoning but the LLM still can't do reliable math, access real-time data, or call APIs. ReAct adds tool use to the reasoning process."
+    },
+    {
+      "question": "What are the three steps in the ReAct loop?",
+      "options": [
+        "A. Input → Process → Output",
+        "B. Thought → Action → Observation",
+        "C. Question → Answer → Verification",
+        "D. Plan → Execute → Review"
+      ],
+      "answer": "B",
+      "explanation": "ReAct follows a Thought (reasoning about what to do) → Action (using a tool) → Observation (seeing the result) loop, repeating until the problem is solved."
+    },
+    {
+      "question": "Why is the Observation step critical in ReAct?",
+      "options": [
+        "A. It makes the output longer",
+        "B. It's where external information (tool results) enters the reasoning chain, allowing the LLM to continue reasoning with accurate data",
+        "C. It's just for logging purposes",
+        "D. It prevents the LLM from making mistakes"
+      ],
+      "answer": "B",
+      "explanation": "The Observation step brings external tool results into the LLM's context. Without it, the LLM would have to guess or hallucinate the tool's output, defeating the purpose of using tools."
+    }
+  ],
+  "raw_examples": [
+    "Thought: I need to figure out when moto 200 starts.\nAction: calculate(200 * 0.5)\nObservation: 100\nThought: So moto 200 starts 100 minutes after 9:00 AM.\nAction: calculate_time(9:00 + 100 minutes)\nObservation: 10:40 AM"
+  ]
+}

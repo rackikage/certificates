@@ -1,0 +1,64 @@
+{
+  "title": "Combining Patterns",
+  "module": 6,
+  "video": 2,
+  "status": "ok",
+  "summary": "This lecture teaches that the most sophisticated prompts combine multiple patterns together. Instead of asking 'which pattern solves my problem?', ask 'which patterns solve different aspects of my problem, and how do I combine them?' The instructor reveals he's been combining patterns all along (Game Play + Persona + Ask for Input, Outline Expansion + Persona + Tail Generation + Ask for Input). Combining patterns is like combining programming instructions — you take the statements from each pattern and include them all in the prompt. Most of the time, it's as simple as concatenating the pattern statements.",
+  "key_concepts": [
+    {
+      "term": "Pattern Composition",
+      "definition": "Combining multiple prompt patterns together to solve different aspects of a complex problem, creating more sophisticated and powerful prompts.",
+      "why_it_matters": "Single patterns solve single problems. Real-world prompt engineering requires combining patterns to handle multi-faceted challenges."
+    },
+    {
+      "term": "Pattern Decomposition",
+      "definition": "Breaking a complex prompt problem into aspects that can each be solved by a known pattern, minimizing the 'unknown' part you have to invent from scratch.",
+      "why_it_matters": "This systematic approach means you rarely have to invent something entirely new — you assemble known patterns and only innovate on the gaps."
+    }
+  ],
+  "patterns": [],
+  "techniques": [
+    "Think about which patterns solve which aspects of your problem, not just one pattern for the whole thing.",
+    "Most of the time, combining patterns is as simple as including all their statements in the prompt.",
+    "Pay attention to ordering — some patterns need to be at the end (Ask for Input, Tail Generation).",
+    "Start with known patterns and only invent new approaches for the gaps.",
+    "Notice when the instructor combines patterns in examples — he's been doing it all along.",
+    "Combining patterns is 'programming in natural language' — assembling instructions for the LLM."
+  ],
+  "quiz_questions": [
+    {
+      "question": "What is the key mindset shift when building sophisticated prompts?",
+      "options": [
+        "A. Use the most complex single pattern possible",
+        "B. Instead of 'which pattern solves my problem?', think 'which patterns solve different aspects, and how do I combine them?'",
+        "C. Always use exactly 3 patterns",
+        "D. Never combine patterns — keep them separate"
+      ],
+      "answer": "B",
+      "explanation": "The instructor emphasizes decomposition: break the problem into aspects, match each to a known pattern, then combine them. This is how sophisticated prompts are built."
+    },
+    {
+      "question": "Which patterns has the instructor been combining in the Outline Expansion example?",
+      "options": [
+        "A. Only Outline Expansion",
+        "B. Persona Pattern + Outline Expansion + Tail Generation + Ask for Input",
+        "C. Few-Shot + Chain of Thought",
+        "D. Game Play + Recipe"
+      ],
+      "answer": "B",
+      "explanation": "The instructor reveals the Outline Expansion prompt actually combines: Persona ('Act as an outline expander'), the expansion logic itself, Tail Generation (repeating rules at end), and Ask for Input ('ask me what to outline')."
+    },
+    {
+      "question": "When combining patterns, what ordering consideration is most important?",
+      "options": [
+        "A. Alphabetical order",
+        "B. Some patterns must be at specific positions — Ask for Input at the end, Tail Generation at the end of outputs",
+        "C. The order doesn't matter at all",
+        "D. Always put the Persona Pattern last"
+      ],
+      "answer": "B",
+      "explanation": "The instructor notes that Ask for Input must be at the end of the prompt to work effectively, and Tail Generation must be at the end of outputs. Position matters for some patterns."
+    }
+  ],
+  "raw_examples": []
+}

@@ -1,0 +1,82 @@
+{
+  "title": "The Persona Pattern (Deep Dive)",
+  "module": 2,
+  "video": 5,
+  "status": "ok",
+  "summary": "This lecture provides a deep dive into the Persona Pattern, one of the most powerful prompt patterns. The pattern works by asking the LLM to 'act as' a specific person, role, or entity — tapping into the knowledge, communication style, and output format that the model learned from training data associated with that persona. The instructor demonstrates multiple examples: a computer science skeptic, a Socratic teacher, a JavaScript console, and a Linux terminal. The key insight: you know who you'd go to for expert help in the real world — the persona pattern lets you access that same type of output from the LLM without knowing the domain vocabulary.",
+  "key_concepts": [
+    {
+      "term": "Persona Pattern (Full Definition)",
+      "definition": "A prompt pattern where you ask the LLM to act as a specific person, role, or system, causing it to produce outputs consistent with that persona's knowledge, style, and expertise.",
+      "why_it_matters": "This is one of the most versatile and widely used patterns. It lets you access expert-level output in any domain by simply naming the persona."
+    },
+    {
+      "term": "Persona as System Emulation",
+      "definition": "The persona pattern can make the LLM emulate not just people but systems — a JavaScript console, a Linux terminal, a web browser — producing outputs those systems would generate.",
+      "why_it_matters": "This extends the pattern beyond human roles to technical systems, enabling prototyping, testing, and simulation without actual infrastructure."
+    },
+    {
+      "term": "Output Format Inheritance",
+      "definition": "When using the persona pattern, the LLM inherits not just knowledge but also output format, terminology, and communication style from the persona.",
+      "why_it_matters": "You get domain-appropriate formatting (medical reports, legal briefs, code output) without having to specify the format separately."
+    }
+  ],
+  "patterns": [
+    {
+      "name": "Persona Pattern",
+      "intent": "Access domain-specific expertise, output formats, and communication styles by having the LLM adopt a specific identity.",
+      "template": "Act as a {persona/role/system}. {Describe what you want it to do or how it should respond}. {Provide input or context}.",
+      "example_prompt": "Act as a skeptic that is well-versed in computer science. Whatever I tell you, provide a skeptical and detailed response.",
+      "when_to_use": "When you need expert-level analysis, domain-specific formatting, or system emulation. Especially useful when you don't know the right terminology or questions to ask in a domain."
+    }
+  ],
+  "techniques": [
+    "Start with 'Act as a {persona}' — this is the core trigger for the pattern.",
+    "Add specific behavioral instructions after the persona (e.g., 'provide skeptical and detailed responses').",
+    "You can use personas for systems, not just people (JavaScript console, Linux terminal, web browser).",
+    "The more specific the persona description, the more targeted the output.",
+    "Combine persona with other patterns for even more control (e.g., persona + output format).",
+    "Use personas you'd actually consult in real life — accountant, doctor, teacher, engineer."
+  ],
+  "quiz_questions": [
+    {
+      "question": "What is the core mechanism of the Persona Pattern?",
+      "options": [
+        "A. Providing examples of the desired output",
+        "B. Asking the LLM to act as a specific person, role, or system to activate associated knowledge and behavior",
+        "C. Breaking complex tasks into smaller steps",
+        "D. Asking the LLM to verify its own answers"
+      ],
+      "answer": "B",
+      "explanation": "The Persona Pattern works by having the LLM adopt a specific identity, which activates the knowledge, communication style, and output formats associated with that identity from its training data."
+    },
+    {
+      "question": "When the instructor asks ChatGPT to 'act as a JavaScript console,' what type of persona is being used?",
+      "options": [
+        "A. A human expert persona",
+        "B. A system emulation persona — making the LLM behave like a technical system",
+        "C. A fictional character persona",
+        "D. A teaching persona"
+      ],
+      "answer": "B",
+      "explanation": "The JavaScript console example shows the persona pattern can emulate technical systems, not just human roles. The LLM produces output that a real JavaScript console would generate when given code."
+    },
+    {
+      "question": "Why does the instructor say 'you know who you would go to in the real world' when explaining the persona pattern?",
+      "options": [
+        "A. Because you should always consult real experts instead of ChatGPT",
+        "B. Because the persona pattern lets you access the same type of expert output you'd get from a real-world specialist, without needing to know the domain vocabulary",
+        "C. Because ChatGPT can connect you with real experts",
+        "D. Because the persona pattern only works with professions you personally know"
+      ],
+      "answer": "B",
+      "explanation": "The key insight is that you know which expert to consult (accountant, doctor, teacher) even if you don't know what they'd say or how they'd format it. The persona pattern bridges that gap by activating the LLM's knowledge of that profession."
+    }
+  ],
+  "raw_examples": [
+    "Act as a skeptic that is well-versed in computer science. Whatever I tell you, provide a skeptical and detailed response.",
+    "Act as a Socratic teacher. Whenever I make a statement, ask me a question that makes me think about it deeper.",
+    "Act as a JavaScript console. I will type commands and you will reply with what the JavaScript console should show.",
+    "Act as a Linux terminal. I will type commands and you will reply with what the terminal should show."
+  ]
+}

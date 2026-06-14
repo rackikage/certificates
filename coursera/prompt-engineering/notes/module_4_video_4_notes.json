@@ -1,0 +1,67 @@
+{
+  "title": "Writing Effective Few-Shot Examples",
+  "module": 4,
+  "video": 4,
+  "status": "ok",
+  "summary": "This lecture covers common mistakes in few-shot prompting and how to fix them. Key errors include: using generic prefixes (Input/Output) that don't convey the task, providing too few examples, using ambiguous examples that could be interpreted multiple ways, and not being specific enough about what property or aspect you're evaluating. The lecture demonstrates that a poorly designed few-shot prompt (brick→hard, pillow→soft, car→?) produces confused output ('fast' or 'transportation') because the pattern is ambiguous. Fixes include: using descriptive prefixes, adding context, providing more examples, and being explicit about what you're evaluating.",
+  "key_concepts": [
+    {
+      "term": "Few-Shot Ambiguity",
+      "definition": "When few-shot examples could be interpreted in multiple ways, causing the LLM to guess incorrectly at the intended pattern.",
+      "why_it_matters": "Ambiguous examples are the #1 cause of poor few-shot results. The LLM sees multiple possible patterns and picks one you didn't intend."
+    },
+    {
+      "term": "Descriptive Prefixes",
+      "definition": "Using specific, task-relevant labels instead of generic Input/Output (e.g., 'Surface feeling:' instead of 'Output:').",
+      "why_it_matters": "Descriptive prefixes add context that disambiguates the task, helping the LLM understand exactly what aspect you're evaluating."
+    }
+  ],
+  "patterns": [],
+  "techniques": [
+    "Avoid generic prefixes like 'Input:' and 'Output:' — use descriptive labels that convey the task.",
+    "Provide enough examples (3-5 minimum) to establish a clear pattern.",
+    "Use examples that are unambiguous — avoid items that could be interpreted multiple ways.",
+    "Add context to examples: 'Surface feeling: hard' is clearer than just 'hard.'",
+    "If the LLM produces unexpected output, check if your examples are ambiguous before blaming the model.",
+    "Test your few-shot prompt with inputs you know the answer to before using it in production."
+  ],
+  "quiz_questions": [
+    {
+      "question": "Why does the prompt 'Input: brick → Output: hard, Input: pillow → Output: soft, Input: car → ?' produce confused output like 'fast' or 'transportation'?",
+      "options": [
+        "A. Because the LLM doesn't know what a car is",
+        "B. Because the pattern is ambiguous — 'hard' and 'soft' could refer to surface feeling, durability, or general attributes, and 'car' could map to many properties",
+        "C. Because there are too many examples",
+        "D. Because the LLM can only handle two examples"
+      ],
+      "answer": "B",
+      "explanation": "The generic Input/Output prefixes and ambiguous examples (is it about hardness? durability? general description?) leave the LLM guessing. 'Car' could be 'fast,' 'metallic,' 'transportation,' etc."
+    },
+    {
+      "question": "What is the recommended fix for generic 'Input/Output' prefixes?",
+      "options": [
+        "A. Use more examples",
+        "B. Use descriptive, task-specific prefixes like 'Surface feeling:' or 'Texture:'",
+        "C. Remove the prefixes entirely",
+        "D. Use numbered prefixes"
+      ],
+      "answer": "B",
+      "explanation": "Descriptive prefixes add context that disambiguates the task. 'Surface feeling: hard' tells the LLM exactly what property you're evaluating, eliminating confusion."
+    },
+    {
+      "question": "What should you do if your few-shot prompt produces unexpected output?",
+      "options": [
+        "A. Switch to a different LLM",
+        "B. Check if your examples are ambiguous or if you need more examples to establish a clear pattern",
+        "C. Add more instructions in natural language",
+        "D. Remove all examples and start over"
+      ],
+      "answer": "B",
+      "explanation": "The lecture emphasizes that unexpected output usually means your examples are ambiguous. Before blaming the model, check if your examples clearly establish the pattern you intend."
+    }
+  ],
+  "raw_examples": [
+    "BAD: Input: brick → Output: hard, Input: pillow → Output: soft, Input: car → ?",
+    "BETTER: Input: brick, Surface feeling: hard, Input: pillow, Surface feeling: soft, Input: car, Surface feeling:"
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "title": "Recipe Pattern",
+  "module": 5,
+  "video": 4,
+  "status": "ok",
+  "summary": "The Recipe Pattern gives the LLM a goal and partial steps, then asks it to fill in the missing steps to create a complete 'recipe.' You provide what you know (start point, end goal, some intermediate steps) and the LLM fills in the gaps. This is useful when you know part of a process but need help completing it — like knowing your trip's start and end points but needing the LLM to suggest stops along the way. The pattern leverages the LLM's knowledge of common processes and sequences.",
+  "key_concepts": [
+    {
+      "term": "Recipe Pattern",
+      "definition": "A prompt pattern where you provide a goal and partial steps, asking the LLM to fill in the missing steps to create a complete process or sequence.",
+      "why_it_matters": "When you know part of a solution but not all of it, this pattern gets the LLM to complete the gaps using its knowledge of similar processes."
+    },
+    {
+      "term": "Gap Filling",
+      "definition": "The LLM's ability to identify missing steps in a partial process and generate appropriate intermediate steps to reach the goal.",
+      "why_it_matters": "This turns partial knowledge into complete solutions — you provide the framework, the LLM provides the details."
+    }
+  ],
+  "patterns": [
+    {
+      "name": "Recipe Pattern",
+      "intent": "Get a complete set of steps for a process when you know some steps but not all of them.",
+      "template": "I will tell you my {start/goal} and {end/goal}. You will provide a complete list of {steps/stops/items} including {what to fill in between}.",
+      "example_prompt": "I will tell you my start and end destination and you will provide a complete list of stops for me, including places to stop between my start and destination. Start: Nashville, TN. End: Denver, CO.",
+      "when_to_use": "When you know the start and end of a process but need help with the intermediate steps. Useful for trip planning, project planning, process design, or any sequential task."
+    }
+  ],
+  "techniques": [
+    "Clearly state what you know (start, end, some intermediate steps) and what you need filled in.",
+    "Specify the level of detail you want in the complete recipe.",
+    "You can provide constraints: 'only include stops with good restaurants' or 'steps must be under 30 minutes each.'",
+    "The LLM uses its training data knowledge of similar processes to fill gaps.",
+    "Combine with the Flipped Interaction Pattern if the LLM needs more information to fill gaps effectively."
+  ],
+  "quiz_questions": [
+    {
+      "question": "What is the core idea of the Recipe Pattern?",
+      "options": [
+        "A. Getting cooking recipes from the LLM",
+        "B. Providing partial steps of a process and asking the LLM to fill in the missing steps to create a complete sequence",
+        "C. Having the LLM follow a recipe you provide",
+        "D. Breaking a task into exactly 3 steps"
+      ],
+      "answer": "B",
+      "explanation": "The Recipe Pattern is about gap-filling: you provide what you know (start, end, some steps) and the LLM completes the process by adding the missing intermediate steps."
+    },
+    {
+      "question": "In the trip planning example, what does the user provide and what does the LLM generate?",
+      "options": [
+        "A. User provides the route; LLM provides the car",
+        "B. User provides start and end destinations; LLM generates a complete list of stops between them",
+        "C. User provides all stops; LLM optimizes the route",
+        "D. User provides budget; LLM plans the entire trip"
+      ],
+      "answer": "B",
+      "explanation": "The user provides the known endpoints (Nashville to Denver) and the LLM fills in the gaps with suggested stops along the way, creating a complete trip plan."
+    },
+    {
+      "question": "How does the Recipe Pattern differ from the Cognitive Verifier Pattern?",
+      "options": [
+        "A. They are the same",
+        "B. Recipe Pattern fills in missing steps of a known process; Cognitive Verifier breaks a question into sub-questions for better reasoning",
+        "C. Recipe Pattern is for cooking; Cognitive Verifier is for research",
+        "D. Cognitive Verifier is simpler"
+      ],
+      "answer": "B",
+      "explanation": "Recipe Pattern: you know some steps, LLM fills gaps in a sequence. Cognitive Verifier: you have a question, LLM generates sub-questions to answer it more thoroughly. Different purposes."
+    }
+  ],
+  "raw_examples": [
+    "I will tell you my start and end destination and you will provide a complete list of stops for me, including places to stop between my start and destination. Start: Nashville, TN. End: Denver, CO."
+  ]
+}

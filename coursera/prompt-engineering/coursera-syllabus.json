@@ -1,0 +1,130 @@
+{
+  "course": "Prompt Engineering for ChatGPT",
+  "university": "Vanderbilt University",
+  "modules": {
+    "1": {
+      "title": "Course Introduction",
+      "videos": [
+        {"title": "Motivating Example: Building a Meal Plan with a Fusion of Food from Ethiopia and Uzbekistan that is Keto", "duration": "11 min"},
+        {"title": "Overview of the Course", "duration": "10 min"},
+        {"title": "Motivating Example: Act as a Speech Pathologist", "duration": "7 min"},
+        {"title": "What are Large Language Models?", "duration": "10 min"},
+        {"title": "Randomness in Output", "duration": "4 min"}
+      ],
+      "readings": [
+        {"title": "Setting Up an Account and Using ChatGPT", "duration": "10 min"}
+      ],
+      "assignments": [
+        {"title": "Creating Your First Prompts", "duration": "1h", "due": "Jun 15"}
+      ]
+    },
+    "2": {
+      "title": "Introduction to Prompts",
+      "videos": [
+        {"title": "What is a Prompt?", "duration": "12 min"},
+        {"title": "Intuition Behind Prompts", "duration": "14 min"},
+        {"title": "Everyone Can Program with Prompts", "duration": "6 min"},
+        {"title": "Prompt Patterns", "duration": "4 min"},
+        {"title": "The Persona Pattern", "duration": "13 min"}
+      ],
+      "readings": [
+        {"title": "Reading a Prompt Pattern", "duration": "10 min"},
+        {"title": "Format of the Persona Pattern", "duration": "10 min"},
+        {"title": "Learn More About Prompt Patterns", "duration": "10 min"},
+        {"title": "Staying Connected & Learning More", "duration": "10 min"}
+      ],
+      "assignments": [
+        {"title": "Applying the Persona Pattern", "duration": "1h", "due": "Jun 17"}
+      ]
+    },
+    "3": {
+      "title": "Prompt Patterns I",
+      "videos": [
+        {"title": "Question Refinement Pattern", "duration": "6 min"},
+        {"title": "Cognitive Verifier Pattern", "duration": "9 min"},
+        {"title": "Audience Persona Pattern", "duration": "8 min"},
+        {"title": "Flipped Interaction Pattern", "duration": "8 min"}
+      ],
+      "readings": [
+        {"title": "Format of the Question Refinement Pattern", "duration": "10 min"},
+        {"title": "Format of the Cognitive Verifier Pattern", "duration": "10 min"},
+        {"title": "Format of the Audience Persona Pattern", "duration": "10 min"},
+        {"title": "Format of the Flipped Interaction Pattern", "duration": "10 min"}
+      ],
+      "assignments": [
+        {"title": "Applying Prompt Patterns I", "duration": "1h", "due": "Jun 19"}
+      ]
+    },
+    "4": {
+      "title": "Few-Shot Examples",
+      "videos": [
+        {"title": "Few-shot Examples", "duration": "6 min"},
+        {"title": "Few-shot Examples for Actions", "duration": "6 min"},
+        {"title": "Few-Shot Examples with Intermediate Steps", "duration": "9 min"},
+        {"title": "Writing Effective Few-Shot Examples", "duration": "10 min"},
+        {"title": "Chain of Thought Prompting", "duration": "11 min"},
+        {"title": "ReAct Prompting", "duration": "11 min"},
+        {"title": "Using Large Language Models to Grade Each Other", "duration": "8 min"}
+      ],
+      "readings": [
+        {"title": "Learn More About Chain of Thought Prompting", "duration": "10 min"},
+        {"title": "Learn More About ReAct", "duration": "10 min"}
+      ],
+      "assignments": [
+        {"title": "Applying Few-Shot Examples Concepts", "duration": "1h", "due": "Jun 22"}
+      ]
+    },
+    "5": {
+      "title": "Prompt Patterns II",
+      "videos": [
+        {"title": "Game Play Pattern", "duration": "16 min"},
+        {"title": "Template Pattern", "duration": "12 min"},
+        {"title": "Meta Language Creation Pattern", "duration": "9 min"},
+        {"title": "Recipe Pattern", "duration": "7 min"},
+        {"title": "Alternative Approaches Pattern", "duration": "14 min"}
+      ],
+      "readings": [
+        {"title": "Format of the Game Play Pattern", "duration": "10 min"},
+        {"title": "Format of the Template Pattern", "duration": "10 min"},
+        {"title": "Format of the Meta Language Creation Pattern", "duration": "10 min"},
+        {"title": "Format of the Recipe Pattern", "duration": "10 min"},
+        {"title": "Format of the Alternative Approaches Pattern", "duration": "10 min"}
+      ],
+      "assignments": [
+        {"title": "Applying Prompt Patterns II", "duration": "1h", "due": "Jun 24"}
+      ]
+    },
+    "6": {
+      "title": "Prompt Patterns III",
+      "videos": [
+        {"title": "Ask for Input Pattern", "duration": "5 min"},
+        {"title": "Combining Patterns", "duration": "4 min"},
+        {"title": "Outline Expansion Pattern", "duration": "10 min"},
+        {"title": "Menu Actions Pattern", "duration": "8 min"},
+        {"title": "Fact Check List Pattern", "duration": "7 min"},
+        {"title": "Tail Generation Pattern", "duration": "6 min"},
+        {"title": "Semantic Filter Pattern", "duration": "7 min"},
+        {"title": "Course Conclusion & Thank You", "duration": "4 min"}
+      ],
+      "readings": [
+        {"title": "Format of the Ask for Input Pattern", "duration": "10 min"},
+        {"title": "Format of the Outline Expansion Pattern", "duration": "10 min"},
+        {"title": "Format of the Menu Actions Pattern", "duration": "10 min"},
+        {"title": "Format of the Fact Check List Pattern", "duration": "10 min"},
+        {"title": "Tail Generation Pattern", "duration": "10 min"},
+        {"title": "Format of the Semantic Filter Pattern", "duration": "10 min"},
+        {"title": "Continue Learning About Prompt Engineering", "duration": "10 min"}
+      ],
+      "assignments": [
+        {"title": "Creating a Prompt-based Application", "duration": "3h", "due": "Jun 29"}
+      ]
+    }
+  },
+  "stats": {
+    "total_modules": 6,
+    "total_videos": 34,
+    "total_readings": 25,
+    "total_assignments": 6,
+    "total_items": 65
+  }
+}

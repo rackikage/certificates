@@ -1,0 +1,69 @@
+{
+  "title": "Using LLMs to Grade Each Other",
+  "module": 4,
+  "video": 7,
+  "status": "ok",
+  "summary": "This lecture addresses prompt maintenance: how do you evaluate whether your prompts still work when models change or data shifts? The solution is using LLMs to grade their own outputs (or outputs from other LLMs). By teaching a grading LLM with few-shot examples of good vs. bad outputs and their scores, you can automate quality evaluation at scale. This creates a feedback loop: generate output → grade it → identify failing prompts → fix them. The approach scales better than human review and can catch regressions when models are updated.",
+  "key_concepts": [
+    {
+      "term": "LLM Self-Evaluation",
+      "definition": "Using one LLM (or the same LLM) to grade the quality of outputs produced by another LLM, creating an automated quality assurance pipeline.",
+      "why_it_matters": "As models evolve, prompts that worked before may break. Automated grading catches regressions without requiring human review of every output."
+    },
+    {
+      "term": "Prompt Maintenance",
+      "definition": "The ongoing process of ensuring prompts continue to produce good outputs as models are updated, data changes, or requirements evolve.",
+      "why_it_matters": "Prompts are not 'set and forget.' Model updates can change behavior, requiring prompt adjustments. Automated evaluation makes maintenance scalable."
+    },
+    {
+      "term": "Grading via Few-Shot",
+      "definition": "Teaching an LLM to grade outputs by providing few-shot examples of good outputs (high scores) and bad outputs (low scores) with explanations.",
+      "why_it_matters": "This lets you define quality criteria through examples rather than complex rubrics, making grading consistent and scalable."
+    }
+  ],
+  "patterns": [],
+  "techniques": [
+    "Use few-shot examples to teach the grading LLM what good and bad outputs look like.",
+    "Include both high-scoring and low-scoring examples with explanations of why.",
+    "Use a more powerful model to grade outputs from a less powerful model when possible.",
+    "Automate the grading pipeline so it runs whenever prompts or models change.",
+    "Track grading scores over time to detect regressions early.",
+    "Combine LLM grading with occasional human review for calibration."
+  ],
+  "quiz_questions": [
+    {
+      "question": "Why is prompt maintenance important?",
+      "options": [
+        "A. Because prompts expire after a certain date",
+        "B. Because model updates can change behavior, causing previously working prompts to produce worse outputs",
+        "C. Because prompts need to be rewritten every month",
+        "D. Because LLMs forget how to follow prompts over time"
+      ],
+      "answer": "B",
+      "explanation": "When models are updated (GPT-3.5 → GPT-4, etc.), the same prompt may produce different outputs. Automated grading catches these regressions so you can fix affected prompts."
+    },
+    {
+      "question": "How does the lecture suggest using few-shot examples for grading?",
+      "options": [
+        "A. Show examples of the prompt itself",
+        "B. Show examples of good and bad outputs with scores and explanations, teaching the grading LLM what quality looks like",
+        "C. Show examples of different LLMs",
+        "D. Show examples of human grading rubrics"
+      ],
+      "answer": "B",
+      "explanation": "The grading LLM learns from few-shot examples of outputs paired with quality scores and explanations. This teaches it to evaluate new outputs consistently."
+    },
+    {
+      "question": "What advantage does LLM-based grading have over human grading?",
+      "options": [
+        "A. It's always more accurate",
+        "B. It scales better — you can grade thousands of outputs automatically without human bottleneck",
+        "C. It never makes mistakes",
+        "D. It's required by all LLM providers"
+      ],
+      "answer": "B",
+      "explanation": "Human review doesn't scale — you can't manually review thousands of outputs. LLM grading automates quality evaluation, though the lecture notes it should be combined with occasional human review for calibration."
+    }
+  ],
+  "raw_examples": []
+}

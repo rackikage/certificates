@@ -1,0 +1,68 @@
+{
+  "title": "Welcome to Prompt Engineering (Course Overview)",
+  "module": 1,
+  "video": 2,
+  "status": "ok",
+  "summary": "Instructor Jules White introduces the course on prompt engineering. He frames LLMs not as cheating tools or essay writers, but as a new creative medium — like paint, ceramics, or code — that lets you give thoughts form rapidly. The course covers prompt patterns, few-shot examples, techniques for refining prompts, and using LLMs for knowledge exploration, prototyping, content production, and assessment. No programming experience is required; creativity, clear writing, and openness to exploration are the key prerequisites.",
+  "key_concepts": [
+    {
+      "term": "Prompt Engineering",
+      "definition": "The practice of designing inputs (prompts) that program large language models to produce desired high-quality outputs.",
+      "why_it_matters": "This is the core skill the entire course teaches — the quality of your prompt directly determines the quality of the LLM's output."
+    },
+    {
+      "term": "LLMs as Creative Medium",
+      "definition": "Viewing large language models as a new fundamental medium for creativity, similar to paint, code, or ceramics — not just tools for answering questions.",
+      "why_it_matters": "This mindset shift unlocks use cases most people miss. Instead of asking questions, you prototype ideas, explore concepts, and create realizations."
+    },
+    {
+      "term": "Prompt Patterns",
+      "definition": "Reusable structural templates for writing prompts that tap into specific capabilities of LLMs (e.g., persona pattern, cognitive verifier pattern).",
+      "why_it_matters": "Knowing patterns makes you more effective than writing prompts from scratch. Patterns are the 'vocabulary' of prompt engineering."
+    }
+  ],
+  "patterns": [],
+  "techniques": [
+    "Approach LLMs with creativity and openness to exploration, not just task completion.",
+    "Experiment with variations — try something, then try a different version and compare.",
+    "Use clear, effective writing as the foundation of good prompts.",
+    "Don't be afraid to explore and try unusual combinations of ideas.",
+    "Think of prompts as programming in natural language — anyone can do it."
+  ],
+  "quiz_questions": [
+    {
+      "question": "According to the instructor, what is the most important prerequisite for this course?",
+      "options": [
+        "A. Programming experience in Python or JavaScript",
+        "B. A degree in computer science",
+        "C. Creativity, clear writing skills, and openness to exploration",
+        "D. Familiarity with machine learning algorithms"
+      ],
+      "answer": "C",
+      "explanation": "The instructor explicitly states that programming experience is not required. Instead, creativity, writing ability, and willingness to experiment are the key prerequisites."
+    },
+    {
+      "question": "How does the instructor want students to think about LLMs, in contrast to how they're typically portrayed in the media?",
+      "options": [
+        "A. As tools for cheating on exams",
+        "B. As tools that will take over the world",
+        "C. As a new creative medium for giving ideas form and unlocking human creativity",
+        "D. As replacement for human writers"
+      ],
+      "answer": "C",
+      "explanation": "The instructor explicitly contrasts the media portrayal (cheating, plagiarism, world domination) with his view of LLMs as a creative medium that expands human capabilities."
+    },
+    {
+      "question": "What does the instructor mean when he says 'you can program with these tools just by writing normal human language'?",
+      "options": [
+        "A. LLMs can translate natural language into code",
+        "B. Writing prompts is a form of programming — you're instructing the model to produce specific outputs",
+        "C. You need to learn a new programming language to use LLMs",
+        "D. LLMs will eventually replace all programming languages"
+      ],
+      "answer": "B",
+      "explanation": "The instructor frames prompt writing as a form of programming accessible to non-programmers. Your natural language instructions 'program' the LLM's behavior and output."
+    }
+  ],
+  "raw_examples": []
+}

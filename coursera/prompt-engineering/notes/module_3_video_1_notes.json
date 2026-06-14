@@ -1,0 +1,74 @@
+{
+  "title": "Question Refinement Pattern",
+  "module": 3,
+  "video": 1,
+  "status": "ok",
+  "summary": "The Question Refinement Pattern is a simple but powerful technique: ask the LLM to improve your question before answering it. Since the LLM has seen millions of questions on every topic during training, it can suggest more specific, better-contextualized versions of your question. The pattern is triggered with 'Whenever I ask a question, suggest a better question and ask me if I would like to use it instead.' This not only produces better answers but also helps you reflect on what you're really asking and identify missing context.",
+  "key_concepts": [
+    {
+      "term": "Question Refinement Pattern",
+      "definition": "A prompt pattern that asks the LLM to suggest an improved version of your question before answering, leveraging its knowledge of how questions are typically asked on a given topic.",
+      "why_it_matters": "Your initial question may be vague or missing context. The LLM can identify what's missing and suggest a more specific, better-structured question."
+    },
+    {
+      "term": "Meta-Questioning",
+      "definition": "Using the LLM to improve your own questions — thinking about the question itself rather than just the answer.",
+      "why_it_matters": "Better questions lead to better answers. This pattern automates the process of question improvement."
+    }
+  ],
+  "patterns": [
+    {
+      "name": "Question Refinement Pattern",
+      "intent": "Improve vague or poorly structured questions by having the LLM suggest better versions based on its training data patterns.",
+      "template": "Whenever I ask a question, suggest a better question and ask me if I would like to use it instead.",
+      "example_prompt": "Whenever I ask a question, suggest a better question and ask me if I would like to use it instead. Should I go to Vanderbilt University?",
+      "when_to_use": "When your initial question is vague, broad, or you're unsure you're asking the right thing. Especially useful for complex decisions or topics where you don't know what context matters."
+    }
+  ],
+  "techniques": [
+    "Add 'ask me if I would like to use it instead' so you can accept or reject the refined question without copy-pasting.",
+    "Use the refined question as a learning tool — it reveals what context you're missing.",
+    "If the refined question goes in the wrong direction, it tells you what additional context to provide.",
+    "You can scope the pattern: 'for the next 3 questions' or 'whenever I ask about X.'",
+    "The pattern helps you identify multiple interpretations of your question."
+  ],
+  "quiz_questions": [
+    {
+      "question": "What is the core idea behind the Question Refinement Pattern?",
+      "options": [
+        "A. Having the LLM answer your question faster",
+        "B. Having the LLM suggest an improved version of your question before answering it",
+        "C. Having the LLM ask you questions instead",
+        "D. Having the LLM break your question into sub-questions"
+      ],
+      "answer": "B",
+      "explanation": "The pattern asks the LLM to suggest a better question based on its knowledge of how questions are typically asked on that topic, then lets you choose whether to use the refined version."
+    },
+    {
+      "question": "When the refined question goes in a direction you don't want, what useful information does that give you?",
+      "options": [
+        "A. That the LLM doesn't understand your topic",
+        "B. That your original question was missing important context that you should add",
+        "C. That you should use a different LLM",
+        "D. That the topic is too complex for any question"
+      ],
+      "answer": "B",
+      "explanation": "The instructor explains that seeing an unwanted refinement direction reveals missing pieces of information — like mentioning you're a CS major or that Nashville location matters to you."
+    },
+    {
+      "question": "Why does the instructor recommend adding 'ask me if I would like to use it instead' to the pattern?",
+      "options": [
+        "A. Because it makes the LLM respond faster",
+        "B. Because it gives you control — you can accept the refined question or stick with your original",
+        "C. Because the LLM requires permission before answering",
+        "D. Because it prevents the LLM from answering at all"
+      ],
+      "answer": "B",
+      "explanation": "This UX improvement lets you simply say yes or no rather than having to copy-paste the refined question or tell the LLM to use it. It keeps you in control of the interaction."
+    }
+  ],
+  "raw_examples": [
+    "Whenever I ask a question, suggest a better question and ask me if I would like to use it instead.",
+    "Should I go to Vanderbilt University?"
+  ]
+}
